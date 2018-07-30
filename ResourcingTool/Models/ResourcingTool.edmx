@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ResourcingToolModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="ProjectId" />
+          </Key>
+          <Property Name="ProjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectName" Type="varchar(max)" Nullable="false" />
+          <Property Name="ProjectSector" Type="varchar(max)" Nullable="false" />
+          <Property Name="ProjectClient" Type="varchar(max)" Nullable="false" />
+          <Property Name="ProjectLead" Type="varchar(max)" Nullable="false" />
+          <Property Name="ProjectNature" Type="varchar(max)" Nullable="false" />
+          <Property Name="ProjectScope" Type="varchar(max)" Nullable="false" />
+          <Property Name="ContractStart" Type="datetime" Nullable="false" />
+          <Property Name="ContractFinish" Type="datetime" Nullable="false" />
+          <Property Name="Briefing" Type="datetime" Nullable="false" />
+          <Property Name="Fieldwork" Type="datetime" Nullable="false" />
+          <Property Name="Analysis" Type="datetime" Nullable="false" />
+          <Property Name="Reporting" Type="datetime" Nullable="false" />
+          <Property Name="Debrief" Type="datetime" Nullable="false" />
+          <Property Name="KeyInformation" Type="varchar(max)" Nullable="false" />
+          <Property Name="SpecialRequirements" Type="varchar(max)" Nullable="false" />
+          <Property Name="NumDirectorsRequired" Type="int" />
+          <Property Name="NumSeniorManagersRequired" Type="int" />
+          <Property Name="NumManagersRequired" Type="int" />
+          <Property Name="NumSeniorAssociate2Required" Type="int" />
+          <Property Name="NumSeniorAssociate1Required" Type="int" />
+          <Property Name="NumAssociate2Required" Type="int" />
+          <Property Name="NumAssociate1Required" Type="int" />
+          <Property Name="DaysDirectorsRequired" Type="int" />
+          <Property Name="DaysSeniorManagersRequired" Type="int" />
+          <Property Name="DaysManagersRequired" Type="int" />
+          <Property Name="DaysSeniorAssociate2Required" Type="int" />
+          <Property Name="DaysSeniorAssociate1Required" Type="int" />
+          <Property Name="DaysAssociate2Required" Type="int" />
+          <Property Name="DaysAssociate1Required" Type="int" />
+          <Property Name="ResponseNeededBy" Type="datetime" />
+          <Property Name="fk_UserId_Requester" Type="int" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar(max)" Nullable="false" />
+          <Property Name="UserName" Type="varchar(max)" Nullable="false" />
+          <Property Name="Password" Type="varchar(max)" Nullable="false" />
+          <Property Name="Role" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ResourcingToolModelStoreContainer">
+          <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ResourcingToolModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="ProjectId" />
+          </Key>
+          <Property Name="ProjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProjectSector" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProjectClient" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProjectLead" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProjectNature" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProjectScope" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ContractStart" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ContractFinish" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Briefing" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Fieldwork" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Analysis" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Reporting" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Debrief" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="KeyInformation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SpecialRequirements" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NumDirectorsRequired" Type="Int32" />
+          <Property Name="NumSeniorManagersRequired" Type="Int32" />
+          <Property Name="NumManagersRequired" Type="Int32" />
+          <Property Name="NumSeniorAssociate2Required" Type="Int32" />
+          <Property Name="NumSeniorAssociate1Required" Type="Int32" />
+          <Property Name="NumAssociate2Required" Type="Int32" />
+          <Property Name="NumAssociate1Required" Type="Int32" />
+          <Property Name="DaysDirectorsRequired" Type="Int32" />
+          <Property Name="DaysSeniorManagersRequired" Type="Int32" />
+          <Property Name="DaysManagersRequired" Type="Int32" />
+          <Property Name="DaysSeniorAssociate2Required" Type="Int32" />
+          <Property Name="DaysSeniorAssociate1Required" Type="Int32" />
+          <Property Name="DaysAssociate2Required" Type="Int32" />
+          <Property Name="DaysAssociate1Required" Type="Int32" />
+          <Property Name="ResponseNeededBy" Type="DateTime" Precision="3" />
+          <Property Name="fk_UserId_Requester" Type="Int32" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ResourcingToolEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Projects" EntityType="Self.Project" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ResourcingToolModelStoreContainer" CdmEntityContainer="ResourcingToolEntities">
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="ResourcingToolModel.Project">
+              <MappingFragment StoreEntitySet="Project">
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="ProjectSector" ColumnName="ProjectSector" />
+                <ScalarProperty Name="ProjectClient" ColumnName="ProjectClient" />
+                <ScalarProperty Name="ProjectLead" ColumnName="ProjectLead" />
+                <ScalarProperty Name="ProjectNature" ColumnName="ProjectNature" />
+                <ScalarProperty Name="ProjectScope" ColumnName="ProjectScope" />
+                <ScalarProperty Name="ContractStart" ColumnName="ContractStart" />
+                <ScalarProperty Name="ContractFinish" ColumnName="ContractFinish" />
+                <ScalarProperty Name="Briefing" ColumnName="Briefing" />
+                <ScalarProperty Name="Fieldwork" ColumnName="Fieldwork" />
+                <ScalarProperty Name="Analysis" ColumnName="Analysis" />
+                <ScalarProperty Name="Reporting" ColumnName="Reporting" />
+                <ScalarProperty Name="Debrief" ColumnName="Debrief" />
+                <ScalarProperty Name="KeyInformation" ColumnName="KeyInformation" />
+                <ScalarProperty Name="SpecialRequirements" ColumnName="SpecialRequirements" />
+                <ScalarProperty Name="NumDirectorsRequired" ColumnName="NumDirectorsRequired" />
+                <ScalarProperty Name="NumSeniorManagersRequired" ColumnName="NumSeniorManagersRequired" />
+                <ScalarProperty Name="NumManagersRequired" ColumnName="NumManagersRequired" />
+                <ScalarProperty Name="NumSeniorAssociate2Required" ColumnName="NumSeniorAssociate2Required" />
+                <ScalarProperty Name="NumSeniorAssociate1Required" ColumnName="NumSeniorAssociate1Required" />
+                <ScalarProperty Name="NumAssociate2Required" ColumnName="NumAssociate2Required" />
+                <ScalarProperty Name="NumAssociate1Required" ColumnName="NumAssociate1Required" />
+                <ScalarProperty Name="DaysDirectorsRequired" ColumnName="DaysDirectorsRequired" />
+                <ScalarProperty Name="DaysSeniorManagersRequired" ColumnName="DaysSeniorManagersRequired" />
+                <ScalarProperty Name="DaysManagersRequired" ColumnName="DaysManagersRequired" />
+                <ScalarProperty Name="DaysSeniorAssociate2Required" ColumnName="DaysSeniorAssociate2Required" />
+                <ScalarProperty Name="DaysSeniorAssociate1Required" ColumnName="DaysSeniorAssociate1Required" />
+                <ScalarProperty Name="DaysAssociate2Required" ColumnName="DaysAssociate2Required" />
+                <ScalarProperty Name="DaysAssociate1Required" ColumnName="DaysAssociate1Required" />
+                <ScalarProperty Name="ResponseNeededBy" ColumnName="ResponseNeededBy" />
+                <ScalarProperty Name="fk_UserId_Requester" ColumnName="fk_UserId_Requester" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ResourcingToolModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

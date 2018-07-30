@@ -1,0 +1,272 @@
+﻿@model ResourcingTool.Models.Project
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Project</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectSector)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectSector)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectClient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectClient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectLead)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectLead)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectNature)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectNature)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectScope)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectScope)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContractStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContractStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContractFinish)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContractFinish)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Briefing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Briefing)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fieldwork)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fieldwork)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Analysis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Analysis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reporting)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reporting)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Debrief)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Debrief)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KeyInformation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KeyInformation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SpecialRequirements)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SpecialRequirements)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumDirectorsRequired)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumDirectorsRequired)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumSeniorManagersRequired)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumSeniorManagersRequired)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumManagersRequired)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumManagersRequired)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumSeniorAssociate2Required)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumSeniorAssociate2Required)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumSeniorAssociate1Required)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumSeniorAssociate1Required)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumAssociate2Required)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumAssociate2Required)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumAssociate1Required)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumAssociate1Required)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DaysDirectorsRequired)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DaysDirectorsRequired)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DaysSeniorManagersRequired)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DaysSeniorManagersRequired)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DaysManagersRequired)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DaysManagersRequired)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DaysSeniorAssociate2Required)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DaysSeniorAssociate2Required)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DaysSeniorAssociate1Required)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DaysSeniorAssociate1Required)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DaysAssociate2Required)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DaysAssociate2Required)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DaysAssociate1Required)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DaysAssociate1Required)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResponseNeededBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResponseNeededBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fk_UserId_Requester)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fk_UserId_Requester)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
