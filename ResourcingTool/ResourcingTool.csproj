@@ -190,7 +190,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -287,16 +286,13 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Projects\Create.cshtml" />
     <Content Include="Views\Projects\Delete.cshtml" />
     <Content Include="Views\Projects\Details.cshtml" />
     <Content Include="Views\Projects\Edit.cshtml" />
     <Content Include="Views\Projects\Index.cshtml" />
-    <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Home\ChangePassword.cshtml" />
+    <Content Include="Views\Projects\Login.cshtml" />
+    <Content Include="Views\Projects\ChangePassword.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
