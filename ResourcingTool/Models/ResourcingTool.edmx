@@ -11,7 +11,7 @@
           </Key>
           <Property Name="ProjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProjectName" Type="varchar(max)" Nullable="false" />
-          <Property Name="ProjectSector" Type="varchar(max)" Nullable="false" />
+          <Property Name="ProjectSector" Type="varchar(max)" Nullable="true" />
           <Property Name="ProjectClient" Type="varchar(max)" Nullable="false" />
           <Property Name="ProjectLead" Type="varchar(max)" Nullable="false" />
           <Property Name="ProjectNature" Type="varchar(max)" Nullable="false" />
@@ -67,7 +67,7 @@
           </Key>
           <Property Name="ProjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProjectName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ProjectSector" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProjectSector" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="true" />
           <Property Name="ProjectClient" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ProjectLead" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ProjectNature" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />

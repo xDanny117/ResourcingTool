@@ -1,5 +1,7 @@
 ﻿
-<form action='' class='form'>
+@Html.AntiForgeryToken()
+
+<form action='Create' method="post" class='form'>
     <p class='field required'>
         <label class='label required' for='ProjectName'>Project Name</label>
         <input class='text-input' id='ProjectName' name='ProjectName' required type='text'>
@@ -39,7 +41,7 @@
 
     <p class='field required'>
         <label class='label ' for='about'>Scope (no of interviews, groups, etc.)</label>
-        <textarea class='textarea' cols='50' id='ProjectScope' name='ProjectNature' required rows='1'></textarea>
+        <textarea class='textarea' cols='50' id='ProjectScope' name='ProjectScope' required rows='1'></textarea>
     </p>
 
     <p class='field required half'>
@@ -164,3 +166,4 @@
         <input class='button' type='submit' value='Send'>
     </p>
 </form>
+}
