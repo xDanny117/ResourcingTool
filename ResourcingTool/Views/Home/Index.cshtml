@@ -3,6 +3,17 @@
 }
 
 <div class="jumbotron">
+    @if (@User.Identity.IsAuthenticated)
+    {
+        <p class="welcometext">Welcome, <span class="name">@User.Identity.Name </span> &#124 <a href="/Home/ChangePassword">Change Password</a> &#124 <a href="/Home/Logout">Logout</a></p>
+
+    }
+    @if (!@User.Identity.IsAuthenticated)
+    {
+        <div class="welcometext">
+            <a href="/Home/Login">Login</a>
+        </div>
+    }
     <h1>ASP.NET</h1>
     <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
     <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>

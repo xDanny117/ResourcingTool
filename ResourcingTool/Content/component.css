@@ -1,0 +1,302 @@
+
+
+/* General button style (reset) */
+.buttonNew {
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+   
+}
+
+    .buttonNew:after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+
+    /* Pseudo elements for icons */
+    .buttonNew:before,
+    .icon-heart:after,
+    .icon-star:after,
+    .icon-plus:after,
+    .icon-file:before {
+        font-family: 'icomoon';
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        position: relative;
+        -webkit-font-smoothing: antialiased;
+    }
+
+/* Button 1 */
+.btn-1 {
+    border: 3px solid #fff;
+    color: #fff;
+}
+
+
+
+
+/* Button 1a */
+.btn-1a:hover,
+.btn-1a:active {
+    color: #242424e3;
+    background: #fff;
+}
+
+/* Button 1b */
+.btn-1b:after {
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    background: #fff;
+}
+
+.btn-1b:hover,
+.btn-1b:active {
+    color: #fff;
+}
+
+    .btn-1b:hover:after,
+    .btn-1b:active:after {
+        height: 100%;
+    }
+
+/* Button 1c */
+.btn-1c:after {
+    width: 0%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #fff;
+}
+
+.btn-1c:hover,
+.btn-1c:active {
+    color: #fff;
+}
+
+    .btn-1c:hover:after,
+    .btn-1c:active:after {
+        width: 100%;
+    }
+
+/* Button 1d */
+.btn-1d {
+    overflow: hidden;
+}
+
+    .btn-1d:after {
+        width: 0;
+        height: 103%;
+        top: 50%;
+        left: 50%;
+        background: #0e83cd;
+        opacity: 0;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        -moz-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+    .btn-1d:hover,
+    .btn-1d:active {
+        color: #fff;
+    }
+
+        .btn-1d:hover:after {
+            width: 90%;
+            opacity: 1;
+        }
+
+        .btn-1d:active:after {
+            width: 101%;
+            opacity: 1;
+        }
+
+
+<style type="text/css" >
+.form-style-4 {
+    width: 450px;
+    font-size: 16px;
+    background: #495C70;
+    padding: 30px 30px 15px 30px;
+    border: 5px solid #53687E;
+}
+
+.form-style-4 input[type=submit],
+.form-style-4 input[type=button],
+.form-style-4 input[type=text],
+.form-style-4 input[type=email],
+.form-style-4 textarea,
+.form-style-4 label {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 16px;
+    color: #fff;
+}
+
+.form-style-4 label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+    .form-style-4 label > span {
+        display: inline-block;
+        float: left;
+        width: 150px;
+    }
+
+.form-style-4 input[type=text],
+.form-style-4 input[type=email] {
+    background: transparent;
+    border: none;
+    border-bottom: 1px dashed #83A4C5;
+    width: 275px;
+    outline: none;
+    padding: 0px 0px 0px 0px;
+    font-style: italic;
+}
+
+.form-style-4 textarea {
+    font-style: italic;
+    padding: 0px 0px 0px 0px;
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px dashed #83A4C5;
+    width: 275px;
+    overflow: hidden;
+    resize: none;
+    height: 20px;
+}
+
+    .form-style-4 textarea:focus,
+    .form-style-4 input[type=text]:focus,
+    .form-style-4 input[type=email]:focus,
+    .form-style-4 input[type=email] :focus {
+        border-bottom: 1px dashed #D9FFA9;
+    }
+
+.form-style-4 input[type=submit],
+.form-style-4 input[type=button] {
+    background: #576E86;
+    border: none;
+    padding: 8px 10px 8px 10px;
+    border-radius: 5px;
+    color: #A8BACE;
+}
+
+.form-style-4 input[type=submit]:hover,
+.form-style-4 input[type=button]:hover {
+    background: #394D61;
+}
+
+.approve {
+    border: 2px solid #007c0e;
+    color: #007c0e;
+}
+
+.approve:hover, .approve:active {
+    color: white;
+    background: #007c0e;
+}
+
+.reject {
+    border: 2px solid #7c0000;
+    color: #7c0000;
+}
+
+.reject:hover, .reject:active {
+    color: white;
+    background: #7c0000;
+}
+
+.submit {
+    border: 2px solid #242424e3;
+    color: #242424e3;
+    float: right;
+}
+
+.submit:hover, .reject:active {
+    color: white;
+    background: #242424e3;
+}
+
+.buttons {
+    float: left;
+    padding: 0 10px 0 0;
+}
+
+.replyTextArea{
+    margin-top: 10px;
+    width: 100%;
+    height: 100px;
+    color: black;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.formButton {
+    padding: 8px;
+    margin: 5px 0;
+    width: 200px;
+}
+.submitButton{
+    padding:10px 50px;
+    margin-top:10px;
+    margin-bottom:5px
+}
+
+.editForm {
+    float: right;
+    max-width: 100%;
+}
+
+/*MOBILE CSS*/
+@media only screen and (max-width: 768px) {
+    .buttons {
+        width: 100% !important;
+        padding:0px;
+    }
+
+    .formButton {
+        width: 100% !important;
+        
+    }
+
+    .submit {
+        width: 100% !important;
+    }
+
+
+    .topbar {
+        background-color: #242424e3;
+    }
+
+    .question-header h1 {
+        padding-top: 50px;
+    }
+
+    .reply-frame {
+        max-width: 60% !important;
+    }
+}
