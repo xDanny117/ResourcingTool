@@ -232,6 +232,7 @@
     <Content Include="Content\default.css" />
     <Content Include="Content\demo.css" />
     <Content Include="Content\filters.css" />
+    <Content Include="Content\formstyling.css" />
     <Content Include="Content\materialize.css" />
     <Content Include="Content\reset.css" />
     <Content Include="Content\style.css" />
@@ -263,6 +264,7 @@
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\filtering.js" />
+    <Content Include="Scripts\formvalidation.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />

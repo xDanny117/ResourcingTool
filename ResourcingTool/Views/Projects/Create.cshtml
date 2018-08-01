@@ -1,280 +1,166 @@
-﻿@model ResourcingTool.Models.Project
+﻿
+<form action='' class='form'>
+    <p class='field required'>
+        <label class='label required' for='ProjectName'>Project Name</label>
+        <input class='text-input' id='ProjectName' name='ProjectName' required type='text'>
+    </p>
 
-@{
-    ViewBag.Title = "Create";
-}
+    <p class='field required half'>
+        <label class='label' for='ProjectClient'>Client</label>
+        <input class='text-input' id='ProjectClient' name='ProjectClient' required type='text'>
+    </p>
+    <p class='field required half'>
+        <label class='label' for='ProjectLead'>Project Lead</label>
+        <input class='text-input' id='ProjectLead' name='ProjectLead' required type='text'>
+    </p>
 
-<h2>Create</h2>
-
-
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Project</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.ProjectName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ProjectName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ProjectName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ProjectSector, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ProjectSector, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ProjectSector, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ProjectClient, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ProjectClient, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ProjectClient, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ProjectLead, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ProjectLead, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ProjectLead, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ProjectNature, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ProjectNature, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ProjectNature, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ProjectScope, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ProjectScope, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ProjectScope, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ContractStart, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ContractStart, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ContractStart, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ContractFinish, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ContractFinish, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ContractFinish, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Briefing, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Briefing, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Briefing, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Fieldwork, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Fieldwork, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Fieldwork, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Analysis, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Analysis, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Analysis, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Reporting, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Reporting, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Reporting, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Debrief, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Debrief, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Debrief, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.KeyInformation, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.KeyInformation, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.KeyInformation, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SpecialRequirements, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SpecialRequirements, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SpecialRequirements, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NumDirectorsRequired, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NumDirectorsRequired, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NumDirectorsRequired, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NumSeniorManagersRequired, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NumSeniorManagersRequired, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NumSeniorManagersRequired, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NumManagersRequired, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NumManagersRequired, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NumManagersRequired, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NumSeniorAssociate2Required, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NumSeniorAssociate2Required, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NumSeniorAssociate2Required, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NumSeniorAssociate1Required, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NumSeniorAssociate1Required, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NumSeniorAssociate1Required, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NumAssociate2Required, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NumAssociate2Required, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NumAssociate2Required, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NumAssociate1Required, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NumAssociate1Required, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NumAssociate1Required, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DaysDirectorsRequired, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DaysDirectorsRequired, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DaysDirectorsRequired, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DaysSeniorManagersRequired, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DaysSeniorManagersRequired, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DaysSeniorManagersRequired, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DaysManagersRequired, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DaysManagersRequired, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DaysManagersRequired, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DaysSeniorAssociate2Required, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DaysSeniorAssociate2Required, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DaysSeniorAssociate2Required, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DaysSeniorAssociate1Required, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DaysSeniorAssociate1Required, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DaysSeniorAssociate1Required, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DaysAssociate2Required, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DaysAssociate2Required, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DaysAssociate2Required, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DaysAssociate1Required, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DaysAssociate1Required, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DaysAssociate1Required, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ResponseNeededBy, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ResponseNeededBy, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ResponseNeededBy, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.fk_UserId_Requester, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.fk_UserId_Requester, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.fk_UserId_Requester, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
+    <div class='field required'>
+        <label class='label'>Sector</label>
+        <ul class='options'>
+            <li class='option'>
+                <input class='option-input' id='option-0' name='option' type='radio' value='PwC'>
+                <label class='option-label' for='option-0'>PwC</label>
+            </li>
+            <li class='option'>
+                <input class='option-input' id='option-1' name='option' type='radio' value='FS'>
+                <label class='option-label' for='option-1'>FS</label>
+            </li>
+            <li class='option'>
+                <input class='option-input' id='option-2' name='option' type='radio' value='C&BS'>
+                <label class='option-label' for='option-2'>C&amp;BS</label>
+            </li>
+        </ul>
     </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <p class='field required'>
+        <label class='label ' for='about'>Nature of Project (e.g. qual, quant, diagnostics, etc)</label>
+        <textarea class='textarea' cols='50' id='ProjectNature' name='ProjectNature' required rows='2'></textarea>
+    </p>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    <p class='field required'>
+        <label class='label ' for='about'>Scope (no of interviews, groups, etc.)</label>
+        <textarea class='textarea' cols='50' id='ProjectScope' name='ProjectNature' required rows='1'></textarea>
+    </p>
+
+    <p class='field required half'>
+        <label class='label' for='phone'>Start</label>
+        <input class='text-input' id='ContractStart' name='ContractStart' required type='date'>
+    </p>
+    <p class='field required half'>
+        <label class='label' for='phone'>Finish</label>
+        <input class='text-input' id='ContractFinish' name='ContractFinish' required type='date'>
+    </p>
+
+    <p class='field required half'>
+        <label class='label' for='phone'>Briefing</label>
+        <input class='text-input' id='Briefing' name='Briefing' required type='date'>
+    </p>
+
+    <p class='field required half'>
+        <label class='label' for='phone'>Fieldwork</label>
+        <input class='text-input' id='Fieldwork' name='Fieldwork' required type='date'>
+    </p>
+    <p class='field required third'>
+        <label class='label' for='phone'>Analysis</label>
+        <input class='text-input' id='Reporting' name='Reporting' required type='date'>
+    </p>
+    <p class='field required third'>
+        <label class='label' for='phone'>Reporting</label>
+        <input class='text-input' id='Reporting' name='Reporting' required type='date'>
+    </p>
+    <p class='field required third'>
+        <label class='label' for='phone'>Debrief</label>
+        <input class='text-input' id='Debrief' name='Debrief' required type='date'>
+    </p>
+
+
+    <p class='field required'>
+        <label class='label' for='about'>Key Information (project detail, prohect history, broad resource requirement, key skills required, any key account personnel to consider, specific requests)</label>
+        <textarea class='textarea' cols='50' id='KeyInformation' name='KeyInformation' required rows='5'></textarea>
+    </p>
+
+
+    <p class='field required'>
+        <label class='label' for='about'>Special Requirements (e.g. BPSS clearance)</label>
+        <textarea class='textarea' cols='50' id='SpecialRequirements' name='SpecialRequirements' required rows='2'></textarea>
+    </p>
+
+
+
+
+    <label class='label required' style="width: 100%;" for='phone'>Number of staff required per grade</label>
+    <p class='field sept'>
+        <label class='label labsmall' for='NumDirectorsRequired'>Directors</label>
+        <input class='text-input' id='NumDirectorsRequired' name='NumDirectorsRequired' required type='number'>
+    </p>
+    <p class='field sept'>
+        <label class='label labsmall' for='NumSeniorManagersRequired'>Senior Managers</label>
+        <input class='text-input' id='NumSeniorManagersRequired' name='NumSeniorManagersRequired' required type='number'>
+    </p>
+
+    <p class='field sept'>
+        <label class='label labsmall' for='NumManagersRequired'>Managers</label>
+        <input class='text-input' id='NumManagersRequired' name='NumManagersRequired' required type='number'>
+    </p>
+    <p class='field sept'>
+        <label class='label labsmall' for='NumSeniorAssociate2Required'>Senior Associate 2</label>
+        <input class='text-input' id='NumSeniorAssociate2Required' name='NumSeniorAssociate2Required' required type='number'>
+    </p>
+    <p class='field sept'>
+        <label class='label labsmall' for='NumSeniorAssociate1Required'>Senior Associate 1</label>
+        <input class='text-input' id='NumSeniorAssociate1Required' name='NumSeniorAssociate1Required' required type='number'>
+    </p>
+    <p class='field sept'>
+        <label class='label labsmall' for='NumAssociate2Required'>Associate 2</label>
+        <input class='text-input' id='NumAssociate2Required' name='NumAssociate2Required' required type='number'>
+    </p>
+    <p class='field sept'>
+        <label class='label labsmall' for='NumAssociate1Required'>Associate 1</label>
+        <input class='text-input' id='NumAssociate1Required' name='NumAssociate1Required' required type='number'>
+    </p>
+
+
+
+
+
+
+    <label class='label required' style="width: 100%;" for='phone'>Number of days staff required</label>
+    <p class='field sept'>
+        <label class='label labsmall' for='DaysDirectorsRequired'>Directors</label>
+        <input class='text-input' id='DaysDirectorsRequired' name='DaysDirectorsRequired' required type='number'>
+    </p>
+    <p class='field sept'>
+        <label class='label labsmall' for='DaysSeniorManagersRequired'>Senior Managers</label>
+        <input class='text-input' id='DaysSeniorManagersRequired' name='DaysSeniorManagersRequired' required type='number'>
+    </p>
+
+    <p class='field sept'>
+        <label class='label labsmall' for='DaysManagersRequired'>Managers</label>
+        <input class='text-input' id='DaysManagersRequired' name='DaysManagersRequired' required type='number'>
+    </p>
+    <p class='field sept'>
+        <label class='label labsmall' for='DaysSeniorAssociate2Required'>Senior Associate 2</label>
+        <input class='text-input' id='DaysSeniorAssociate2Required' name='DaysSeniorAssociate2Required' required type='number'>
+    </p>
+    <p class='field sept'>
+        <label class='label labsmall' for='DaysSeniorAssociate1Required'>Senior Associate 1</label>
+        <input class='text-input' id='DaysSeniorAssociate1Required' name='DaysSeniorAssociate1Required' required type='number'>
+    </p>
+    <p class='field sept'>
+        <label class='label labsmall' for='DaysAssociate2Required'>Associate 2</label>
+        <input class='text-input' id='DaysAssociate2Required' name='DaysAssociate2Required' required type='number'>
+    </p>
+    <p class='field sept'>
+        <label class='label labsmall' for='DaysAssociate1Required'>Associate 1</label>
+        <input class='text-input' id='DaysAssociate1Required' name='DaysAssociate1Required' required type='number'>
+    </p>
+
+    <p class='field required half'>
+        <label class='label' for='phone'>Response Needed By</label>
+        <input class='text-input' id='ResponseNeededBy' name='ResponseNeededBy' required type='date'>
+    </p>
+
+    <p class='field half'>
+        <input class='button' type='submit' value='Send'>
+    </p>
+</form>

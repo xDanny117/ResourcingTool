@@ -12,8 +12,11 @@
 
     @Styles.Render("~/Content/filters.css")
 
+    @Styles.Render("~/Content/formstyling.css")
+
     @Styles.Render("~/Content/default.css")
     @Styles.Render("~/Content/demo.css")
+
 
 
     @Styles.Render("~/Content/css")
@@ -26,10 +29,8 @@
 
     @RenderBody()
 
-    <script type="text/javascript" src="@Url.Content("/Scripts/jquery-3.3.1.js")"></script>
-    <script type="text/javascript" src="@Url.Content("/Scripts/modernizr.custom.js")"></script>
-    <script type="text/javascript" src="@Url.Content("/Scripts/filtering.js")"></script>
-    <script type="text/javascript" src="@Url.Content("/Content/modal.js")"></script>
+
+    <script type="text/javascript" src="@Url.Content("/Scripts/formvalidation.js")"></script>
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
 </body>
