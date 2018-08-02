@@ -228,11 +228,13 @@
                         @Html.ActionLink("Edit", "Edit", new { id = item.ProjectId }) |
                         @Html.ActionLink("Details", "Details", new { id = item.ProjectId }) |
                         @Html.ActionLink("Delete", "Delete", new { id = item.ProjectId })
+                        
                     </td>
                 </tr>
             }
         }
     }
+
     else if (User.IsInRole("Admin") || User.IsInRole("Resourcer"))
     {
         foreach (var item in Model)
@@ -334,9 +336,11 @@
                         @Html.DisplayFor(modelItem => item.fk_UserId_Requester)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ProjectId }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.ProjectId }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ProjectId })
+                        @if (User.IsInRole("Admin")) {
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ProjectId }); <p>|</p>
+                        @Html.ActionLink("Details", "Details", new { id = item.ProjectId }); <p>|</p>
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ProjectId }); <p>|</p>
+                        }
                     </td>
                 </tr>
             }
