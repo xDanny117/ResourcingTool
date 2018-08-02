@@ -277,6 +277,7 @@
     <Content Include="Scripts\materialize.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\modernizr.custom.js" />
+    <Content Include="Scripts\singleselectset.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

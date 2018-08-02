@@ -29,9 +29,10 @@
 
     @RenderBody()
 
-
-    <script type="text/javascript" src="@Url.Content("/Scripts/formvalidation.js")"></script>
     @Scripts.Render("~/bundles/jquery")
+    <script type="text/javascript" src="@Url.Content("/Scripts/singleselectset.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/Scripts/formvalidation.js")"></script>
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -1,4 +1,5 @@
-﻿
+﻿@using Microsoft.AspNet.Identity
+
 @Html.AntiForgeryToken()
 
 <form action='Create' method="post" class='form'>
@@ -33,6 +34,8 @@
             </li>
         </ul>
     </div>
+
+    <input type="hidden" id="ProjectSector" name="ProjectSector" />
 
     <p class='field required'>
         <label class='label ' for='about'>Nature of Project (e.g. qual, quant, diagnostics, etc)</label>
@@ -167,5 +170,7 @@
     </p>
 
     <input tyoe='hidden' id='Status' name='Status' value="Submitted">
+
+    <input type="hidden" id="fk_UserId_Requester" name="fk_UserId_Requester" value="@User.Identity.GetUserId()" />
 </form>
 }
