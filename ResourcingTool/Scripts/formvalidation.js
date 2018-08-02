@@ -64,8 +64,11 @@
     // initialize
     window.magicFocus = new magicFocus(document.querySelector('.form'));
 
-    $(function () {
-        return $('.select').customSelect();
-    });
+    //$(function () {
+    //    return $('.select').customSelect();
+    //});
 
 }).call(this);
+
+
+
