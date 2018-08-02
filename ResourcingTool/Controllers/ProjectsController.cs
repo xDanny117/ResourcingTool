@@ -82,7 +82,7 @@ namespace ResourcingTool.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProjectId,ProjectName,ProjectSector,ProjectClient,ProjectLead,ProjectNature,ProjectScope,ContractStart,ContractFinish,Briefing,Fieldwork,Analysis,Reporting,Debrief,KeyInformation,SpecialRequirements,NumDirectorsRequired,NumSeniorManagersRequired,NumManagersRequired,NumSeniorAssociate2Required,NumSeniorAssociate1Required,NumAssociate2Required,NumAssociate1Required,DaysDirectorsRequired,DaysSeniorManagersRequired,DaysManagersRequired,DaysSeniorAssociate2Required,DaysSeniorAssociate1Required,DaysAssociate2Required,DaysAssociate1Required,ResponseNeededBy,fk_UserId_Requester")] Project project)
+        public ActionResult Edit([Bind(Include = "ProjectId,ProjectName,ProjectSector,ProjectClient,ProjectLead,ProjectNature,ProjectScope,ContractStart,ContractFinish,Briefing,Fieldwork,Analysis,Reporting,Debrief,KeyInformation,SpecialRequirements,NumDirectorsRequired,NumSeniorManagersRequired,NumManagersRequired,NumSeniorAssociate2Required,NumSeniorAssociate1Required,NumAssociate2Required,NumAssociate1Required,DaysDirectorsRequired,DaysSeniorManagersRequired,DaysManagersRequired,DaysSeniorAssociate2Required,DaysSeniorAssociate1Required,DaysAssociate2Required,DaysAssociate1Required,ResponseNeededBy,fk_UserId_Requester, Status")] Project project)
         {
             if (ModelState.IsValid)
             {
