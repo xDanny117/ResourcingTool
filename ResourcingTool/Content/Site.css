@@ -1,4 +1,6 @@
-﻿
+﻿.topbar{
+    width:100%;
+}
 
 .login {
     margin: 20px auto;
@@ -65,3 +67,224 @@
         }
 
 
+.welcometext {
+    margin-right: 15px;
+    float: right;
+}
+
+
+.createButton a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.buttn {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    height: 53px;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    line-height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: 0px 1px 1px #888;
+}
+
+    .buttn span.icon,
+    .buttn span.title {
+        display: block;
+        position: relative;
+        line-height: 50px;
+        padding: 0 30px;
+        border-radius: 6px;
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;
+    }
+
+    .buttn span.left {
+        float: left;
+        border-radius: 6px 0 0 6px;
+        -moz-border-radius: 6px 0 0 6px;
+        -webkit-border-radius: 6px 0 0 6px;
+    }
+
+    .buttn span.right {
+        float: right;
+        border-radius: 0 6px 6px 0;
+        -moz-border-radius: 0 6px 6px 0;
+        -webkit-border-radius: 0 6px 6px 0;
+    }
+
+    .buttn span.icon {
+        font-size: 23px;
+        background-color: #00967f;
+        -webkit-box-shadow: 0 3px 0 0 #007261;
+        box-shadow: 0 3px 0 0 #007261;
+        text-shadow: 0px 1px 1px #888;
+    }
+
+    .buttn span.title {
+        -webkit-box-shadow: 0 3px 0 0 #00ae94;
+        box-shadow: 0 3px 0 0 #00ae94;
+        background-color: #00cdae;
+    }
+
+    .buttn span.arrow-left,
+    .buttn span.arrow-right {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: 25px solid transparent;
+        border-bottom: 25px solid transparent;
+        -webkit-transition: all 0.15s;
+        -transition: all 0.15s;
+        -webkit-transition-property: left, right;
+        transition-property: left, right;
+    }
+
+    .buttn.left span.arrow-left {
+        right: 0;
+        -webkit-box-shadow: 10px 0 0 0 #00cdae, 10px 3px 0 0 #00ae94;
+        box-shadow: 10px 0 0 0 #00cdae, 10px 3px 0 0 #00ae94;
+        border-right: 10px solid #00cdae;
+    }
+
+    .buttn.right span.arrow-left {
+        right: 0;
+        -webkit-box-shadow: 10px 0 0 0 #00967f, 10px 3px 0 0 #007261;
+        box-shadow: 10px 0 0 0 #00967f, 10px 3px 0 0 #007261;
+        border-right: 10px solid #00967f;
+    }
+
+    .buttn.left span.arrow-right {
+        left: 0;
+        -webkit-box-shadow: -10px 0 0 0 #00967f, -10px 3px 0 0 #007261;
+        box-shadow: -10px 0 0 0 #00967f, -10px 3px 0 0 #007261;
+        border-left: 10px solid #00967f;
+    }
+
+    .buttn.right span.arrow-right {
+        left: 0;
+        -webkit-box-shadow: -10px 0 0 0 #00cdae, -10px 3px 0 0 #00ae94;
+        box-shadow: -10px 0 0 0 #00cdae, -10px 3px 0 0 #00ae94;
+        border-left: 10px solid #00cdae;
+    }
+
+    .buttn span.slant-left,
+    .buttn span.slant-right {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: 0 solid transparent;
+        border-bottom: 50px solid transparent;
+        -webkit-transition: all 0.15s;
+        -transition: all 0.15s;
+        -webkit-transition-property: left, right;
+        transition-property: left, right;
+    }
+
+    .buttn.left span.slant-right {
+        left: 0;
+        -webkit-box-shadow: -10px 0 0 0 #00967f, -10px 3px 0 0 #007261;
+        box-shadow: -10px 0 0 0 #00967f, -10px 3px 0 0 #007261;
+        border-left: 10px solid #00967f;
+    }
+
+    .buttn.right span.slant-right {
+        left: 0;
+        -webkit-box-shadow: -10px 0 0 0 #00cdae, -10px 3px 0 0 #00ae94;
+        box-shadow: -10px 0 0 0 #00cdae, -10px 3px 0 0 #00ae94;
+        border-left: 10px solid #00cdae;
+    }
+
+    .buttn.left span.slant-left {
+        right: 0;
+        -webkit-box-shadow: 10px 0 0 0 #00cdae, 10px 3px 0 0 #00ae94;
+        box-shadow: 10px 0 0 0 #00cdae, 10px 3px 0 0 #00ae94;
+        border-right: 10px solid #00cdae;
+    }
+
+    .buttn.right span.slant-left {
+        right: 0;
+        -webkit-box-shadow: 10px 0 0 0 #00967f, 10px 3px 0 0 #007261;
+        box-shadow: 10px 0 0 0 #00967f, 10px 3px 0 0 #007261;
+        border-right: 10px solid #00967f;
+    }
+
+    .buttn:active,
+    .buttn.active {
+        height: 51px;
+    }
+
+    .buttn:hover {
+    }
+
+        .buttn:hover span.arrow-left {
+            right: 10px;
+        }
+
+        .buttn:hover span.arrow-right {
+            left: 10px;
+        }
+
+        .buttn:hover span.slant-left {
+            right: 10px;
+        }
+
+        .buttn:hover span.slant-right {
+            left: 10px;
+        }
+
+.buttn-small {
+    height: 30px;
+    font-size: 12px;
+    line-height: 10px;
+}
+
+a.buttn-small span.buttn {
+    height: 30px;
+}
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }

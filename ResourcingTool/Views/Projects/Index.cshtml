@@ -3,10 +3,9 @@
 @{
     ViewBag.Title = "PwC Research Resourcing Tool - Index";
 }
-
-<h2>Index</h2>
-@using  Microsoft.AspNet.Identity
 <div class="topbar">
+
+        
     @if (@User.Identity.IsAuthenticated)
     {
         <p class="welcometext">Welcome, <span class="name">@User.Identity.Name </span> &#124 <a href="/Projects/ChangePassword">Change Password</a> &#124 <a href="/Projects/Logout">Logout</a></p>
@@ -21,330 +20,98 @@
 
 </div>
 
-<p>
-    @if (User.IsInRole("Requester") || User.IsInRole("Admin"))
-    {
-    @Html.ActionLink("Create New", "Create")
-    }
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ProjectName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProjectSector)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProjectClient)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProjectLead)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProjectNature)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProjectScope)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ContractStart)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ContractFinish)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Briefing)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fieldwork)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Analysis)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Reporting)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Debrief)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.KeyInformation)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SpecialRequirements)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumDirectorsRequired)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumSeniorManagersRequired)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumManagersRequired)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumSeniorAssociate2Required)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumSeniorAssociate1Required)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumAssociate2Required)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumAssociate1Required)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DaysDirectorsRequired)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DaysSeniorManagersRequired)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DaysManagersRequired)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DaysSeniorAssociate2Required)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DaysSeniorAssociate1Required)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DaysAssociate2Required)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DaysAssociate1Required)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ResponseNeededBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fk_UserId_Requester)
-        </th>
-        <th></th>
-    </tr>
-    @if (User.IsInRole("Requester"))
-    {
-        foreach (var item in Model)
-        {
-            if (item.fk_UserId_Requester == Convert.ToInt32(User.Identity.GetUserId()))
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ProjectName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ProjectSector)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ProjectClient)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ProjectLead)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ProjectNature)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ProjectScope)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ContractStart)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ContractFinish)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Briefing)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Fieldwork)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Analysis)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Reporting)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Debrief)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.KeyInformation)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SpecialRequirements)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NumDirectorsRequired)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NumSeniorManagersRequired)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NumManagersRequired)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NumSeniorAssociate2Required)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NumSeniorAssociate1Required)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NumAssociate2Required)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NumAssociate1Required)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DaysDirectorsRequired)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DaysSeniorManagersRequired)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DaysManagersRequired)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DaysSeniorAssociate2Required)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DaysSeniorAssociate1Required)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DaysAssociate2Required)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DaysAssociate1Required)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ResponseNeededBy)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.fk_UserId_Requester)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ProjectId }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.ProjectId }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ProjectId })
-                        
-                    </td>
-                </tr>
-            }
-        }
-    }
+<div class="top">
+    <div class="headerbar">
+        <div class="title">
+            
+        </div>
+    </div>
+   
+</div>
 
-    else if (User.IsInRole("Admin") || User.IsInRole("Resourcer"))
-    {
-        foreach (var item in Model)
+
+<div class="limiter">
+
+
+    @using Microsoft.AspNet.Identity
+    <h2>Resourcing Request Tool</h2>
+    <div class="createButton">
+        @if (User.IsInRole("Requester") || User.IsInRole("Admin"))
         {
-            if (item.Status == "Submitted")
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ProjectName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ProjectSector)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ProjectClient)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ProjectLead)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ProjectNature)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ProjectScope)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ContractStart)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ContractFinish)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Briefing)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Fieldwork)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Analysis)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Reporting)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Debrief)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.KeyInformation)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SpecialRequirements)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NumDirectorsRequired)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NumSeniorManagersRequired)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NumManagersRequired)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NumSeniorAssociate2Required)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NumSeniorAssociate1Required)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NumAssociate2Required)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NumAssociate1Required)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DaysDirectorsRequired)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DaysSeniorManagersRequired)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DaysManagersRequired)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DaysSeniorAssociate2Required)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DaysSeniorAssociate1Required)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DaysAssociate2Required)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DaysAssociate1Required)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ResponseNeededBy)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.fk_UserId_Requester)
-                    </td>
-                    <td>
-                        @if (User.IsInRole("Admin")) {
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ProjectId }); <p>|</p>
-                        @Html.ActionLink("Details", "Details", new { id = item.ProjectId }); <p>|</p>
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ProjectId }); <p>|</p>
+            <div href="/Projects/Create" class="buttn" style="color:white; cursor: pointer; ">
+                <span class="left title">Create a new resourcing request</span>
+                <span class="right icon icon-comment">></span>
+            </div>
+
+        }
+    </div>
+
+
+    <div class="wrap-table100">
+        <div class="table100 ver5 m-b-110">
+            <div class="table100-head">
+                <table>
+                    <thead>
+                        <tr class="row100 head">
+                            <th class="cell100 column1">Project Name</th>
+                            <th class="cell100 column2">Sector</th>
+                            <th class="cell100 column3">Client</th>
+                            <th class="cell100 column4">Nature of project</th>
+                            <th class="cell100 column5">Scope</th>
+                            <th class="cell100 column6">Start</th>
+                            <th class="cell100 column7">Finish</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="table100-body js-pscroll">
+                <table>
+                    <tbody>
+                        @if (User.IsInRole("Requester"))
+                        {
+
+                            foreach (var item in Model)
+                            {
+                                if (item.fk_UserId_Requester == Convert.ToInt32(User.Identity.GetUserId()))
+                                {
+
+                                    <tr class="row100 body datarow" id="@item.ProjectId">
+                                        <td class="cell100 column1">@Html.DisplayFor(modelItem => item.ProjectName)</td>
+                                        <td class="cell100 column2">@Html.DisplayFor(modelItem => item.ProjectSector)</td>
+                                        <td class="cell100 column3">@Html.DisplayFor(modelItem => item.ProjectClient)</td>
+                                        <td class="cell100 column4">@Html.DisplayFor(modelItem => item.ProjectNature)</td>
+                                        <td class="cell100 column5">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
+                                        <td class="cell100 column6">@Html.DisplayFor(modelItem => item.ContractStart)</td>
+                                        <td class="cell100 column7">@Html.DisplayFor(modelItem => item.ContractFinish)</td>
+                                    </tr>
+                                }
+                            }
                         }
-                    </td>
-                </tr>
-            }
-        }
-    }
-</table>
+                        else if (User.IsInRole("Admin") || User.IsInRole("Resourcer"))
+                        {
+                            foreach (var item in Model)
+                            {
+                                if (item.Status == "Submitted")
+                                {
+                                    <tr class="row100 body datarow" id="@item.ProjectId">
+                                        <td class="cell100 column1">@Html.DisplayFor(modelItem => item.ProjectName)</td>
+                                        <td class="cell100 column2">@Html.DisplayFor(modelItem => item.ProjectSector)</td>
+                                        <td class="cell100 column3">@Html.DisplayFor(modelItem => item.ProjectClient)</td>
+                                        <td class="cell100 column4">@Html.DisplayFor(modelItem => item.ProjectNature)</td>
+                                        <td class="cell100 column5">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
+                                        <td class="cell100 column5">@Html.DisplayFor(modelItem => item.ContractStart)</td>
+                                        <td class="cell100 column5">@Html.DisplayFor(modelItem => item.ContractFinish)</td>
 
+                                    </tr>
+
+                                }
+                            }
+                        }
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+</div>

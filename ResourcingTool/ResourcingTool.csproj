@@ -231,10 +231,21 @@
     <Content Include="Content\default.css" />
     <Content Include="Content\demo.css" />
     <Content Include="Content\filters.css" />
+    <Content Include="Content\fonts\Lato\OFL.txt" />
     <Content Include="Content\formstyling.css" />
     <Content Include="Content\materialize.css" />
     <Content Include="Content\reset.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\table\animate.css" />
+    <Content Include="Content\table\main.css" />
+    <Content Include="Content\table\main.js" />
+    <Content Include="Content\table\perfect-scrollbar.css" />
+    <Content Include="Content\table\perfect-scrollbar.min.js" />
+    <Content Include="Content\table\select2.css" />
+    <Content Include="Content\table\select2.js" />
+    <Content Include="Content\table\select2.min.css" />
+    <Content Include="Content\table\select2.min.js" />
+    <Content Include="Content\table\util.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -261,6 +272,16 @@
     <Content Include="Models\ResourcingTool.edmx.diagram">
       <DependentUpon>ResourcingTool.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\fonts\Lato\Lato-Black.ttf" />
+    <Content Include="Content\fonts\Lato\Lato-BlackItalic.ttf" />
+    <Content Include="Content\fonts\Lato\Lato-Bold.ttf" />
+    <Content Include="Content\fonts\Lato\Lato-BoldItalic.ttf" />
+    <Content Include="Content\fonts\Lato\Lato-Hairline.ttf" />
+    <Content Include="Content\fonts\Lato\Lato-HairlineItalic.ttf" />
+    <Content Include="Content\fonts\Lato\Lato-Italic.ttf" />
+    <Content Include="Content\fonts\Lato\Lato-Light.ttf" />
+    <Content Include="Content\fonts\Lato\Lato-LightItalic.ttf" />
+    <Content Include="Content\fonts\Lato\Lato-Regular.ttf" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\filtering.js" />
     <Content Include="Scripts\formvalidation.js" />
@@ -275,6 +296,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\materialize.js" />
     <Content Include="Scripts\materialize.min.js" />
+    <Content Include="Scripts\modaldisplay.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\modernizr.custom.js" />
     <Content Include="Scripts\singleselectset.js" />

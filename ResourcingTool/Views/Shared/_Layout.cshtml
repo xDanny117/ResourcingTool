@@ -16,12 +16,18 @@
 
     @Styles.Render("~/Content/default.css")
     @Styles.Render("~/Content/demo.css")
+    @Styles.Render("~/Content/bootstrap.min.css")
 
+    @Styles.Render("~/Content/table/util.css")
+    @Styles.Render("~/Content/table/main.css")
+    @Styles.Render("~/Content/table/animate.css")
+    @Styles.Render("~/Content/table/select2.min.css")
+    @Styles.Render("~/Content/table/perfect-scrollbar.css")
 
 
     @Styles.Render("~/Content/css")
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.css" rel="stylesheet">
 
 </head>
 <body>
@@ -32,6 +38,10 @@
     @Scripts.Render("~/bundles/jquery")
     <script type="text/javascript" src="@Url.Content("/Scripts/singleselectset.js")"></script>
     <script type="text/javascript" src="@Url.Content("/Scripts/formvalidation.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/Content/table/perfect-scrollbar.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/Content/table/select2.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/Content/table/select2.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/Content/table/main.js")"></script>
 
     @RenderSection("scripts", required: false)
 </body>
