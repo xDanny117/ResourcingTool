@@ -203,7 +203,7 @@ namespace ResourcingTool.Controllers
 
                         var identity = new ClaimsIdentity(new[] {
                              new Claim(ClaimTypes.Role, userDetails.Role),
-                             new Claim(ClaimTypes.Name, userDetails.UserName),
+                             new Claim(ClaimTypes.Name, userDetails.Name),
                              new Claim(ClaimTypes.NameIdentifier, userDetails.Id.ToString())
                         },
                             "ApplicationCookie");
@@ -239,7 +239,7 @@ namespace ResourcingTool.Controllers
         }
 
         // log the user out.
-        [AllowAnonymous]
+        [Authorize(Roles = "Admin, Resourcer, Requester")]
         public ActionResult LogOut()
         {
             // get owin context
@@ -248,7 +248,7 @@ namespace ResourcingTool.Controllers
             var authManager = ctx.Authentication;
             //Calling SignOut passing the authentication type (so the manager knows exactly what cookie to remove).
             authManager.SignOut("ApplicationCookie");
-            return RedirectToAction("Index", "Projects");
+            return RedirectToAction("Login", "Projects");
         }
 
         //method to hash the password using SHA256 encryption

@@ -5,6 +5,21 @@
 }
 
 <h2>Index</h2>
+@using  Microsoft.AspNet.Identity
+<div class="topbar">
+    @if (@User.Identity.IsAuthenticated)
+    {
+        <p class="welcometext">Welcome, <span class="name">@User.Identity.Name </span> &#124 <a href="/Projects/ChangePassword">Change Password</a> &#124 <a href="/Projects/Logout">Logout</a></p>
+
+    }
+    @if (!@User.Identity.IsAuthenticated)
+    {
+        <div class="welcometext">
+            <a href="/Projects/Login">Login</a>
+        </div>
+    }
+
+</div>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -107,7 +122,10 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
+    if (item.fk_UserId_Requester == Convert.ToInt32(User.Identity.GetUserId()))
+    {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.ProjectName)
@@ -203,11 +221,15 @@
             @Html.DisplayFor(modelItem => item.fk_UserId_Requester)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProjectId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProjectId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProjectId })
+            @Html.ActionLink("Edit", "Edit", new { id = item.ProjectId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ProjectId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ProjectId })
         </td>
     </tr>
-}
+    }
 
 </table>
+}
+else {
+    <h2>No projects to display. Create one now!</h2>
+}
