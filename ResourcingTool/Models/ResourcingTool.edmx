@@ -41,6 +41,7 @@
           <Property Name="DaysAssociate1Required" Type="int" />
           <Property Name="ResponseNeededBy" Type="datetime" />
           <Property Name="fk_UserId_Requester" Type="int" />
+          <Property Name="Status" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -97,6 +98,7 @@
           <Property Name="DaysAssociate1Required" Type="Int32" />
           <Property Name="ResponseNeededBy" Type="DateTime" Precision="3" />
           <Property Name="fk_UserId_Requester" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="50" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -153,6 +155,7 @@
                 <ScalarProperty Name="DaysAssociate1Required" ColumnName="DaysAssociate1Required" />
                 <ScalarProperty Name="ResponseNeededBy" ColumnName="ResponseNeededBy" />
                 <ScalarProperty Name="fk_UserId_Requester" ColumnName="fk_UserId_Requester" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
