@@ -46,5 +46,6 @@ namespace ResourcingTool.Models
         public Nullable<int> DaysAssociate1Required { get; set; }
         public Nullable<System.DateTime> ResponseNeededBy { get; set; }
         public Nullable<int> fk_UserId_Requester { get; set; }
+        public string Status { get; set; }
     }
 }
