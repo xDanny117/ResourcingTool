@@ -63,8 +63,15 @@ namespace ResourcingTool.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            return View(project);
+            if (User.Identity.IsAuthenticated)
+            {
+                return View(project);
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+            
         }
 
         // GET: Projects/Edit/5
