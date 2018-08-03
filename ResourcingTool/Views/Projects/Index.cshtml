@@ -75,15 +75,19 @@
                                 if (item.fk_UserId_Requester == Convert.ToInt32(User.Identity.GetUserId()))
                                 {
 
-                                    <tr class="row100 body datarow" id="@item.ProjectId">
-                                        <td class="cell100 column1">@Html.DisplayFor(modelItem => item.ProjectName)</td>
-                                        <td class="cell100 column2">@Html.DisplayFor(modelItem => item.ProjectSector)</td>
-                                        <td class="cell100 column3">@Html.DisplayFor(modelItem => item.ProjectClient)</td>
-                                        <td class="cell100 column4">@Html.DisplayFor(modelItem => item.ProjectNature)</td>
-                                        <td class="cell100 column5">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
-                                        <td class="cell100 column6">@Html.DisplayFor(modelItem => item.ContractStart)</td>
-                                        <td class="cell100 column7">@Html.DisplayFor(modelItem => item.ContractFinish)</td>
-                                    </tr>
+                        <tr class="row100 body datarow" id="@item.ProjectId">
+                            <td class="cell100 column1">@Html.DisplayFor(modelItem => item.ProjectName)</td>
+                            <td class="cell100 column2">@Html.DisplayFor(modelItem => item.ProjectSector)</td>
+                            <td class="cell100 column3">@Html.DisplayFor(modelItem => item.ProjectClient)</td>
+                            <td class="cell100 column4">@Html.DisplayFor(modelItem => item.ProjectNature)</td>
+                            <td class="cell100 column5">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
+                            @{
+                                string dateValue = item.ContractStart.ToString("d/M/yyyy");
+                                string dateValue2 = item.ContractFinish.ToString("d/M/yyyy");
+                            }
+                            <td class="cell100 column6">@Html.DisplayFor(modelItem => dateValue)</td>
+                            <td class="cell100 column7">@Html.DisplayFor(modelItem => dateValue2)</td>
+                        </tr>
                                 }
                             }
                         }
@@ -99,8 +103,12 @@
                                         <td class="cell100 column3">@Html.DisplayFor(modelItem => item.ProjectClient)</td>
                                         <td class="cell100 column4">@Html.DisplayFor(modelItem => item.ProjectNature)</td>
                                         <td class="cell100 column5">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
-                                        <td class="cell100 column5">@Html.DisplayFor(modelItem => item.ContractStart)</td>
-                                        <td class="cell100 column5">@Html.DisplayFor(modelItem => item.ContractFinish)</td>
+                                        @{
+                                        string dateValue = item.ContractStart.ToString("d/M/yyyy");
+                                        string dateValue2 = item.ContractFinish.ToString("d/M/yyyy");
+                                        }
+                                        <td class="cell100 column5">@Html.DisplayFor(modelItem => dateValue)</td>
+                                        <td class="cell100 column5">@Html.DisplayFor(modelItem => dateValue2)</td>
 
                                     </tr>
 
