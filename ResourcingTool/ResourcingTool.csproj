@@ -241,6 +241,7 @@
     <Content Include="Content\fonts\Lato\OFL.txt" />
     <Content Include="Content\formstyling.css" />
     <Content Include="Content\materialize.css" />
+    <Content Include="Content\modal.css" />
     <Content Include="Content\reset.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\table\animate.css" />

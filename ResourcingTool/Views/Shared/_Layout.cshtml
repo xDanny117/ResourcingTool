@@ -15,6 +15,7 @@
 
     @Styles.Render("~/Content/demo.css")
     @Styles.Render("~/Content/additional.css")
+    @Styles.Render("~/Content/modal.css")
 
     @Styles.Render("~/Content/table/util.css")
     @Styles.Render("~/Content/table/main.css")
@@ -44,6 +45,7 @@
     @RenderBody()
 
     @Scripts.Render("~/bundles/jquery")
+    <script type="text/javascript" src="@Url.Content("/Scripts/modaldisplay.js")"></script>
     <script type="text/javascript" src="@Url.Content("/Scripts/singleselectset.js")"></script>
     <script type="text/javascript" src="@Url.Content("/Scripts/formvalidation.js")"></script>
     <script type="text/javascript" src="@Url.Content("/Content/table/perfect-scrollbar.min.js")"></script>
