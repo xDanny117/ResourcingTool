@@ -4,25 +4,25 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ResourcingToolModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="ResourcingToolModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Project">
           <Key>
             <PropertyRef Name="ProjectId" />
           </Key>
           <Property Name="ProjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProjectName" Type="varchar(max)" Nullable="false" />
-          <Property Name="ProjectSector" Type="varchar(max)" Nullable="true" />
+          <Property Name="ProjectSector" Type="varchar(max)" />
           <Property Name="ProjectClient" Type="varchar(max)" Nullable="false" />
           <Property Name="ProjectLead" Type="varchar(max)" Nullable="false" />
           <Property Name="ProjectNature" Type="varchar(max)" Nullable="false" />
           <Property Name="ProjectScope" Type="varchar(max)" Nullable="false" />
-          <Property Name="ContractStart" Type="datetime" Nullable="false" />
-          <Property Name="ContractFinish" Type="datetime" Nullable="false" />
-          <Property Name="Briefing" Type="datetime" Nullable="false" />
-          <Property Name="Fieldwork" Type="datetime" Nullable="false" />
-          <Property Name="Analysis" Type="datetime" Nullable="false" />
-          <Property Name="Reporting" Type="datetime" Nullable="false" />
-          <Property Name="Debrief" Type="datetime" Nullable="false" />
+          <Property Name="ContractStart" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="ContractFinish" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Briefing" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Fieldwork" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Analysis" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Reporting" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Debrief" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="KeyInformation" Type="varchar(max)" Nullable="false" />
           <Property Name="SpecialRequirements" Type="varchar(max)" Nullable="false" />
           <Property Name="NumDirectorsRequired" Type="int" />
@@ -39,9 +39,9 @@
           <Property Name="DaysSeniorAssociate1Required" Type="int" />
           <Property Name="DaysAssociate2Required" Type="int" />
           <Property Name="DaysAssociate1Required" Type="int" />
-          <Property Name="ResponseNeededBy" Type="datetime" />
+          <Property Name="ResponseNeededBy" Type="datetime2" Precision="7" />
           <Property Name="fk_UserId_Requester" Type="int" />
-          <Property Name="Status" Type="varchar(max)" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -68,18 +68,18 @@
           </Key>
           <Property Name="ProjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProjectName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ProjectSector" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="true" />
+          <Property Name="ProjectSector" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="ProjectClient" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ProjectLead" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ProjectNature" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ProjectScope" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ContractStart" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ContractFinish" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Briefing" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Fieldwork" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Analysis" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Reporting" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Debrief" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ContractStart" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="ContractFinish" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Briefing" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Fieldwork" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Analysis" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Reporting" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Debrief" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="KeyInformation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="SpecialRequirements" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NumDirectorsRequired" Type="Int32" />
@@ -96,9 +96,9 @@
           <Property Name="DaysSeniorAssociate1Required" Type="Int32" />
           <Property Name="DaysAssociate2Required" Type="Int32" />
           <Property Name="DaysAssociate1Required" Type="Int32" />
-          <Property Name="ResponseNeededBy" Type="DateTime" Precision="3" />
+          <Property Name="ResponseNeededBy" Type="DateTime" Precision="7" />
           <Property Name="fk_UserId_Requester" Type="Int32" />
-          <Property Name="Status" Type="String" MaxLength="50" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -110,7 +110,7 @@
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="ResourcingToolEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ResourcingToolEntitiesAzure" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Projects" EntityType="Self.Project" />
           <EntitySet Name="Users" EntityType="Self.User" />
         </EntityContainer>
@@ -119,7 +119,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ResourcingToolModelStoreContainer" CdmEntityContainer="ResourcingToolEntities">
+        <EntityContainerMapping StorageEntityContainer="ResourcingToolModelStoreContainer" CdmEntityContainer="ResourcingToolEntitiesAzure">
           <EntitySetMapping Name="Projects">
             <EntityTypeMapping TypeName="ResourcingToolModel.Project">
               <MappingFragment StoreEntitySet="Project">

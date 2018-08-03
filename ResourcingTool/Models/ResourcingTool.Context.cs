@@ -13,10 +13,10 @@ namespace ResourcingTool.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ResourcingToolEntities : DbContext
+    public partial class ResourcingToolEntitiesAzure : DbContext
     {
-        public ResourcingToolEntities()
-            : base("name=ResourcingToolEntities")
+        public ResourcingToolEntitiesAzure()
+            : base("name=ResourcingToolEntitiesAzure")
         {
         }
     

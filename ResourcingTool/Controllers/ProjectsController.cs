@@ -15,7 +15,7 @@ namespace ResourcingTool.Controllers
 {
     public class ProjectsController : Controller
     {
-        private ResourcingToolEntities db = new ResourcingToolEntities();
+        private ResourcingToolEntitiesAzure db = new ResourcingToolEntitiesAzure();
 
         // GET: Projects
         [Authorize(Roles = "Admin, Resourcer, Requester")]
@@ -146,7 +146,7 @@ namespace ResourcingTool.Controllers
             {
                 return View(); //Returns the view with the input values so that the user doesn't have to retype again
             }
-            using (ResourcingToolEntities db = new ResourcingToolEntities())
+            using (ResourcingToolEntitiesAzure db = new ResourcingToolEntitiesAzure())
             {
                 // hash the password and compare against database
                 if (!(userId == null || currentPassword == null))
@@ -190,7 +190,7 @@ namespace ResourcingTool.Controllers
             {
                 return View(userModel); //Returns the view with the input values so that the user doesn't have to retype again
             }
-            using (ResourcingToolEntities db = new ResourcingToolEntities())
+            using (ResourcingToolEntitiesAzure db = new ResourcingToolEntitiesAzure())
             {
                 // hash the password and compare against database
                 if (!(userModel.UserName == null || userModel.Password == null))

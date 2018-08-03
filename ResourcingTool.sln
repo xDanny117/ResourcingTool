@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourcingTool", "ResourcingTool\ResourcingTool.csproj", "{C3EC417F-321F-4650-89CB-0C644C885822}"
 EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "ResourcingTool.Azure", "ResourcingTool.Azure\ResourcingTool.Azure.ccproj", "{A54114F5-8652-40E2-B134-C346E31D6E2B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C3EC417F-321F-4650-89CB-0C644C885822}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3EC417F-321F-4650-89CB-0C644C885822}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3EC417F-321F-4650-89CB-0C644C885822}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A54114F5-8652-40E2-B134-C346E31D6E2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A54114F5-8652-40E2-B134-C346E31D6E2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A54114F5-8652-40E2-B134-C346E31D6E2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A54114F5-8652-40E2-B134-C346E31D6E2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
