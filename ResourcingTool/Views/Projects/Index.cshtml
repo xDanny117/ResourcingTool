@@ -4,9 +4,9 @@
     ViewBag.Title = "PwC Research Resourcing Tool - Index";
 }
 
-
 <div class="topnav">
     <span class="active" style="background-color:#790000; font-weight:bold; text-transform:uppercase; letter-spacing:3px; ">Resourcing Tool</span>
+
     <div class="topnav-right">
         @if (@User.Identity.IsAuthenticated)
         {
@@ -19,6 +19,16 @@
         }
     </div>
 </div>
+
+<style>
+    .btn-4 {
+        margin: 0 auto !important;
+        display: table !important;
+    }
+    .hold{
+        padding:20px !important;
+    }
+</style>
 @if (User.IsInRole("Requester") || User.IsInRole("Admin"))
 {
     <div class="cont">

@@ -160,7 +160,7 @@ namespace ResourcingTool.Controllers
                         db.Set<User>().SingleOrDefault(o => o.Id == userId).Password = newHashedPassword;
                         db.SaveChanges();
 
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Projects");
 
                     }
                     else

@@ -14,7 +14,7 @@
     color: inherit;
     background: none;
     cursor: pointer;
-    padding: 25px 80px;
+    padding: 20px 40px;
     display: inline-block;
     margin: 15px 30px;
     text-transform: uppercase;
@@ -88,7 +88,7 @@
 .icon-arrow-right:before {
     font-family: 'Lato', Calibri, Arial, sans-serif;
     content: ">";
-    font-size: 2em !important;
+    font-size: 1.7em !important;
     line-height: 2em !important;
 }
 
@@ -606,7 +606,8 @@
     }
 
     .btn-4:hover {
-        background: #4a0000;
+        background: #9c2f2f;
+        border: 3px solid #dddddd2e;
     }
 
     .btn-4:before {
@@ -621,7 +622,7 @@
     }
 
     .btn-4:active:before {
-        color: #17954c;
+        color: #790000;
     }
 
 /* Button 4a */
@@ -652,7 +653,7 @@
 }
 
 .btn-4c:hover:before {
-    left: 85%;
+    left: 90%;
     opacity: 1;
 }
 

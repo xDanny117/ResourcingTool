@@ -27,7 +27,7 @@
         padding-left: 10px;
         font-size: 15px;
         background: #fff;
-        border: 1px solid #ccc;
+        border: 1px solid #ccc !important;
         border-radius: 4px;
         display: block;
         margin: 0 auto;
@@ -35,7 +35,7 @@
     }
 
         .login-input:focus {
-            border-color: #6e8095;
+            border-color: #6e8095 !important;
             outline: none;
         }
 
@@ -76,6 +76,10 @@
 .createButton a {
     text-decoration: none;
     color: #fff;
+}
+
+.hold {
+    padding: 20px 0
 }
 
 

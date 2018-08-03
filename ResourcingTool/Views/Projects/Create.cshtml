@@ -5,16 +5,31 @@
 }
 
 @Html.AntiForgeryToken()
+<style>
+    .head-a {
 
+    }
+
+        .head-a:hover {
+            background-color: #ddd !important;
+            color: black !important;
+        }
+</style>
+
+<script>
+
+</script>
 <div class="topnav">
-    <a href="/Projects/Index" class="active" style="cursor:pointer; background-color:#333; font-weight:bold; text-transform:uppercase; letter-spacing:3px; ">Resourcing Tool</a>
-    <a class="active" style="background-color:#790000;cursor:pointer; font-weight:bold; text-transform:uppercase; letter-spacing:3px; ">Create a request</a>
+    <a href="/Projects/Index" onclick="return confirm('By leaving this page without submitting, you will lose any data you have entered.')" class="active head-a" style="cursor:pointer; background-color:#333;font-weight:bold; text-transform:uppercase; letter-spacing:3px; ">Resourcing Tool</a>
+    
+    <span class="active" style="background-color:#790000;font-weight:bold; text-transform:uppercase; letter-spacing:3px; ">Create a request</span>
+    
     <div class="topnav-right">
         @if (@User.Identity.IsAuthenticated)
         {
             <span>Welcome, @User.Identity.Name</span>
-            <a href="/Projects/ChangePassword">Change Password</a>
-            <a href="/Projects/Logout">Logout</a>
+            <a href="/Projects/ChangePassword"  onclick="return confirm('By leaving this page without submitting, you will lose any data you have entered.')">Change Password</a>
+            <a href="/Projects/Logout"  onclick="return confirm('By leaving this page without submitting, you will lose any data you have entered.')">Logout</a>
         }@if (!@User.Identity.IsAuthenticated)
         {
             <a href="/Projects/Login">Login</a>
