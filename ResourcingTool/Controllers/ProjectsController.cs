@@ -18,10 +18,15 @@ namespace ResourcingTool.Controllers
         private ResourcingToolEntitiesAzure db = new ResourcingToolEntitiesAzure();
 
         // GET: Projects
-        [Authorize(Roles = "Admin, Resourcer, Requester")]
         public ActionResult Index()
         {
-            return View(db.Projects.ToList());
+            if (User.Identity.IsAuthenticated)
+            {
+                return View(db.Projects.ToList());
+            } else
+            {
+                return RedirectToAction("Login");
+            }
         }
 
         // GET: Projects/Details/5
