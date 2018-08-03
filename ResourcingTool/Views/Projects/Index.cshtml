@@ -60,7 +60,7 @@
                         @if (User.IsInRole("Requester"))
                         {
 
-                            foreach (var item in Model)
+                            foreach (var item in Model.OrderBy(item=>item.ResponseNeededBy))
                             {
                                 if (item.fk_UserId_Requester == Convert.ToInt32(User.Identity.GetUserId()))
                                 {
@@ -78,15 +78,15 @@
                             <td class="cell100 column6">@Html.DisplayFor(modelItem => dateValue)</td>
                             <td class="cell100 column7">@Html.DisplayFor(modelItem => dateValue2)</td>
                         </tr>
+                                        }
+                                    }
                                 }
-                            }
-                        }
-                        else if (User.IsInRole("Admin") || User.IsInRole("Resourcer"))
-                        {
-                            foreach (var item in Model)
-                            {
-                                if (item.Status == "Submitted")
+                                else if (User.IsInRole("Admin") || User.IsInRole("Resourcer"))
                                 {
+                                    foreach (var item in Model.OrderBy(item => item.ResponseNeededBy))
+                                    {
+                                        if (item.Status == "Submitted")
+                                        {
                                     <tr class="row100 body datarow" id="@item.ProjectId">
                                         <td class="cell100 column1">@Html.DisplayFor(modelItem => item.ProjectName)</td>
                                         <td class="cell100 column2">@Html.DisplayFor(modelItem => item.ProjectSector)</td>
