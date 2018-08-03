@@ -6,6 +6,21 @@
 
 @Html.AntiForgeryToken()
 
+<div class="topnav">
+    <a href="/Projects/Index" class="active" style="cursor:pointer; background-color:#333; font-weight:bold; text-transform:uppercase; letter-spacing:3px; ">Resourcing Tool</a>
+    <a class="active" style="background-color:#790000;cursor:pointer; font-weight:bold; text-transform:uppercase; letter-spacing:3px; ">Create a request</a>
+    <div class="topnav-right">
+        @if (@User.Identity.IsAuthenticated)
+        {
+            <span>Welcome, @User.Identity.Name</span>
+            <a href="/Projects/ChangePassword">Change Password</a>
+            <a href="/Projects/Logout">Logout</a>
+        }@if (!@User.Identity.IsAuthenticated)
+        {
+            <a href="/Projects/Login">Login</a>
+        }
+    </div>
+</div>
 <form action='Create' method="post" class='form'>
     <p class='field required'>
         <label class='label required' for='ProjectName'>Project Name</label>

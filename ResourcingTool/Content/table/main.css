@@ -136,7 +136,7 @@ iframe {
 [ Table ]*/
 
 .limiter {
-  width: 1366px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -157,7 +157,8 @@ iframe {
 }
 
 .wrap-table100 {
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
 }
 
 /*//////////////////////////////////////////////////////////////////
@@ -517,4 +518,42 @@ th, td {
 
 .table100.ver5 .ps__rail-y .ps__thumb-y::before {
   background-color: #cccccc;
+}
+
+
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+    .topnav span {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+.topnav-right {
+    float: right;
 }

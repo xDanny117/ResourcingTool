@@ -3,48 +3,38 @@
 @{
     ViewBag.Title = "PwC Research Resourcing Tool - Index";
 }
-<div class="topbar">
 
-        
-    @if (@User.Identity.IsAuthenticated)
-    {
-        <p class="welcometext">Welcome, <span class="name">@User.Identity.Name </span> &#124 <a href="/Projects/ChangePassword">Change Password</a> &#124 <a href="/Projects/Logout">Logout</a></p>
 
-    }
-    @if (!@User.Identity.IsAuthenticated)
-    {
-        <div class="welcometext">
+<div class="topnav">
+    <span class="active" style="background-color:#790000; font-weight:bold; text-transform:uppercase; letter-spacing:3px; ">Resourcing Tool</span>
+    <div class="topnav-right">
+        @if (@User.Identity.IsAuthenticated)
+        {
+            <span>Welcome, @User.Identity.Name</span>
+            <a href="/Projects/ChangePassword">Change Password</a>
+            <a href="/Projects/Logout">Logout</a>
+        }@if (!@User.Identity.IsAuthenticated)
+        {
             <a href="/Projects/Login">Login</a>
-        </div>
-    }
-
-</div>
-
-<div class="top">
-    <div class="headerbar">
-        <div class="title">
-            
-        </div>
+        }
     </div>
-   
 </div>
-
-
+@if (User.IsInRole("Requester") || User.IsInRole("Admin"))
+{
+    <div class="cont">
+            <!-- Top Navigation -->
+        <section href="/Projects/Create" class="color-4">
+            <div class="hold">
+                <a href="/Projects/Create" class="btn btn-4 btn-4c icon-arrow-right">Submit resourcing request</a>
+            </div>
+        </section>
+    </div><!-- /container -->
+}
 <div class="limiter">
 
 
     @using Microsoft.AspNet.Identity
-    <h2>Resourcing Request Tool</h2>
-    <div class="createButton">
-        @if (User.IsInRole("Requester") || User.IsInRole("Admin"))
-        {
-            <div href="/Projects/Create" class="buttn" style="color:white; cursor: pointer; ">
-                <span class="left title">Create a new resourcing request</span>
-                <span class="right icon icon-comment">></span>
-            </div>
-
-        }
-    </div>
+    
 
 
     <div class="wrap-table100">

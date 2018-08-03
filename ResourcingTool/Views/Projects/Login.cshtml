@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "PwC Research Resourcing Tool - Login";
 
-}
+}@Styles.Render("~/Content/css")
 
 @Html.ValidationSummary(true)
 <!DOCTYPE html>
@@ -15,6 +15,7 @@
         body {
             background: #2d343d !important;
         }
+
         #field-validation-error {
             color: red;
         }
