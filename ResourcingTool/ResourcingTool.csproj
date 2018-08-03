@@ -223,6 +223,7 @@
     <Content Include="App_Data\ResourcingTool_log.ldf">
       <DependentUpon>ResourcingTool.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\additional.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
