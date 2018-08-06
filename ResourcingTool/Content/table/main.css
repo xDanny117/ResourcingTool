@@ -206,7 +206,7 @@ th, td {
 [ Fix header ]*/
 .table100 {
   position: relative;
-  padding-top: 60px;
+  padding-top: 30px;
 }
 
 .table100-head {
@@ -493,6 +493,16 @@ th, td {
   background-color: #ebebeb;
   cursor: pointer;
 }
+
+    .approved:hover td {
+        background-color: #88e688 !important;
+    }
+
+    .approved td {
+        background-color: #b0ffb0 !important;
+    }
+
+
 
 .table100.ver5 .table100-head th {
   padding-top: 25px;

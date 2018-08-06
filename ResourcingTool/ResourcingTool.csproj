@@ -249,6 +249,7 @@
       <DependentUpon>ResourcingTool.mdf</DependentUpon>
     </Content>
     <Content Include="Content\additional.css" />
+    <Content Include="Content\approveDeny.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -265,11 +266,14 @@
     <Content Include="Content\fonts\icomoon\Read Me.txt" />
     <Content Include="Content\fonts\Lato\OFL.txt" />
     <Content Include="Content\formstyling.css" />
+    <Content Include="Content\images\approve.png" />
+    <Content Include="Content\images\decline.png" />
     <Content Include="Content\materialize.css" />
     <Content Include="Content\modal.css" />
     <Content Include="Content\reset.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\table\animate.css" />
+    <Content Include="Content\table\approveDeny.js" />
     <Content Include="Content\table\main.css" />
     <Content Include="Content\table\main.js" />
     <Content Include="Content\table\perfect-scrollbar.css" />

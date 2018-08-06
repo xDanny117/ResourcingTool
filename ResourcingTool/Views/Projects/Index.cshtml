@@ -49,23 +49,27 @@
     @using Microsoft.AspNet.Identity
     <div class="wrap-table100">
         <div class="table100 ver5 m-b-110">
-            <div class="table100-head">
-                <table>
-                    <thead>
-                        <tr class="row100 head">
-                            <th class="cell100 column1">Project Name</th>
-                            <th class="cell100 column2">Sector</th>
-                            <th class="cell100 column3">Client</th>
-                            <th class="cell100 column4">Nature of project</th>
-                            <th class="cell100 column5">Scope</th>
-                            <th class="cell100 column6">Start</th>
-                            <th class="cell100 column7">Finish</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
+            
             <div class="table100-body js-pscroll">
-                <table>
+
+
+                <table><thead>
+    <tr class="row100 head">
+        <th class="cell100 column1">Project Name</th>
+        <th class="cell100 column2">Sector</th>
+        <th class="cell100 column3">Client</th>
+        <th class="cell100 column4">Nature of project</th>
+        <th class="cell100 column5">Scope</th>
+        <th class="cell100 column6">Start</th>
+        <th class="cell100 column7">Finish</th>
+        <th class="cell100 column7">Response needed by</th>
+        @if (User.IsInRole("Admin") || User.IsInRole("Resourcer"))
+        {
+
+            <th class="cell100 column7">Actions</th>
+        }
+    </tr>
+</thead>
                     <tbody>
                         @if (User.IsInRole("Requester"))
                         {
@@ -84,9 +88,12 @@
                                         @{
                                             string dateValue = item.ContractStart.ToString("d/M/yyyy");
                                             string dateValue2 = item.ContractFinish.ToString("d/M/yyyy");
+                                            string dateValue3 = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
                                         }
                                         <td class="cell100 column6">@Html.DisplayFor(modelItem => dateValue)</td>
                                         <td class="cell100 column7">@Html.DisplayFor(modelItem => dateValue2)</td>
+                                        <td class="cell100 column8">@Html.DisplayFor(modelItem => dateValue3)</td>
+
                                     </tr>
                                 }
                             }
@@ -97,27 +104,67 @@
                             {
                                 if (item.Status == "Submitted")
                                 {
-                                    <tr class="row100 body datarow" id="@item.ProjectId">
-                                        <td class="cell100 column1">@Html.DisplayFor(modelItem => item.ProjectName)</td>
-                                        <td class="cell100 column2">@Html.DisplayFor(modelItem => item.ProjectSector)</td>
-                                        <td class="cell100 column3">@Html.DisplayFor(modelItem => item.ProjectClient)</td>
-                                        <td class="cell100 column4">@Html.DisplayFor(modelItem => item.ProjectNature)</td>
-                                        <td class="cell100 column5">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
+
+                                    <tr class="row100  body datarow" id="@item.ProjectId">
+                                        <td class="cell100 cellMain column1">@Html.DisplayFor(modelItem => item.ProjectName)</td>
+                                        <td class="cell100 cellMain column2">@Html.DisplayFor(modelItem => item.ProjectSector)</td>
+                                        <td class="cell100 cellMain column3">@Html.DisplayFor(modelItem => item.ProjectClient)</td>
+                                        <td class="cell100 cellMain column4">@Html.DisplayFor(modelItem => item.ProjectNature)</td>
+                                        <td class="cell100 cellMain column5">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
                                         @{
                                             string dateValue = item.ContractStart.ToString("d/M/yyyy");
                                             string dateValue2 = item.ContractFinish.ToString("d/M/yyyy");
+                                            string dateValue3 = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
                                         }
-                                        <td class="cell100 column5">@Html.DisplayFor(modelItem => dateValue)</td>
-                                        <td class="cell100 column5">@Html.DisplayFor(modelItem => dateValue2)</td>
+                                        <td class="cell100 cellMain column6">@Html.DisplayFor(modelItem => dateValue)</td>
+                                        <td class="cell100 cellMain column7">@Html.DisplayFor(modelItem => dateValue2)</td>
+                                        <td class="cell100 cellMain column8">@Html.DisplayFor(modelItem => dateValue3)</td>
+                                        <td>
+                                            <input type="hidden" name="projectID" value="@item.ProjectId" />
+                                            <button type="submit" class="approveRow" title="Mark as Complete" value="Submit"></button>
+                                            <button type="submit" class="denyRow" title="Mark as Not Complete" value="Submit"></button>
+                                        </td>
+
                                     </tr>
 
+                                }
+                                else
+                                {
 
+                                    <tr class="row100 approved body datarow" id="@item.ProjectId">
+                                        <td class="cell100 cellMain column1">@Html.DisplayFor(modelItem => item.ProjectName)</td>
+                                        <td class="cell100 cellMain column2">@Html.DisplayFor(modelItem => item.ProjectSector)</td>
+                                        <td class="cell100 cellMain column3">@Html.DisplayFor(modelItem => item.ProjectClient)</td>
+                                        <td class="cell100 cellMain column4">@Html.DisplayFor(modelItem => item.ProjectNature)</td>
+                                        <td class="cell100 cellMain column5">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
+                                        @{
+                                            string dateValue = item.ContractStart.ToString("d/M/yyyy");
+                                            string dateValue2 = item.ContractFinish.ToString("d/M/yyyy");
+                                            string dateValue3 = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
+                                        }
+                                        <td class="cell100 cellMain column6">@Html.DisplayFor(modelItem => dateValue)</td>
+                                        <td class="cell100 cellMain column7">@Html.DisplayFor(modelItem => dateValue2)</td>
+                                        <td class="cell100 cellMain column8">@Html.DisplayFor(modelItem => dateValue3)</td>
 
+                                        <td>
+                                            <input type="hidden" name="projectID" value="@item.ProjectId" />
+                                            <button type="submit" class="approveRow" title="Mark as Complete" value="Submit"></button>
+                                            <button type="submit" class="denyRow" title="Mark as Not Complete" value="Submit"></button>
+                                        </td>
+
+                                    </tr>
                                 }
                             }
                         }
                     </tbody>
                 </table>
+                <form action="~/Projects/Approve" id="approveForm" class="buttons" method="POST">
+                    <input type="hidden" id="approveID" name="projectID" value="" />
+                </form>
+
+                <form action="~/Projects/Deny" id="denyForm" class="buttons" method="POST">
+                    <input type="hidden" id="denyID" name="projectID" value="" />
+                </form>
 
 
             </div>
@@ -143,9 +190,18 @@
 
 
         <form action='Create' method="post" class='form '>
-            <p class='field'>
+            <p class='field half'>
                 <label class='label disabled' for='ProjectName'>Project Name</label>
                 <input class='text-input' value='@item.ProjectName' disabled type='text'>
+            </p>
+            @{ 
+
+                string submitDate = (item.DateSubmitted != null) ? ((DateTime)item.DateSubmitted).ToString("d/M/yyyy") : "";
+
+            }
+            <p class='field half'>
+                <label class='label' for='phone'>Date Submitted</label>
+                <input class='text-input' value="@submitDate" disabled type='text'>
             </p>
 
             <p class='field half'>
@@ -175,13 +231,12 @@
                 string startDate = item.ContractStart.ToString("d/M/yyyy");
                 string finishDate = item.ContractFinish.ToString("d/M/yyyy");
 
-
                 string briefDate = item.Briefing.ToString("d/M/yyyy");
                 string fieldDate = item.Fieldwork.ToString("d/M/yyyy");
                 string analysisDate = item.Analysis.ToString("d/M/yyyy");
                 string reportingDate = item.Reporting.ToString("d/M/yyyy");
                 string debriefDate = item.Debrief.ToString("d/M/yyyy");
-                string responseNeeded = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("MM/dd/yyyy") : "";
+                string responseNeeded = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
 
             }
             <p class='field half'>

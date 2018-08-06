@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ResourcingToolModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ResourcingToolModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Project">
           <Key>
             <PropertyRef Name="ProjectId" />
@@ -42,6 +42,7 @@
           <Property Name="ResponseNeededBy" Type="datetime2" Precision="7" />
           <Property Name="fk_UserId_Requester" Type="int" />
           <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="DateSubmitted" Type="datetime2" Precision="7" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -57,8 +58,7 @@
           <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ResourcingToolModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -99,6 +99,7 @@
           <Property Name="ResponseNeededBy" Type="DateTime" Precision="7" />
           <Property Name="fk_UserId_Requester" Type="Int32" />
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateSubmitted" Type="DateTime" Precision="7" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -123,6 +124,7 @@
           <EntitySetMapping Name="Projects">
             <EntityTypeMapping TypeName="ResourcingToolModel.Project">
               <MappingFragment StoreEntitySet="Project">
+                <ScalarProperty Name="DateSubmitted" ColumnName="DateSubmitted" />
                 <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
                 <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
                 <ScalarProperty Name="ProjectSector" ColumnName="ProjectSector" />

@@ -1,0 +1,14 @@
+﻿.approveRow {
+    background-image: url(../Content/images/approve.png);
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+
+.denyRow {
+    background-image: url(../Content/images/decline.png);
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
