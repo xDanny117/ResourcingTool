@@ -53,110 +53,146 @@
             <div class="table100-body js-pscroll">
 
 
-                <table><thead>
-    <tr class="row100 head">
-        <th class="cell100 column1">Project Name</th>
-        <th class="cell100 column2">Sector</th>
-        <th class="cell100 column3">Client</th>
-        <th class="cell100 column4">Nature of project</th>
-        <th class="cell100 column5">Scope</th>
-        <th class="cell100 column6">Start</th>
-        <th class="cell100 column7">Finish</th>
-        <th class="cell100 column7">Response needed by</th>
-        @if (User.IsInRole("Admin") || User.IsInRole("Resourcer"))
-        {
+                    <table><thead>
+        <tr class="row100 head">
+            <th class="cell100 column1">Project Name</th>
+            <th class="cell100 column2">Sector</th>
+            <th class="cell100 column3">Client</th>
+            <th class="cell100 column4">Nature of project</th>
+            <th class="cell100 column5">Scope</th>
+            <th class="cell100 column6">Start</th>
+            <th class="cell100 column7">Finish</th>
+            <th class="cell100 column8">Response needed by</th>
+            @if (User.IsInRole("Admin") || User.IsInRole("Resourcer"))
+            {
+                <th class="cell100 column9">Actions</th>
+            }
+            else
+            {
+                <th class="cell100 column9"></th>
+            }
+        </tr>
+        </thead>
+                           <tbody>
+                               @if (User.IsInRole("Requester"))
+                               {
 
-            <th class="cell100 column7">Actions</th>
-        }
-    </tr>
-</thead>
-                    <tbody>
-                        @if (User.IsInRole("Requester"))
-                        {
+                                   //Print submitted
+                                   foreach (var item in Model.OrderBy(item => item.ResponseNeededBy))
+                                   {
+                                       if ((item.fk_UserId_Requester == Convert.ToInt32(User.Identity.GetUserId())) && item.Status == "Submitted")
+                                       {
 
-                            foreach (var item in Model.OrderBy(item => item.ResponseNeededBy))
-                            {
-                                if (item.fk_UserId_Requester == Convert.ToInt32(User.Identity.GetUserId()))
-                                {
+                                           <tr class="row100 body datarow" id="@item.ProjectId">
+                                               <td class="cell100 cellMain column1">@Html.DisplayFor(modelItem => item.ProjectName)</td>
+                                               <td class="cell100 cellMain column2">@Html.DisplayFor(modelItem => item.ProjectSector)</td>
+                                               <td class="cell100 cellMain column3">@Html.DisplayFor(modelItem => item.ProjectClient)</td>
+                                               <td class="cell100 cellMain column4">@Html.DisplayFor(modelItem => item.ProjectNature)</td>
+                                               <td class="cell100 cellMain column5">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
+                                               @{
+                                                   string dateValue = item.ContractStart.ToString("d/M/yyyy");
+                                                   string dateValue2 = item.ContractFinish.ToString("d/M/yyyy");
+                                                   string dateValue3 = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
+                                               }
+                                               <td class="cell100 cellMain column6">@Html.DisplayFor(modelItem => dateValue)</td>
+                                               <td class="cell100 cellMain column7">@Html.DisplayFor(modelItem => dateValue2)</td>
+                                               <td class="cell100 cellMain column8">@Html.DisplayFor(modelItem => dateValue3)</td>
+                                               <td class="cell100 column9">
+                                                   <button type="submit" class="editRow" title="Edit your response" value="Submit"></button>
+                                               </td>
 
-                                    <tr class="row100 body datarow" id="@item.ProjectId">
-                                        <td class="cell100 column1">@Html.DisplayFor(modelItem => item.ProjectName)</td>
-                                        <td class="cell100 column2">@Html.DisplayFor(modelItem => item.ProjectSector)</td>
-                                        <td class="cell100 column3">@Html.DisplayFor(modelItem => item.ProjectClient)</td>
-                                        <td class="cell100 column4">@Html.DisplayFor(modelItem => item.ProjectNature)</td>
-                                        <td class="cell100 column5">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
-                                        @{
-                                            string dateValue = item.ContractStart.ToString("d/M/yyyy");
-                                            string dateValue2 = item.ContractFinish.ToString("d/M/yyyy");
-                                            string dateValue3 = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
-                                        }
-                                        <td class="cell100 column6">@Html.DisplayFor(modelItem => dateValue)</td>
-                                        <td class="cell100 column7">@Html.DisplayFor(modelItem => dateValue2)</td>
-                                        <td class="cell100 column8">@Html.DisplayFor(modelItem => dateValue3)</td>
+                                           </tr>
+                                       }
+                                   }
 
-                                    </tr>
-                                }
-                            }
-                        }
-                        else if (User.IsInRole("Admin") || User.IsInRole("Resourcer"))
-                        {
-                            foreach (var item in Model.OrderBy(item => item.ResponseNeededBy))
-                            {
-                                if (item.Status == "Submitted")
-                                {
+                                   //Print approved
+                                   foreach (var item in Model.OrderBy(item => item.ResponseNeededBy))
+                                   {
+                                       if ((item.fk_UserId_Requester == Convert.ToInt32(User.Identity.GetUserId())) && item.Status == "Approved")
+                                       {
 
-                                    <tr class="row100  body datarow" id="@item.ProjectId">
-                                        <td class="cell100 cellMain column1">@Html.DisplayFor(modelItem => item.ProjectName)</td>
-                                        <td class="cell100 cellMain column2">@Html.DisplayFor(modelItem => item.ProjectSector)</td>
-                                        <td class="cell100 cellMain column3">@Html.DisplayFor(modelItem => item.ProjectClient)</td>
-                                        <td class="cell100 cellMain column4">@Html.DisplayFor(modelItem => item.ProjectNature)</td>
-                                        <td class="cell100 cellMain column5">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
-                                        @{
-                                            string dateValue = item.ContractStart.ToString("d/M/yyyy");
-                                            string dateValue2 = item.ContractFinish.ToString("d/M/yyyy");
-                                            string dateValue3 = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
-                                        }
-                                        <td class="cell100 cellMain column6">@Html.DisplayFor(modelItem => dateValue)</td>
-                                        <td class="cell100 cellMain column7">@Html.DisplayFor(modelItem => dateValue2)</td>
-                                        <td class="cell100 cellMain column8">@Html.DisplayFor(modelItem => dateValue3)</td>
-                                        <td>
-                                            <input type="hidden" name="projectID" value="@item.ProjectId" />
-                                            <button type="submit" class="approveRow" title="Mark as Complete" value="Submit"></button>
-                                            <button type="submit" class="denyRow" title="Mark as Not Complete" value="Submit"></button>
-                                        </td>
+                                           <tr class="row100 body datarow" id="@item.ProjectId">
+                                               <td class="cell100 cellMain column1">@Html.DisplayFor(modelItem => item.ProjectName)</td>
+                                               <td class="cell100 cellMain column2">@Html.DisplayFor(modelItem => item.ProjectSector)</td>
+                                               <td class="cell100 cellMain column3">@Html.DisplayFor(modelItem => item.ProjectClient)</td>
+                                               <td class="cell100 cellMain column4">@Html.DisplayFor(modelItem => item.ProjectNature)</td>
+                                               <td class="cell100 cellMain column5">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
+                                               @{
+                                                   string dateValue = item.ContractStart.ToString("d/M/yyyy");
+                                                   string dateValue2 = item.ContractFinish.ToString("d/M/yyyy");
+                                                   string dateValue3 = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
+                                               }
+                                               <td class="cell100 cellMain column6">@Html.DisplayFor(modelItem => dateValue)</td>
+                                               <td class="cell100 cellMain column7">@Html.DisplayFor(modelItem => dateValue2)</td>
+                                               <td class="cell100 cellMain column8">@Html.DisplayFor(modelItem => dateValue3)</td>
+                                               <td class="cell100 column9">
+                                                   <button type="submit" class="editRow" title="Edit your response" value="Submit"></button>
+                                               </td>
+                                           </tr>
+                                       }
+                                   }
+                               }
+                               else if (User.IsInRole("Admin") || User.IsInRole("Resourcer"))
+                               {
+                                   //Print submitted
+                                   foreach (var item in Model.OrderBy(item => item.ResponseNeededBy))
+                                   {
+                                       if (item.Status == "Submitted")
+                                       {
+                                           <tr class="row100  body datarow" id="@item.ProjectId">
+                                               <td class="cell100 cellMain column1">@Html.DisplayFor(modelItem => item.ProjectName)</td>
+                                               <td class="cell100 cellMain column2">@Html.DisplayFor(modelItem => item.ProjectSector)</td>
+                                               <td class="cell100 cellMain column3">@Html.DisplayFor(modelItem => item.ProjectClient)</td>
+                                               <td class="cell100 cellMain column4">@Html.DisplayFor(modelItem => item.ProjectNature)</td>
+                                               <td class="cell100 cellMain column5">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
+                                               @{
+                                                   string dateValue = item.ContractStart.ToString("d/M/yyyy");
+                                                   string dateValue2 = item.ContractFinish.ToString("d/M/yyyy");
+                                                   string dateValue3 = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
+                                               }
+                                               <td class="cell100 cellMain column6">@Html.DisplayFor(modelItem => dateValue)</td>
+                                               <td class="cell100 cellMain column7">@Html.DisplayFor(modelItem => dateValue2)</td>
+                                               <td class="cell100 cellMain column8">@Html.DisplayFor(modelItem => dateValue3)</td>
+                                               <td>
+                                                   <input type="hidden" name="projectID" value="@item.ProjectId" />
+                                                   <button type="submit" class="approveRow" title="Mark as Complete" value="Submit"></button>
+                                                   <button type="submit" class="denyRow" title="Mark as Not Complete" value="Submit"></button>
+                                               </td>
+                                           </tr>
+                                       }
+                                      
+                                   }
 
-                                    </tr>
-
-                                }
-                                else
-                                {
-
-                                    <tr class="row100 approved body datarow" id="@item.ProjectId">
-                                        <td class="cell100 cellMain column1">@Html.DisplayFor(modelItem => item.ProjectName)</td>
-                                        <td class="cell100 cellMain column2">@Html.DisplayFor(modelItem => item.ProjectSector)</td>
-                                        <td class="cell100 cellMain column3">@Html.DisplayFor(modelItem => item.ProjectClient)</td>
-                                        <td class="cell100 cellMain column4">@Html.DisplayFor(modelItem => item.ProjectNature)</td>
-                                        <td class="cell100 cellMain column5">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
-                                        @{
-                                            string dateValue = item.ContractStart.ToString("d/M/yyyy");
-                                            string dateValue2 = item.ContractFinish.ToString("d/M/yyyy");
-                                            string dateValue3 = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
-                                        }
-                                        <td class="cell100 cellMain column6">@Html.DisplayFor(modelItem => dateValue)</td>
-                                        <td class="cell100 cellMain column7">@Html.DisplayFor(modelItem => dateValue2)</td>
-                                        <td class="cell100 cellMain column8">@Html.DisplayFor(modelItem => dateValue3)</td>
-
-                                        <td>
-                                            <input type="hidden" name="projectID" value="@item.ProjectId" />
-                                            <button type="submit" class="approveRow" title="Mark as Complete" value="Submit"></button>
-                                            <button type="submit" class="denyRow" title="Mark as Not Complete" value="Submit"></button>
-                                        </td>
-
-                                    </tr>
-                                }
-                            }
-                        }
-                    </tbody>
+                                   //Print approved
+                                   foreach (var item in Model.OrderBy(item => item.ResponseNeededBy))
+                                   {
+                                       if (item.Status == "Approved")
+                                       
+                                       {
+                                           <tr class="row100 approved body datarow" id="@item.ProjectId">
+                                               <td class="cell100 cellMain column1">@Html.DisplayFor(modelItem => item.ProjectName)</td>
+                                               <td class="cell100 cellMain column2">@Html.DisplayFor(modelItem => item.ProjectSector)</td>
+                                               <td class="cell100 cellMain column3">@Html.DisplayFor(modelItem => item.ProjectClient)</td>
+                                               <td class="cell100 cellMain column4">@Html.DisplayFor(modelItem => item.ProjectNature)</td>
+                                               <td class="cell100 cellMain column5">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
+                                               @{
+                                                   string dateValue = item.ContractStart.ToString("d/M/yyyy");
+                                                   string dateValue2 = item.ContractFinish.ToString("d/M/yyyy");
+                                                   string dateValue3 = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
+                                               }
+                                               <td class="cell100 cellMain column6">@Html.DisplayFor(modelItem => dateValue)</td>
+                                               <td class="cell100 cellMain column7">@Html.DisplayFor(modelItem => dateValue2)</td>
+                                               <td class="cell100 cellMain column8">@Html.DisplayFor(modelItem => dateValue3)</td>
+                                               <td>
+                                                   <input type="hidden" name="projectID" value="@item.ProjectId" />
+                                                   <button type="submit" class="approveRow" title="Mark as Complete" value="Submit"></button>
+                                                   <button type="submit" class="denyRow" title="Mark as Not Complete" value="Submit"></button>
+                                               </td>
+                                           </tr>
+                                       }
+                                   }
+                               }
+                           </tbody>
                 </table>
                 <form action="~/Projects/Approve" id="approveForm" class="buttons" method="POST">
                     <input type="hidden" id="approveID" name="projectID" value="" />
