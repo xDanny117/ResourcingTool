@@ -43,6 +43,7 @@
           <Property Name="fk_UserId_Requester" Type="int" />
           <Property Name="Status" Type="varchar" MaxLength="50" />
           <Property Name="DateSubmitted" Type="datetime2" Precision="7" />
+          <Property Name="fk_UserName_Requester" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -53,6 +54,7 @@
           <Property Name="UserName" Type="varchar(max)" Nullable="false" />
           <Property Name="Password" Type="varchar(max)" Nullable="false" />
           <Property Name="Role" Type="varchar(max)" Nullable="false" />
+          <Property Name="Email" Type="varchar(max)" />
         </EntityType>
         <EntityContainer Name="ResourcingToolModelStoreContainer">
           <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
@@ -100,6 +102,7 @@
           <Property Name="fk_UserId_Requester" Type="Int32" />
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="DateSubmitted" Type="DateTime" Precision="7" />
+          <Property Name="fk_UserName_Requester" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -110,6 +113,7 @@
           <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="ResourcingToolEntitiesAzure" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Projects" EntityType="Self.Project" />
@@ -124,6 +128,7 @@
           <EntitySetMapping Name="Projects">
             <EntityTypeMapping TypeName="ResourcingToolModel.Project">
               <MappingFragment StoreEntitySet="Project">
+                <ScalarProperty Name="fk_UserName_Requester" ColumnName="fk_UserName_Requester" />
                 <ScalarProperty Name="DateSubmitted" ColumnName="DateSubmitted" />
                 <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
                 <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
@@ -164,6 +169,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="ResourcingToolModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
