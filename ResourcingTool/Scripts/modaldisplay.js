@@ -1,6 +1,6 @@
-﻿$(".cellMain").click(function () {
+﻿$(".datarow").click(function () {
 
-    var thisID = $(this).parent().attr('id');
+    var thisID = $(this).attr('id');
     var str = "modal" + thisID;
 
     console.log(str);
