@@ -494,14 +494,19 @@ th, td {
   cursor: pointer;
 }
 
-    .approved:hover td {
-        background-color: #88e688 !important;
-    }
 
-    .approved td {
-        background-color: #b0ffb0 !important;
-    }
 
+.approved td {
+    font-style: italic;
+    opacity: 0.5;
+    background-color: #A5D6A7 !important;
+}
+
+.approved:hover td {
+    font-style: italic;
+    opacity: 1;
+    background-color: #A5D6A7 !important;
+}
 
 
 .table100.ver5 .table100-head th {

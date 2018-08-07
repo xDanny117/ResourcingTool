@@ -266,8 +266,11 @@
     <Content Include="Content\fonts\icomoon\Read Me.txt" />
     <Content Include="Content\fonts\Lato\OFL.txt" />
     <Content Include="Content\formstyling.css" />
+    <Content Include="Content\images\approve-large.png" />
     <Content Include="Content\images\approve.png" />
+    <Content Include="Content\images\decline-large.png" />
     <Content Include="Content\images\decline.png" />
+    <Content Include="Content\images\edit.png" />
     <Content Include="Content\materialize.css" />
     <Content Include="Content\modal.css" />
     <Content Include="Content\reset.css" />

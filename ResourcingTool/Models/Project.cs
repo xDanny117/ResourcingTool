@@ -48,5 +48,6 @@ namespace ResourcingTool.Models
         public Nullable<int> fk_UserId_Requester { get; set; }
         public string Status { get; set; }
         public Nullable<System.DateTime> DateSubmitted { get; set; }
+        public string fk_UserName_Requester { get; set; }
     }
 }
