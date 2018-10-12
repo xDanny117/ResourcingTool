@@ -328,11 +328,13 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
-    <None Include="Properties\PublishProfiles\ResourcingTool20180803023831 - Web Deploy.pubxml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\filtering.js" />
     <Content Include="Scripts\formvalidation.js" />
+    <None Include="Properties\PublishProfiles\ResourcingTool20180803023831 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\ResourcingTool20180803023831 - Web Deploy1.pubxml" />
+    <None Include="Properties\PublishProfiles\ResourcingTool20180803023831 - Web Deploy2.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

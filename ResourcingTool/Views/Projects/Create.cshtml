@@ -63,7 +63,7 @@
         </ul>
     </div>
 
-    <input type="hidden" id="ProjectSector" name="ProjectSector" />
+    <input type="hidden" id="ProjectSector" name="ProjectSector" value="PwC" />
 
     <p class='field required'>
         <label class='label ' for='about'>Nature of Project (e.g. qual, quant, diagnostics, etc)</label>
@@ -114,9 +114,9 @@
     </p>
 
 
-    <p class='field required'>
+    <p class='field'>
         <label class='label' for='about'>Special Requirements (e.g. BPSS clearance)</label>
-        <textarea class='textarea' cols='50' id='SpecialRequirements' name='SpecialRequirements' required rows='2'></textarea>
+        <textarea class='textarea' cols='50' id='SpecialRequirements' name='SpecialRequirements' rows='2'></textarea>
     </p>
 
 
@@ -207,4 +207,8 @@
     <input type='hidden' id='fk_UserName_Requester' name='fk_UserName_Requester' value="@User.Identity.GetUserName()">
 
     <input type="hidden" id="fk_UserId_Requester" name="fk_UserId_Requester" value="@User.Identity.GetUserId()" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $("#option-0").trigger("click");
+    </script>
 </form>
