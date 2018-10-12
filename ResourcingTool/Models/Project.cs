@@ -21,13 +21,6 @@ namespace ResourcingTool.Models
         public string ProjectLead { get; set; }
         public string ProjectNature { get; set; }
         public string ProjectScope { get; set; }
-        public System.DateTime ContractStart { get; set; }
-        public System.DateTime ContractFinish { get; set; }
-        public System.DateTime Briefing { get; set; }
-        public System.DateTime Fieldwork { get; set; }
-        public System.DateTime Analysis { get; set; }
-        public System.DateTime Reporting { get; set; }
-        public System.DateTime Debrief { get; set; }
         public string KeyInformation { get; set; }
         public string SpecialRequirements { get; set; }
         public Nullable<int> NumDirectorsRequired { get; set; }
@@ -49,5 +42,11 @@ namespace ResourcingTool.Models
         public string Status { get; set; }
         public Nullable<System.DateTime> DateSubmitted { get; set; }
         public string fk_UserName_Requester { get; set; }
+        public System.DateTime EstimatedBriefing { get; set; }
+        public System.DateTime EstimatedDebriefing { get; set; }
+        public System.DateTime FieldworkStart { get; set; }
+        public System.DateTime FieldworkEnd { get; set; }
+        public System.DateTime AlysRepStart { get; set; }
+        public System.DateTime AlysRepEnd { get; set; }
     }
 }

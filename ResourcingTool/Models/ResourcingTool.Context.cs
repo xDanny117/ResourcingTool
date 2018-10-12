@@ -27,5 +27,6 @@ namespace ResourcingTool.Models
     
         public virtual DbSet<Project> Projects { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Team> Teams { get; set; }
     }
 }

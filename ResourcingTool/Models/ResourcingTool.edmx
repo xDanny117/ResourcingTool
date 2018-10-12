@@ -16,13 +16,12 @@
           <Property Name="ProjectLead" Type="varchar(max)" Nullable="false" />
           <Property Name="ProjectNature" Type="varchar(max)" Nullable="false" />
           <Property Name="ProjectScope" Type="varchar(max)" Nullable="false" />
-          <Property Name="ContractStart" Type="datetime2" Precision="7" Nullable="false" />
-          <Property Name="ContractFinish" Type="datetime2" Precision="7" Nullable="false" />
-          <Property Name="Briefing" Type="datetime2" Precision="7" Nullable="false" />
-          <Property Name="Fieldwork" Type="datetime2" Precision="7" Nullable="false" />
-          <Property Name="Analysis" Type="datetime2" Precision="7" Nullable="false" />
-          <Property Name="Reporting" Type="datetime2" Precision="7" Nullable="false" />
-          <Property Name="Debrief" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="EstimatedBriefing" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="EstimatedDebriefing" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="FieldworkStart" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="FieldworkEnd" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="AlysRepStart" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="AlysRepEnd" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="KeyInformation" Type="varchar(max)" Nullable="false" />
           <Property Name="SpecialRequirements" Type="varchar(max)" Nullable="false" />
           <Property Name="NumDirectorsRequired" Type="int" />
@@ -45,6 +44,14 @@
           <Property Name="DateSubmitted" Type="datetime2" Precision="7" />
           <Property Name="fk_UserName_Requester" Type="varchar(max)" />
         </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fk_UserId" Type="int" />
+          <Property Name="fk_ProjectId" Type="int" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
@@ -58,6 +65,7 @@
         </EntityType>
         <EntityContainer Name="ResourcingToolModelStoreContainer">
           <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -75,13 +83,6 @@
           <Property Name="ProjectLead" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ProjectNature" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ProjectScope" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ContractStart" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="ContractFinish" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="Briefing" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="Fieldwork" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="Analysis" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="Reporting" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="Debrief" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="KeyInformation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="SpecialRequirements" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NumDirectorsRequired" Type="Int32" />
@@ -103,6 +104,12 @@
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="DateSubmitted" Type="DateTime" Precision="7" />
           <Property Name="fk_UserName_Requester" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EstimatedBriefing" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="EstimatedDebriefing" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="FieldworkStart" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="FieldworkEnd" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="AlysRepStart" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="AlysRepEnd" Type="DateTime" Nullable="false" Precision="7" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -118,7 +125,16 @@
         <EntityContainer Name="ResourcingToolEntitiesAzure" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Projects" EntityType="Self.Project" />
           <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Teams" EntityType="ResourcingToolModel.Team" />
         </EntityContainer>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fk_UserId" Type="Int32" />
+          <Property Name="fk_ProjectId" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -128,6 +144,12 @@
           <EntitySetMapping Name="Projects">
             <EntityTypeMapping TypeName="ResourcingToolModel.Project">
               <MappingFragment StoreEntitySet="Project">
+                <ScalarProperty Name="AlysRepEnd" ColumnName="AlysRepEnd" />
+                <ScalarProperty Name="AlysRepStart" ColumnName="AlysRepStart" />
+                <ScalarProperty Name="FieldworkEnd" ColumnName="FieldworkEnd" />
+                <ScalarProperty Name="FieldworkStart" ColumnName="FieldworkStart" />
+                <ScalarProperty Name="EstimatedDebriefing" ColumnName="EstimatedDebriefing" />
+                <ScalarProperty Name="EstimatedBriefing" ColumnName="EstimatedBriefing" />
                 <ScalarProperty Name="fk_UserName_Requester" ColumnName="fk_UserName_Requester" />
                 <ScalarProperty Name="DateSubmitted" ColumnName="DateSubmitted" />
                 <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
@@ -137,13 +159,6 @@
                 <ScalarProperty Name="ProjectLead" ColumnName="ProjectLead" />
                 <ScalarProperty Name="ProjectNature" ColumnName="ProjectNature" />
                 <ScalarProperty Name="ProjectScope" ColumnName="ProjectScope" />
-                <ScalarProperty Name="ContractStart" ColumnName="ContractStart" />
-                <ScalarProperty Name="ContractFinish" ColumnName="ContractFinish" />
-                <ScalarProperty Name="Briefing" ColumnName="Briefing" />
-                <ScalarProperty Name="Fieldwork" ColumnName="Fieldwork" />
-                <ScalarProperty Name="Analysis" ColumnName="Analysis" />
-                <ScalarProperty Name="Reporting" ColumnName="Reporting" />
-                <ScalarProperty Name="Debrief" ColumnName="Debrief" />
                 <ScalarProperty Name="KeyInformation" ColumnName="KeyInformation" />
                 <ScalarProperty Name="SpecialRequirements" ColumnName="SpecialRequirements" />
                 <ScalarProperty Name="NumDirectorsRequired" ColumnName="NumDirectorsRequired" />
@@ -175,6 +190,15 @@
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teams">
+            <EntityTypeMapping TypeName="ResourcingToolModel.Team">
+              <MappingFragment StoreEntitySet="Team">
+                <ScalarProperty Name="fk_ProjectId" ColumnName="fk_ProjectId" />
+                <ScalarProperty Name="fk_UserId" ColumnName="fk_UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

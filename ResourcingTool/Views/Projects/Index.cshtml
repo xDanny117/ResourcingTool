@@ -57,12 +57,11 @@
                     <thead>
                         <tr class="row100 head">
                             <th class="cell100 column1">Project Name</th>
-                            <th class="cell100 column2">Sector</th>
                             <th class="cell100 column3">Client</th>
                             <th class="cell100 column4">Nature of project</th>
                             <th class="cell100 column5">Scope</th>
-                            <th class="cell100 column6">Start</th>
-                            <th class="cell100 column7">Finish</th>
+                            <th class="cell100 column6">Estimated Briefing</th>
+                            <th class="cell100 column7">Estimated Debreifing</th>
                             <th class="cell100 column8">Response needed by</th>
                             @if (User.IsInRole("Admin") || User.IsInRole("Resourcer"))
                             {
@@ -86,13 +85,12 @@
 
                                     <tr class="row100 body datarow" id="@item.ProjectId">
                                         <td class="cell100 cellMain column1">@Html.DisplayFor(modelItem => item.ProjectName)</td>
-                                        <td class="cell100 cellMain column2">@Html.DisplayFor(modelItem => item.ProjectSector)</td>
                                         <td class="cell100 cellMain column3">@Html.DisplayFor(modelItem => item.ProjectClient)</td>
                                         <td class="cell100 cellMain column4">@Html.DisplayFor(modelItem => item.ProjectNature)</td>
                                         <td class="cell100 cellMain column5">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
                                         @{
-                                            string dateValue = item.ContractStart.ToString("d/M/yyyy");
-                                            string dateValue2 = item.ContractFinish.ToString("d/M/yyyy");
+                                            string dateValue = item.EstimatedBriefing.ToString("d/M/yyyy");
+                                            string dateValue2 = item.EstimatedDebriefing.ToString("d/M/yyyy");
                                             string dateValue3 = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
                                         }
                                         <td class="cell100 cellMain column6">@Html.DisplayFor(modelItem => dateValue)</td>
@@ -114,13 +112,12 @@
 
                                     <tr class="row100 body datarow" id="@item.ProjectId">
                                         <td class="cell100 cellMain column1">@Html.DisplayFor(modelItem => item.ProjectName)</td>
-                                        <td class="cell100 cellMain column2">@Html.DisplayFor(modelItem => item.ProjectSector)</td>
                                         <td class="cell100 cellMain column3">@Html.DisplayFor(modelItem => item.ProjectClient)</td>
                                         <td class="cell100 cellMain column4">@Html.DisplayFor(modelItem => item.ProjectNature)</td>
                                         <td class="cell100 cellMain column5">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
                                         @{
-                                            string dateValue = item.ContractStart.ToString("d/M/yyyy");
-                                            string dateValue2 = item.ContractFinish.ToString("d/M/yyyy");
+                                            string dateValue = item.EstimatedBriefing.ToString("d/M/yyyy");
+                                            string dateValue2 = item.EstimatedDebriefing.ToString("d/M/yyyy");
                                             string dateValue3 = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
                                         }
                                         <td class="cell100 cellMain column6">@Html.DisplayFor(modelItem => dateValue)</td>
@@ -142,13 +139,12 @@
                                 {
                                     <tr class="row100  body datarow" id="@item.ProjectId">
                                         <td class="cell100 cellMain column1">@Html.DisplayFor(modelItem => item.ProjectName)</td>
-                                        <td class="cell100 cellMain column2">@Html.DisplayFor(modelItem => item.ProjectSector)</td>
                                         <td class="cell100 cellMain column3">@Html.DisplayFor(modelItem => item.ProjectClient)</td>
                                         <td class="cell100 cellMain column4">@Html.DisplayFor(modelItem => item.ProjectNature)</td>
                                         <td class="cell100 cellMain column5">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
                                         @{
-                                            string dateValue = item.ContractStart.ToString("d/M/yyyy");
-                                            string dateValue2 = item.ContractFinish.ToString("d/M/yyyy");
+                                            string dateValue = item.EstimatedBriefing.ToString("d/M/yyyy");
+                                            string dateValue2 = item.EstimatedDebriefing.ToString("d/M/yyyy");
                                             string dateValue3 = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
                                         }
                                         <td class="cell100 cellMain column6">@Html.DisplayFor(modelItem => dateValue)</td>
@@ -172,13 +168,12 @@
                                 {
                                     <tr class="row100 approved body datarow" id="@item.ProjectId">
                                         <td class="cell100 cellMain column1">@Html.DisplayFor(modelItem => item.ProjectName)</td>
-                                        <td class="cell100 cellMain column2">@Html.DisplayFor(modelItem => item.ProjectSector)</td>
                                         <td class="cell100 cellMain column3">@Html.DisplayFor(modelItem => item.ProjectClient)</td>
                                         <td class="cell100 cellMain column4">@Html.DisplayFor(modelItem => item.ProjectNature)</td>
                                         <td class="cell100 cellMain column5">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
                                         @{
-                                            string dateValue = item.ContractStart.ToString("d/M/yyyy");
-                                            string dateValue2 = item.ContractFinish.ToString("d/M/yyyy");
+                                            string dateValue = item.EstimatedBriefing.ToString("d/M/yyyy");
+                                            string dateValue2 = item.EstimatedDebriefing.ToString("d/M/yyyy");
                                             string dateValue3 = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
                                         }
                                         <td class="cell100 cellMain column6">@Html.DisplayFor(modelItem => dateValue)</td>
@@ -291,45 +286,40 @@
                     <textarea class='textarea' cols='50' value="@item.ProjectScope" disabled rows='1'>@item.ProjectScope</textarea>
                 </p>
                 @{
-                    string startDate = item.ContractStart.ToString("d/M/yyyy");
-                    string finishDate = item.ContractFinish.ToString("d/M/yyyy");
 
-                    string briefDate = item.Briefing.ToString("d/M/yyyy");
-                    string fieldDate = item.Fieldwork.ToString("d/M/yyyy");
-                    string analysisDate = item.Analysis.ToString("d/M/yyyy");
-                    string reportingDate = item.Reporting.ToString("d/M/yyyy");
-                    string debriefDate = item.Debrief.ToString("d/M/yyyy");
+                    string briefDate = item.EstimatedBriefing.ToString("d/M/yyyy");
+                    string fieldStart = item.FieldworkStart.ToString("d/M/yyyy");
+                    string fieldEnd = item.FieldworkEnd.ToString("d/M/yyyy");
+                    string anlRepStart = item.AlysRepStart.ToString("d/M/yyyy");
+                    string anlRepEnd = item.AlysRepEnd.ToString("d/M/yyyy");
+                    string debriefDate = item.EstimatedDebriefing.ToString("d/M/yyyy");
                     string responseNeeded = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
 
                 }
                 <p class='field half'>
-                    <label class='label' for='phone'>Start</label>
-                    <input class='text-input' value="@startDate" disabled type='text'>
-                </p>
-                <p class='field half'>
-                    <label class='label' for='phone'>Finish</label>
-                    <input class='text-input' value="@finishDate" disabled type='text'>
-                </p>
-
-                <p class='field half'>
-                    <label class='label' for='phone'>Briefing</label>
+                    <label class='label' for='phone'>Estimated Briefing</label>
                     <input class='text-input' value="@briefDate" disabled type='text'>
                 </p>
 
                 <p class='field half'>
-                    <label class='label' for='phone'>Fieldwork</label>
-                    <input class='text-input' value="@fieldDate" disabled type='text'>
+                    <label class='label' for='phone'>Fieldwork Start</label>
+                    <input class='text-input' value="@fieldStart" disabled type='text'>
+                </p>
+
+                <p class='field half'>
+                    <label class='label' for='phone'>Fieldwork End</label>
+                    <input class='text-input' value="@fieldEnd" disabled type='text'>
                 </p>
                 <p class='field third'>
-                    <label class='label' for='phone'>Analysis</label>
-                    <input class='text-input' value="@analysisDate" disabled type='text'>
+                    <label class='label' for='phone'>Analysis/Reporting Start</label>
+                    <input class='text-input' value="@anlRepStart" disabled type='text'>
                 </p>
                 <p class='field third'>
-                    <label class='label' for='phone'>Reporting</label>
-                    <input class='text-input' value="@reportingDate" disabled type='text'>
+                    <label class='label' for='phone'>Analysis/Reporting End</label>
+                    <input class='text-input' value="@anlRepEnd" disabled type='text'>
                 </p>
                 <p class='field third'>
-                    <label class='label' for='phone'>Debrief</label>
+                    <label class='label' for='phone'>Estimated Debriefing</label>
                     <input class='text-input' value="@debriefDate" disabled type='text'>
                 </p>
 
@@ -381,7 +371,7 @@
 
 
 
-                <label class='label required' style="width: 100%;" for='phone'>Number of days staff disabled</label>
+                <label class='label required' style="width: 100%;" for='phone'>Number of days staff required</label>
                 <p class='field sept'>
                     <label class='label labsmall' for='DaysDirectorsrequired'>Directors</label>
                     <input class='text-input' value="@item.DaysDirectorsRequired" disabled type='number'>

@@ -7,6 +7,7 @@
       <Diagram DiagramId="c41c96a1de36416eb793a23cca562334" Name="Diagram1" ZoomLevel="61">
         <EntityTypeShape EntityType="ResourcingToolModel.Project" Width="1.75" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ResourcingToolModel.User" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResourcingToolModel.Team" Width="1.5" PointX="8.2657665313527762" PointY="16.964601181896683" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
