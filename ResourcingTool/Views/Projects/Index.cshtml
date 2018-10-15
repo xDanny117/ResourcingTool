@@ -401,6 +401,58 @@
                     <label class='label labsmall' for='DaysAssociate1required'>Associate 1</label>
                     <input class='text-input' value="@item.DaysAssociate1Required" disabled type='number'>
                 </p>
+                <label class='label required' style="width: 100%;" for='phone'>Tech Resource Requirement (Total days at each grade)</label>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="label labsmall techtab"></th>
+                            <th class="label labsmall techtab">Start Date</th>
+                            <th class="label labsmall techtab">End Date</th>
+                            <th class="label labsmall techtab">M</th>
+                            <th class="label labsmall techtab">SA2</th>
+                            <th class="label labsmall techtab">SA1</th>
+                            <th class="label labsmall techtab">A2</th>
+                            <th class="label labsmall techtab">A1</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="" id="2">
+                            <td class="label labsmall techtab colIn">Data Capture</td>
+                            <td class=""><input class='text-input' disabled value='@item.DCStartDate'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DCEndDate'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DCTotalM'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DCTotalSA2'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DCTotalSA1'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DCTotalA2'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DCTotalA1'></td>
+                            <td></td>
+                        </tr>
+                        <tr class="" id="2">
+                            <td class="label labsmall techtab colIn">Data Analysis</td>
+                            <td class=""><input class='text-input' disabled value='@item.DAStartDate'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DAEndDate'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DATotalM'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DATotalSA2'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DATotalSA1'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DATotalA2'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DATotalA1'></td>
+                            <td></td>
+                        </tr>
+                        <tr class="" id="2">
+                            <td class="label labsmall techtab colIn">Data Visualisation</td>
+                            <td class=""><input class='text-input' disabled value='@item.DVStartDate'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DVEndDate'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DVTotalM'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DVTotalSA2'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DVTotalSA1'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DVTotalA2'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DVTotalA1'></td>
+                            <td></td>
+                        </tr>
+
+                    </tbody>
+                </table>
 
                 <p class='field half'>
                     <label class='label' for='phone'>Response Needed By</label>

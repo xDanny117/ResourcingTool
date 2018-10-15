@@ -35,7 +35,7 @@ body, html {
 
 body {
     font-family: 'Lato', Calibri, Arial, sans-serif;
-    color: #89867e;
+    color: #111;
     background: #fff;
 }
 
@@ -206,4 +206,15 @@ a {
     .codrops-icon span {
         display: none;
     }
+}
+
+
+.label.techtab {
+    display: table-cell;
+}
+
+.techtab.colIn {
+    padding: 0 10px 0 0 !important;
+    display: inline-block;
+    text-align: right !important;
 }

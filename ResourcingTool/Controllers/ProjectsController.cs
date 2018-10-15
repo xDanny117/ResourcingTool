@@ -15,7 +15,7 @@ namespace ResourcingTool.Controllers
 {
     public class ProjectsController : Controller
     {
-        private ResourcingToolEntitiesAzure db = new ResourcingToolEntitiesAzure();
+        private ResourcingToolEntities db = new ResourcingToolEntities();
 
         // GET: Projects
         public ActionResult Index()
@@ -56,7 +56,7 @@ namespace ResourcingTool.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
 
-        public ActionResult Create([Bind(Include = "ProjectId,ProjectName,ProjectSector,ProjectClient,ProjectLead,ProjectNature,ProjectScope,ContractStart,ContractFinish,EstimatedBriefing,FieldworkStart,FieldworkEnd,AlysRepStart,AlysRepEnd,EstimatedDebriefing,KeyInformation,SpecialRequirements,NumDirectorsRequired,NumSeniorManagersRequired,NumManagersRequired,NumSeniorAssociate2Required,NumSeniorAssociate1Required,NumAssociate2Required,NumAssociate1Required,DaysDirectorsRequired,DaysSeniorManagersRequired,DaysManagersRequired,DaysSeniorAssociate2Required,DaysSeniorAssociate1Required,DaysAssociate2Required,DaysAssociate1Required,ResponseNeededBy,fk_UserId_Requester,fk_UserName_Requester,DateSubmitted,Status")] Project project)
+        public ActionResult Create([Bind(Include = "ProjectId,ProjectName,ProjectSector,ProjectClient,ProjectLead,ProjectNature,ProjectScope,ContractStart,ContractFinish,EstimatedBriefing,FieldworkStart,FieldworkEnd,AlysRepStart,AlysRepEnd,EstimatedDebriefing,KeyInformation,SpecialRequirements,NumDirectorsRequired,NumSeniorManagersRequired,NumManagersRequired,NumSeniorAssociate2Required,NumSeniorAssociate1Required,NumAssociate2Required,NumAssociate1Required,DaysDirectorsRequired,DaysSeniorManagersRequired,DaysManagersRequired,DaysSeniorAssociate2Required,DaysSeniorAssociate1Required,DaysAssociate2Required,DaysAssociate1Required,ResponseNeededBy,fk_UserId_Requester,fk_UserName_Requester,DateSubmitted,Status,DCStartDate,DCEndDate,DCTotalM,DCTotalSA2,DCTotalSA1,DCTotalA2,DCTotalA1,,DAStartDate,DAEndDate,DATotalM,DATotalSA2,DATotalSA1,DATotalA2,DATotalA1,DVStartDate,DVEndDate,DVTotalM,DVTotalSA2,DVTotalSA1,DVTotalA2,DVTotalA1")] Project project)
         {
             if (ModelState.IsValid)
             {
@@ -159,7 +159,7 @@ namespace ResourcingTool.Controllers
             {
                 return View(); //Returns the view with the input values so that the user doesn't have to retype again
             }
-            using (ResourcingToolEntitiesAzure db = new ResourcingToolEntitiesAzure())
+            using (ResourcingToolEntities db = new ResourcingToolEntities())
             {
                 // hash the password and compare against database
                 if (!(userId == null || currentPassword == null))
@@ -203,7 +203,7 @@ namespace ResourcingTool.Controllers
             {
                 return View(userModel); //Returns the view with the input values so that the user doesn't have to retype again
             }
-            using (ResourcingToolEntitiesAzure db = new ResourcingToolEntitiesAzure())
+            using (ResourcingToolEntities db = new ResourcingToolEntities())
             {
                 // hash the password and compare against database
                 if (!(userModel.UserName == null || userModel.Password == null))

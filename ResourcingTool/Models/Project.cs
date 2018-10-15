@@ -21,6 +21,12 @@ namespace ResourcingTool.Models
         public string ProjectLead { get; set; }
         public string ProjectNature { get; set; }
         public string ProjectScope { get; set; }
+        public System.DateTime EstimatedBriefing { get; set; }
+        public System.DateTime EstimatedDebriefing { get; set; }
+        public System.DateTime FieldworkStart { get; set; }
+        public System.DateTime FieldworkEnd { get; set; }
+        public System.DateTime AlysRepStart { get; set; }
+        public System.DateTime AlysRepEnd { get; set; }
         public string KeyInformation { get; set; }
         public string SpecialRequirements { get; set; }
         public Nullable<int> NumDirectorsRequired { get; set; }
@@ -42,11 +48,26 @@ namespace ResourcingTool.Models
         public string Status { get; set; }
         public Nullable<System.DateTime> DateSubmitted { get; set; }
         public string fk_UserName_Requester { get; set; }
-        public System.DateTime EstimatedBriefing { get; set; }
-        public System.DateTime EstimatedDebriefing { get; set; }
-        public System.DateTime FieldworkStart { get; set; }
-        public System.DateTime FieldworkEnd { get; set; }
-        public System.DateTime AlysRepStart { get; set; }
-        public System.DateTime AlysRepEnd { get; set; }
+        public Nullable<System.DateTime> DCStartDate { get; set; }
+        public Nullable<System.DateTime> DCEndDate { get; set; }
+        public Nullable<int> DCTotalM { get; set; }
+        public Nullable<int> DCTotalSA2 { get; set; }
+        public Nullable<int> DCTotalSA1 { get; set; }
+        public Nullable<int> DCTotalA2 { get; set; }
+        public Nullable<int> DCTotalA1 { get; set; }
+        public Nullable<System.DateTime> DAStartDate { get; set; }
+        public Nullable<System.DateTime> DAEndDate { get; set; }
+        public Nullable<int> DATotalM { get; set; }
+        public Nullable<int> DATotalSA2 { get; set; }
+        public Nullable<int> DATotalSA1 { get; set; }
+        public Nullable<int> DATotalA2 { get; set; }
+        public Nullable<int> DATotalA1 { get; set; }
+        public Nullable<System.DateTime> DVStartDate { get; set; }
+        public Nullable<System.DateTime> DVEndDate { get; set; }
+        public Nullable<int> DVTotalM { get; set; }
+        public Nullable<int> DVTotalSA2 { get; set; }
+        public Nullable<int> DVTotalSA1 { get; set; }
+        public Nullable<int> DVTotalA2 { get; set; }
+        public Nullable<int> DVTotalA1 { get; set; }
     }
 }

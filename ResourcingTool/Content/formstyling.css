@@ -153,6 +153,7 @@ body {
     justify-content: space-between;
     align-items: flex-end;
     margin-top: 20px;
+    margin-bottom: 50px;
 }
 
     .form .field {

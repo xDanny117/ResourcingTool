@@ -13,10 +13,10 @@ namespace ResourcingTool.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ResourcingToolEntitiesAzure : DbContext
+    public partial class ResourcingToolEntities : DbContext
     {
-        public ResourcingToolEntitiesAzure()
-            : base("name=ResourcingToolEntitiesAzure")
+        public ResourcingToolEntities()
+            : base("name=ResourcingToolEntities")
         {
         }
     
@@ -26,7 +26,7 @@ namespace ResourcingTool.Models
         }
     
         public virtual DbSet<Project> Projects { get; set; }
-        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Team> Teams { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

@@ -283,16 +283,6 @@
     <Content Include="Models\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\ResourcingTool.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ResourcingTool.edmx</DependentUpon>
-      <LastGenOutput>ResourcingTool.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\ResourcingTool.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ResourcingTool.edmx</DependentUpon>
-      <LastGenOutput>ResourcingTool.cs</LastGenOutput>
-    </Content>
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -312,13 +302,6 @@
     <Content Include="Content\fonts\icomoon\icomoon.eot" />
     <Content Include="Content\fonts\icomoon\icomoon.ttf" />
     <Content Include="Content\fonts\icomoon\icomoon.woff" />
-    <EntityDeploy Include="Models\ResourcingTool.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ResourcingTool.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\ResourcingTool.edmx.diagram">
-      <DependentUpon>ResourcingTool.edmx</DependentUpon>
-    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -327,7 +310,24 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <EntityDeploy Include="Models\ResourcingTool.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ResourcingTool.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ResourcingTool.edmx.diagram">
+      <DependentUpon>ResourcingTool.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
+    <Content Include="Models\ResourcingTool.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ResourcingTool.edmx</DependentUpon>
+      <LastGenOutput>ResourcingTool.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ResourcingTool.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ResourcingTool.edmx</DependentUpon>
+      <LastGenOutput>ResourcingTool.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\filtering.js" />
@@ -351,7 +351,9 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\modernizr.custom.js" />
     <Content Include="Scripts\singleselectset.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
