@@ -1,0 +1,12 @@
+﻿.card-body {
+    padding: 0.25rem;
+}
+.card-footer {
+    padding: 0.25rem 0.5rem;
+}
+
+.myModal {
+    position: absolute;
+    overflow: initial;
+    margin:100px;
+}

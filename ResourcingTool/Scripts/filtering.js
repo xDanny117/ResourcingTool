@@ -1,97 +1,38 @@
 ﻿
 $(document).ready(function () {
-    var unmodFilter = function () {
-        $(".approved").fadeOut();
-        $(".rejected").fadeOut();
-        $(".unmoderated").fadeIn();
-    };
-    var appFilter = function () {
-        $(".unmoderated").fadeOut();
-        $(".rejected").fadeOut();
-        $(".approved").fadeIn();
-    };
-    var rejFilter = function () {
-        $(".unmoderated").fadeOut();
-        $(".approved").fadeOut();
-        $(".rejected").fadeIn();
-    };
+    $(".completedFilter").click(function () {
+        $(".completedRow").fadeIn();
+        $(".inprogressRow").fadeOut();
+        $(".submittedRow").fadeOut();
 
-    $(".unmod.filterButton").click(function () {
-        $(".approved").fadeOut();
-        $(".rejected").fadeOut();
-        $(".unmoderated").fadeIn();
         $(".filterButton").removeClass("active");
         $(this).addClass("active");
-        //$.when(unmodFilter()).done(function () {
-        //    allHidden();
-        //});
     });
 
-    $(".app.filterButton").click(function () {
-        $(".unmoderated").fadeOut();
-        $(".rejected").fadeOut();
-        $(".approved").fadeIn();
+    $(".unassignedFilter").click(function () {
+        $(".completedRow").fadeOut();
+        $(".inprogressRow").fadeOut();
+        $(".submittedRow").fadeIn();
+
         $(".filterButton").removeClass("active");
         $(this).addClass("active");
-        //$.when(appFilter()).done(function () {
-        //    allHidden();
-        //});
     });
 
-    $(".rej.filterButton").click(function () {
-        $(".unmoderated").fadeOut();
-        $(".approved").fadeOut();
-        $(".rejected").fadeIn();
+    $(".inprogressFilter").click(function () {
+        $(".completedRow").fadeOut();
+        $(".inprogressRow").fadeIn();
+        $(".submittedRow").fadeOut();
+
         $(".filterButton").removeClass("active");
         $(this).addClass("active");
-        //$.when(rejFilter()).done(function () {
-        //    allHidden();
-        //});
     });
+    
+    $(".allFilter").click(function () {
+        $(".completedRow").fadeIn();
+        $(".inprogressRow").fadeIn();
+        $(".submittedRow").fadeIn();
 
-
-
-    $(".all.filterButton").click(function () {
-        $(".answered").fadeIn();
-        $(".unanswered").fadeIn();
         $(".filterButton").removeClass("active");
         $(this).addClass("active");
-        //$(".answered").promise().done(function () {
-        //    allHidden();
-        //});
     });
-
-    $(".ans.filterButton").click(function () {
-        $(".answered").fadeIn();
-        $(".unanswered").fadeOut();
-        $(".filterButton").removeClass("active");
-        $(this).addClass("active");
-        //$(".unanswered").promise().done(function () {
-        //    allHidden();
-        //});
-    });
-
-    $(".unans.filterButton").click(function () {
-        $(".answered").fadeOut();
-        $(".unanswered").fadeIn();
-        $(".filterButton").removeClass("active");
-        $(this).addClass("active");
-
-        //$(".answered").promise().done(function () {
-        //    allHidden();
-        //});
-    });
-
 });
-
-function allHidden() {
-    console.log("Hidden: "+$('.mainparent').children(':hidden').length);
-    if ($('.mainparent').children(':hidden').length == 0) {
-        $(".noquestions").fadeIn();
-        console.log("no items");
-
-    } else {
-        $(".noquestions").fadeOut();
-        console.log("items");
-    }
-}

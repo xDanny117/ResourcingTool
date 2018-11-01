@@ -1,0 +1,624 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ResourcingToolModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="ProjectId" />
+          </Key>
+          <Property Name="ProjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectName" Type="varchar(max)" Nullable="false" />
+          <Property Name="ProjectSector" Type="varchar(max)" Nullable="false" />
+          <Property Name="ProjectClient" Type="varchar(max)" Nullable="false" />
+          <Property Name="ProjectLead" Type="varchar(max)" Nullable="false" />
+          <Property Name="ProjectNature" Type="varchar(max)" Nullable="false" />
+          <Property Name="ProjectScope" Type="varchar(max)" Nullable="false" />
+          <Property Name="EstimatedBriefing" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="EstimatedDebriefing" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="FieldworkStart" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="FieldworkEnd" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="AlysRepStart" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="AlysRepEnd" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="KeyInformation" Type="varchar(max)" Nullable="false" />
+          <Property Name="SpecialRequirements" Type="varchar(max)" />
+          <Property Name="NumDirectorsRequired" Type="int" />
+          <Property Name="NumSeniorManagersRequired" Type="int" />
+          <Property Name="NumManagersRequired" Type="int" />
+          <Property Name="NumSeniorAssociate2Required" Type="int" />
+          <Property Name="NumSeniorAssociate1Required" Type="int" />
+          <Property Name="NumAssociate2Required" Type="int" />
+          <Property Name="NumAssociate1Required" Type="int" />
+          <Property Name="DaysDirectorsRequired" Type="int" />
+          <Property Name="DaysSeniorManagersRequired" Type="int" />
+          <Property Name="DaysManagersRequired" Type="int" />
+          <Property Name="DaysSeniorAssociate2Required" Type="int" />
+          <Property Name="DaysSeniorAssociate1Required" Type="int" />
+          <Property Name="DaysAssociate2Required" Type="int" />
+          <Property Name="DaysAssociate1Required" Type="int" />
+          <Property Name="ResponseNeededBy" Type="datetime2" Precision="7" />
+          <Property Name="fk_UserId_Requester" Type="int" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="DateSubmitted" Type="datetime2" Precision="7" />
+          <Property Name="fk_UserName_Requester" Type="varchar(max)" />
+          <Property Name="DCStartDate" Type="datetime2" Precision="7" />
+          <Property Name="DCEndDate" Type="datetime2" Precision="7" />
+          <Property Name="DCTotalM" Type="int" />
+          <Property Name="DCTotalSA2" Type="int" />
+          <Property Name="DCTotalSA1" Type="int" />
+          <Property Name="DCTotalA2" Type="int" />
+          <Property Name="DCTotalA1" Type="int" />
+          <Property Name="DAStartDate" Type="datetime2" Precision="7" />
+          <Property Name="DAEndDate" Type="datetime2" Precision="7" />
+          <Property Name="DATotalM" Type="int" />
+          <Property Name="DATotalSA2" Type="int" />
+          <Property Name="DATotalSA1" Type="int" />
+          <Property Name="DATotalA2" Type="int" />
+          <Property Name="DATotalA1" Type="int" />
+          <Property Name="DVStartDate" Type="datetime2" Precision="7" />
+          <Property Name="DVEndDate" Type="datetime2" Precision="7" />
+          <Property Name="DVTotalM" Type="int" />
+          <Property Name="DVTotalSA2" Type="int" />
+          <Property Name="DVTotalSA1" Type="int" />
+          <Property Name="DVTotalA2" Type="int" />
+          <Property Name="DVTotalA1" Type="int" />
+          <Property Name="Date1" Type="varchar(max)" />
+          <Property Name="DTime1" Type="varchar(max)" />
+          <Property Name="SMTime1" Type="varchar(max)" />
+          <Property Name="MTime1" Type="varchar(max)" />
+          <Property Name="SA2Time1" Type="varchar(max)" />
+          <Property Name="SA1Time1" Type="varchar(max)" />
+          <Property Name="A2Time1" Type="varchar(max)" />
+          <Property Name="A1Time1" Type="varchar(max)" />
+          <Property Name="Date2" Type="varchar(max)" />
+          <Property Name="DTime2" Type="varchar(max)" />
+          <Property Name="SMTime2" Type="varchar(max)" />
+          <Property Name="MTime2" Type="varchar(max)" />
+          <Property Name="SA2Time2" Type="varchar(max)" />
+          <Property Name="SA1Time2" Type="varchar(max)" />
+          <Property Name="A2Time2" Type="varchar(max)" />
+          <Property Name="A1Time2" Type="varchar(max)" />
+          <Property Name="Date3" Type="varchar(max)" />
+          <Property Name="DTime3" Type="varchar(max)" />
+          <Property Name="SMTime3" Type="varchar(max)" />
+          <Property Name="MTime3" Type="varchar(max)" />
+          <Property Name="SA2Time3" Type="varchar(max)" />
+          <Property Name="SA1Time3" Type="varchar(max)" />
+          <Property Name="A2Time3" Type="varchar(max)" />
+          <Property Name="A1Time3" Type="varchar(max)" />
+          <Property Name="Date4" Type="varchar(max)" />
+          <Property Name="DTime4" Type="varchar(max)" />
+          <Property Name="SMTime4" Type="varchar(max)" />
+          <Property Name="MTime4" Type="varchar(max)" />
+          <Property Name="SA2Time4" Type="varchar(max)" />
+          <Property Name="SA1Time4" Type="varchar(max)" />
+          <Property Name="A2Time4" Type="varchar(max)" />
+          <Property Name="A1Time4" Type="varchar(max)" />
+          <Property Name="Date5" Type="varchar(max)" />
+          <Property Name="DTime5" Type="varchar(max)" />
+          <Property Name="SMTime5" Type="varchar(max)" />
+          <Property Name="MTime5" Type="varchar(max)" />
+          <Property Name="SA2Time5" Type="varchar(max)" />
+          <Property Name="SA1Time5" Type="varchar(max)" />
+          <Property Name="A2Time5" Type="varchar(max)" />
+          <Property Name="A1Time5" Type="varchar(max)" />
+          <Property Name="Date6" Type="varchar(max)" />
+          <Property Name="DTime6" Type="varchar(max)" />
+          <Property Name="SMTime6" Type="varchar(max)" />
+          <Property Name="MTime6" Type="varchar(max)" />
+          <Property Name="SA2Time6" Type="varchar(max)" />
+          <Property Name="SA1Time6" Type="varchar(max)" />
+          <Property Name="A2Time6" Type="varchar(max)" />
+          <Property Name="A1Time6" Type="varchar(max)" />
+          <Property Name="Date7" Type="varchar(max)" />
+          <Property Name="DTime7" Type="varchar(max)" />
+          <Property Name="SMTime7" Type="varchar(max)" />
+          <Property Name="MTime7" Type="varchar(max)" />
+          <Property Name="SA2Time7" Type="varchar(max)" />
+          <Property Name="SA1Time7" Type="varchar(max)" />
+          <Property Name="A2Time7" Type="varchar(max)" />
+          <Property Name="A1Time7" Type="varchar(max)" />
+          <Property Name="Date8" Type="varchar(max)" />
+          <Property Name="DTime8" Type="varchar(max)" />
+          <Property Name="SMTime8" Type="varchar(max)" />
+          <Property Name="MTime8" Type="varchar(max)" />
+          <Property Name="SA2Time8" Type="varchar(max)" />
+          <Property Name="SA1Time8" Type="varchar(max)" />
+          <Property Name="A2Time8" Type="varchar(max)" />
+          <Property Name="A1Time8" Type="varchar(max)" />
+          <Property Name="Date9" Type="varchar(max)" />
+          <Property Name="DTime9" Type="varchar(max)" />
+          <Property Name="SMTime9" Type="varchar(max)" />
+          <Property Name="MTime9" Type="varchar(max)" />
+          <Property Name="SA2Time9" Type="varchar(max)" />
+          <Property Name="SA1Time9" Type="varchar(max)" />
+          <Property Name="A2Time9" Type="varchar(max)" />
+          <Property Name="A1Time9" Type="varchar(max)" />
+          <Property Name="Date10" Type="varchar(max)" />
+          <Property Name="DTime10" Type="varchar(max)" />
+          <Property Name="SMTime10" Type="varchar(max)" />
+          <Property Name="MTime10" Type="varchar(max)" />
+          <Property Name="SA2Time10" Type="varchar(max)" />
+          <Property Name="SA1Time10" Type="varchar(max)" />
+          <Property Name="A2Time10" Type="varchar(max)" />
+          <Property Name="A1Time10" Type="varchar(max)" />
+          <Property Name="Date11" Type="varchar(max)" />
+          <Property Name="DTime11" Type="varchar(max)" />
+          <Property Name="SMTime11" Type="varchar(max)" />
+          <Property Name="MTime11" Type="varchar(max)" />
+          <Property Name="SA2Time11" Type="varchar(max)" />
+          <Property Name="SA1Time11" Type="varchar(max)" />
+          <Property Name="A2Time11" Type="varchar(max)" />
+          <Property Name="A1Time11" Type="varchar(max)" />
+          <Property Name="Date12" Type="varchar(max)" />
+          <Property Name="DTime12" Type="varchar(max)" />
+          <Property Name="SMTime12" Type="varchar(max)" />
+          <Property Name="MTime12" Type="varchar(max)" />
+          <Property Name="SA2Time12" Type="varchar(max)" />
+          <Property Name="SA1Time12" Type="varchar(max)" />
+          <Property Name="A2Time12" Type="varchar(max)" />
+          <Property Name="A1Time12" Type="varchar(max)" />
+          <Property Name="Date13" Type="varchar(max)" />
+          <Property Name="DTime13" Type="varchar(max)" />
+          <Property Name="SMTime13" Type="varchar(max)" />
+          <Property Name="MTime13" Type="varchar(max)" />
+          <Property Name="SA2Time13" Type="varchar(max)" />
+          <Property Name="SA1Time13" Type="varchar(max)" />
+          <Property Name="A2Time13" Type="varchar(max)" />
+          <Property Name="A1Time13" Type="varchar(max)" />
+          <Property Name="Date14" Type="varchar(max)" />
+          <Property Name="DTime14" Type="varchar(max)" />
+          <Property Name="SMTime14" Type="varchar(max)" />
+          <Property Name="MTime14" Type="varchar(max)" />
+          <Property Name="SA2Time14" Type="varchar(max)" />
+          <Property Name="SA1Time14" Type="varchar(max)" />
+          <Property Name="A2Time14" Type="varchar(max)" />
+          <Property Name="A1Time14" Type="varchar(max)" />
+          <Property Name="Date15" Type="varchar(max)" />
+          <Property Name="DTime15" Type="varchar(max)" />
+          <Property Name="SMTime15" Type="varchar(max)" />
+          <Property Name="MTime15" Type="varchar(max)" />
+          <Property Name="SA2Time15" Type="varchar(max)" />
+          <Property Name="SA1Time15" Type="varchar(max)" />
+          <Property Name="A2Time15" Type="varchar(max)" />
+          <Property Name="A1Time15" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar(max)" Nullable="false" />
+          <Property Name="UserName" Type="varchar(max)" Nullable="false" />
+          <Property Name="Password" Type="varchar(max)" Nullable="false" />
+          <Property Name="Role" Type="varchar(max)" Nullable="false" />
+          <Property Name="Email" Type="varchar(max)" />
+        </EntityType>
+        <EntityContainer Name="ResourcingToolModelStoreContainer">
+          <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ResourcingToolModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="ProjectId" />
+          </Key>
+          <Property Name="ProjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProjectSector" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProjectClient" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProjectLead" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProjectNature" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProjectScope" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EstimatedBriefing" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="EstimatedDebriefing" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="FieldworkStart" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="FieldworkEnd" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="AlysRepStart" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="AlysRepEnd" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="KeyInformation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SpecialRequirements" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NumDirectorsRequired" Type="Int32" />
+          <Property Name="NumSeniorManagersRequired" Type="Int32" />
+          <Property Name="NumManagersRequired" Type="Int32" />
+          <Property Name="NumSeniorAssociate2Required" Type="Int32" />
+          <Property Name="NumSeniorAssociate1Required" Type="Int32" />
+          <Property Name="NumAssociate2Required" Type="Int32" />
+          <Property Name="NumAssociate1Required" Type="Int32" />
+          <Property Name="DaysDirectorsRequired" Type="Int32" />
+          <Property Name="DaysSeniorManagersRequired" Type="Int32" />
+          <Property Name="DaysManagersRequired" Type="Int32" />
+          <Property Name="DaysSeniorAssociate2Required" Type="Int32" />
+          <Property Name="DaysSeniorAssociate1Required" Type="Int32" />
+          <Property Name="DaysAssociate2Required" Type="Int32" />
+          <Property Name="DaysAssociate1Required" Type="Int32" />
+          <Property Name="ResponseNeededBy" Type="DateTime" Precision="7" />
+          <Property Name="fk_UserId_Requester" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateSubmitted" Type="DateTime" Precision="7" />
+          <Property Name="fk_UserName_Requester" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DCStartDate" Type="DateTime" Precision="7" />
+          <Property Name="DCEndDate" Type="DateTime" Precision="7" />
+          <Property Name="DCTotalM" Type="Int32" />
+          <Property Name="DCTotalSA2" Type="Int32" />
+          <Property Name="DCTotalSA1" Type="Int32" />
+          <Property Name="DCTotalA2" Type="Int32" />
+          <Property Name="DCTotalA1" Type="Int32" />
+          <Property Name="DAStartDate" Type="DateTime" Precision="7" />
+          <Property Name="DAEndDate" Type="DateTime" Precision="7" />
+          <Property Name="DATotalM" Type="Int32" />
+          <Property Name="DATotalSA2" Type="Int32" />
+          <Property Name="DATotalSA1" Type="Int32" />
+          <Property Name="DATotalA2" Type="Int32" />
+          <Property Name="DATotalA1" Type="Int32" />
+          <Property Name="DVStartDate" Type="DateTime" Precision="7" />
+          <Property Name="DVEndDate" Type="DateTime" Precision="7" />
+          <Property Name="DVTotalM" Type="Int32" />
+          <Property Name="DVTotalSA2" Type="Int32" />
+          <Property Name="DVTotalSA1" Type="Int32" />
+          <Property Name="DVTotalA2" Type="Int32" />
+          <Property Name="DVTotalA1" Type="Int32" />
+          <Property Name="Date1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DTime1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SMTime1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MTime1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA2Time1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA1Time1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A2Time1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A1Time1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Date2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DTime2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SMTime2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MTime2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA2Time2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA1Time2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A2Time2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A1Time2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Date3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DTime3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SMTime3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MTime3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA2Time3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA1Time3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A2Time3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A1Time3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Date4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DTime4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SMTime4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MTime4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA2Time4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA1Time4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A2Time4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A1Time4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Date5" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DTime5" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SMTime5" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MTime5" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA2Time5" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA1Time5" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A2Time5" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A1Time5" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Date6" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DTime6" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SMTime6" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MTime6" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA2Time6" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA1Time6" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A2Time6" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A1Time6" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Date7" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DTime7" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SMTime7" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MTime7" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA2Time7" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA1Time7" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A2Time7" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A1Time7" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Date8" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DTime8" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SMTime8" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MTime8" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA2Time8" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA1Time8" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A2Time8" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A1Time8" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Date9" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DTime9" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SMTime9" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MTime9" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA2Time9" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA1Time9" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A2Time9" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A1Time9" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Date10" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DTime10" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SMTime10" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MTime10" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA2Time10" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA1Time10" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A2Time10" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A1Time10" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Date11" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DTime11" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SMTime11" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MTime11" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA2Time11" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA1Time11" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A2Time11" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A1Time11" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Date12" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DTime12" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SMTime12" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MTime12" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA2Time12" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA1Time12" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A2Time12" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A1Time12" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Date13" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DTime13" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SMTime13" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MTime13" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA2Time13" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA1Time13" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A2Time13" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A1Time13" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Date14" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DTime14" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SMTime14" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MTime14" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA2Time14" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA1Time14" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A2Time14" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A1Time14" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Date15" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DTime15" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SMTime15" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MTime15" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA2Time15" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SA1Time15" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A2Time15" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A1Time15" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="ResourcingToolConnection" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Projects" EntityType="Self.Project" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ResourcingToolModelStoreContainer" CdmEntityContainer="ResourcingToolConnection">
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="ResourcingToolModel.Project">
+              <MappingFragment StoreEntitySet="Project">
+                <ScalarProperty Name="A1Time15" ColumnName="A1Time15" />
+                <ScalarProperty Name="A2Time15" ColumnName="A2Time15" />
+                <ScalarProperty Name="SA1Time15" ColumnName="SA1Time15" />
+                <ScalarProperty Name="SA2Time15" ColumnName="SA2Time15" />
+                <ScalarProperty Name="MTime15" ColumnName="MTime15" />
+                <ScalarProperty Name="SMTime15" ColumnName="SMTime15" />
+                <ScalarProperty Name="DTime15" ColumnName="DTime15" />
+                <ScalarProperty Name="Date15" ColumnName="Date15" />
+                <ScalarProperty Name="A1Time14" ColumnName="A1Time14" />
+                <ScalarProperty Name="A2Time14" ColumnName="A2Time14" />
+                <ScalarProperty Name="SA1Time14" ColumnName="SA1Time14" />
+                <ScalarProperty Name="SA2Time14" ColumnName="SA2Time14" />
+                <ScalarProperty Name="MTime14" ColumnName="MTime14" />
+                <ScalarProperty Name="SMTime14" ColumnName="SMTime14" />
+                <ScalarProperty Name="DTime14" ColumnName="DTime14" />
+                <ScalarProperty Name="Date14" ColumnName="Date14" />
+                <ScalarProperty Name="A1Time13" ColumnName="A1Time13" />
+                <ScalarProperty Name="A2Time13" ColumnName="A2Time13" />
+                <ScalarProperty Name="SA1Time13" ColumnName="SA1Time13" />
+                <ScalarProperty Name="SA2Time13" ColumnName="SA2Time13" />
+                <ScalarProperty Name="MTime13" ColumnName="MTime13" />
+                <ScalarProperty Name="SMTime13" ColumnName="SMTime13" />
+                <ScalarProperty Name="DTime13" ColumnName="DTime13" />
+                <ScalarProperty Name="Date13" ColumnName="Date13" />
+                <ScalarProperty Name="A1Time12" ColumnName="A1Time12" />
+                <ScalarProperty Name="A2Time12" ColumnName="A2Time12" />
+                <ScalarProperty Name="SA1Time12" ColumnName="SA1Time12" />
+                <ScalarProperty Name="SA2Time12" ColumnName="SA2Time12" />
+                <ScalarProperty Name="MTime12" ColumnName="MTime12" />
+                <ScalarProperty Name="SMTime12" ColumnName="SMTime12" />
+                <ScalarProperty Name="DTime12" ColumnName="DTime12" />
+                <ScalarProperty Name="Date12" ColumnName="Date12" />
+                <ScalarProperty Name="A1Time11" ColumnName="A1Time11" />
+                <ScalarProperty Name="A2Time11" ColumnName="A2Time11" />
+                <ScalarProperty Name="SA1Time11" ColumnName="SA1Time11" />
+                <ScalarProperty Name="SA2Time11" ColumnName="SA2Time11" />
+                <ScalarProperty Name="MTime11" ColumnName="MTime11" />
+                <ScalarProperty Name="SMTime11" ColumnName="SMTime11" />
+                <ScalarProperty Name="DTime11" ColumnName="DTime11" />
+                <ScalarProperty Name="Date11" ColumnName="Date11" />
+                <ScalarProperty Name="A1Time10" ColumnName="A1Time10" />
+                <ScalarProperty Name="A2Time10" ColumnName="A2Time10" />
+                <ScalarProperty Name="SA1Time10" ColumnName="SA1Time10" />
+                <ScalarProperty Name="SA2Time10" ColumnName="SA2Time10" />
+                <ScalarProperty Name="MTime10" ColumnName="MTime10" />
+                <ScalarProperty Name="SMTime10" ColumnName="SMTime10" />
+                <ScalarProperty Name="DTime10" ColumnName="DTime10" />
+                <ScalarProperty Name="Date10" ColumnName="Date10" />
+                <ScalarProperty Name="A1Time9" ColumnName="A1Time9" />
+                <ScalarProperty Name="A2Time9" ColumnName="A2Time9" />
+                <ScalarProperty Name="SA1Time9" ColumnName="SA1Time9" />
+                <ScalarProperty Name="SA2Time9" ColumnName="SA2Time9" />
+                <ScalarProperty Name="MTime9" ColumnName="MTime9" />
+                <ScalarProperty Name="SMTime9" ColumnName="SMTime9" />
+                <ScalarProperty Name="DTime9" ColumnName="DTime9" />
+                <ScalarProperty Name="Date9" ColumnName="Date9" />
+                <ScalarProperty Name="A1Time8" ColumnName="A1Time8" />
+                <ScalarProperty Name="A2Time8" ColumnName="A2Time8" />
+                <ScalarProperty Name="SA1Time8" ColumnName="SA1Time8" />
+                <ScalarProperty Name="SA2Time8" ColumnName="SA2Time8" />
+                <ScalarProperty Name="MTime8" ColumnName="MTime8" />
+                <ScalarProperty Name="SMTime8" ColumnName="SMTime8" />
+                <ScalarProperty Name="DTime8" ColumnName="DTime8" />
+                <ScalarProperty Name="Date8" ColumnName="Date8" />
+                <ScalarProperty Name="A1Time7" ColumnName="A1Time7" />
+                <ScalarProperty Name="A2Time7" ColumnName="A2Time7" />
+                <ScalarProperty Name="SA1Time7" ColumnName="SA1Time7" />
+                <ScalarProperty Name="SA2Time7" ColumnName="SA2Time7" />
+                <ScalarProperty Name="MTime7" ColumnName="MTime7" />
+                <ScalarProperty Name="SMTime7" ColumnName="SMTime7" />
+                <ScalarProperty Name="DTime7" ColumnName="DTime7" />
+                <ScalarProperty Name="Date7" ColumnName="Date7" />
+                <ScalarProperty Name="A1Time6" ColumnName="A1Time6" />
+                <ScalarProperty Name="A2Time6" ColumnName="A2Time6" />
+                <ScalarProperty Name="SA1Time6" ColumnName="SA1Time6" />
+                <ScalarProperty Name="SA2Time6" ColumnName="SA2Time6" />
+                <ScalarProperty Name="MTime6" ColumnName="MTime6" />
+                <ScalarProperty Name="SMTime6" ColumnName="SMTime6" />
+                <ScalarProperty Name="DTime6" ColumnName="DTime6" />
+                <ScalarProperty Name="Date6" ColumnName="Date6" />
+                <ScalarProperty Name="A1Time5" ColumnName="A1Time5" />
+                <ScalarProperty Name="A2Time5" ColumnName="A2Time5" />
+                <ScalarProperty Name="SA1Time5" ColumnName="SA1Time5" />
+                <ScalarProperty Name="SA2Time5" ColumnName="SA2Time5" />
+                <ScalarProperty Name="MTime5" ColumnName="MTime5" />
+                <ScalarProperty Name="SMTime5" ColumnName="SMTime5" />
+                <ScalarProperty Name="DTime5" ColumnName="DTime5" />
+                <ScalarProperty Name="Date5" ColumnName="Date5" />
+                <ScalarProperty Name="A1Time4" ColumnName="A1Time4" />
+                <ScalarProperty Name="A2Time4" ColumnName="A2Time4" />
+                <ScalarProperty Name="SA1Time4" ColumnName="SA1Time4" />
+                <ScalarProperty Name="SA2Time4" ColumnName="SA2Time4" />
+                <ScalarProperty Name="MTime4" ColumnName="MTime4" />
+                <ScalarProperty Name="SMTime4" ColumnName="SMTime4" />
+                <ScalarProperty Name="DTime4" ColumnName="DTime4" />
+                <ScalarProperty Name="Date4" ColumnName="Date4" />
+                <ScalarProperty Name="A1Time3" ColumnName="A1Time3" />
+                <ScalarProperty Name="A2Time3" ColumnName="A2Time3" />
+                <ScalarProperty Name="SA1Time3" ColumnName="SA1Time3" />
+                <ScalarProperty Name="SA2Time3" ColumnName="SA2Time3" />
+                <ScalarProperty Name="MTime3" ColumnName="MTime3" />
+                <ScalarProperty Name="SMTime3" ColumnName="SMTime3" />
+                <ScalarProperty Name="DTime3" ColumnName="DTime3" />
+                <ScalarProperty Name="Date3" ColumnName="Date3" />
+                <ScalarProperty Name="A1Time2" ColumnName="A1Time2" />
+                <ScalarProperty Name="A2Time2" ColumnName="A2Time2" />
+                <ScalarProperty Name="SA1Time2" ColumnName="SA1Time2" />
+                <ScalarProperty Name="SA2Time2" ColumnName="SA2Time2" />
+                <ScalarProperty Name="MTime2" ColumnName="MTime2" />
+                <ScalarProperty Name="SMTime2" ColumnName="SMTime2" />
+                <ScalarProperty Name="DTime2" ColumnName="DTime2" />
+                <ScalarProperty Name="Date2" ColumnName="Date2" />
+                <ScalarProperty Name="A1Time1" ColumnName="A1Time1" />
+                <ScalarProperty Name="A2Time1" ColumnName="A2Time1" />
+                <ScalarProperty Name="SA1Time1" ColumnName="SA1Time1" />
+                <ScalarProperty Name="SA2Time1" ColumnName="SA2Time1" />
+                <ScalarProperty Name="MTime1" ColumnName="MTime1" />
+                <ScalarProperty Name="SMTime1" ColumnName="SMTime1" />
+                <ScalarProperty Name="DTime1" ColumnName="DTime1" />
+                <ScalarProperty Name="Date1" ColumnName="Date1" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="ProjectSector" ColumnName="ProjectSector" />
+                <ScalarProperty Name="ProjectClient" ColumnName="ProjectClient" />
+                <ScalarProperty Name="ProjectLead" ColumnName="ProjectLead" />
+                <ScalarProperty Name="ProjectNature" ColumnName="ProjectNature" />
+                <ScalarProperty Name="ProjectScope" ColumnName="ProjectScope" />
+                <ScalarProperty Name="EstimatedBriefing" ColumnName="EstimatedBriefing" />
+                <ScalarProperty Name="EstimatedDebriefing" ColumnName="EstimatedDebriefing" />
+                <ScalarProperty Name="FieldworkStart" ColumnName="FieldworkStart" />
+                <ScalarProperty Name="FieldworkEnd" ColumnName="FieldworkEnd" />
+                <ScalarProperty Name="AlysRepStart" ColumnName="AlysRepStart" />
+                <ScalarProperty Name="AlysRepEnd" ColumnName="AlysRepEnd" />
+                <ScalarProperty Name="KeyInformation" ColumnName="KeyInformation" />
+                <ScalarProperty Name="SpecialRequirements" ColumnName="SpecialRequirements" />
+                <ScalarProperty Name="NumDirectorsRequired" ColumnName="NumDirectorsRequired" />
+                <ScalarProperty Name="NumSeniorManagersRequired" ColumnName="NumSeniorManagersRequired" />
+                <ScalarProperty Name="NumManagersRequired" ColumnName="NumManagersRequired" />
+                <ScalarProperty Name="NumSeniorAssociate2Required" ColumnName="NumSeniorAssociate2Required" />
+                <ScalarProperty Name="NumSeniorAssociate1Required" ColumnName="NumSeniorAssociate1Required" />
+                <ScalarProperty Name="NumAssociate2Required" ColumnName="NumAssociate2Required" />
+                <ScalarProperty Name="NumAssociate1Required" ColumnName="NumAssociate1Required" />
+                <ScalarProperty Name="DaysDirectorsRequired" ColumnName="DaysDirectorsRequired" />
+                <ScalarProperty Name="DaysSeniorManagersRequired" ColumnName="DaysSeniorManagersRequired" />
+                <ScalarProperty Name="DaysManagersRequired" ColumnName="DaysManagersRequired" />
+                <ScalarProperty Name="DaysSeniorAssociate2Required" ColumnName="DaysSeniorAssociate2Required" />
+                <ScalarProperty Name="DaysSeniorAssociate1Required" ColumnName="DaysSeniorAssociate1Required" />
+                <ScalarProperty Name="DaysAssociate2Required" ColumnName="DaysAssociate2Required" />
+                <ScalarProperty Name="DaysAssociate1Required" ColumnName="DaysAssociate1Required" />
+                <ScalarProperty Name="ResponseNeededBy" ColumnName="ResponseNeededBy" />
+                <ScalarProperty Name="fk_UserId_Requester" ColumnName="fk_UserId_Requester" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DateSubmitted" ColumnName="DateSubmitted" />
+                <ScalarProperty Name="fk_UserName_Requester" ColumnName="fk_UserName_Requester" />
+                <ScalarProperty Name="DCStartDate" ColumnName="DCStartDate" />
+                <ScalarProperty Name="DCEndDate" ColumnName="DCEndDate" />
+                <ScalarProperty Name="DCTotalM" ColumnName="DCTotalM" />
+                <ScalarProperty Name="DCTotalSA2" ColumnName="DCTotalSA2" />
+                <ScalarProperty Name="DCTotalSA1" ColumnName="DCTotalSA1" />
+                <ScalarProperty Name="DCTotalA2" ColumnName="DCTotalA2" />
+                <ScalarProperty Name="DCTotalA1" ColumnName="DCTotalA1" />
+                <ScalarProperty Name="DAStartDate" ColumnName="DAStartDate" />
+                <ScalarProperty Name="DAEndDate" ColumnName="DAEndDate" />
+                <ScalarProperty Name="DATotalM" ColumnName="DATotalM" />
+                <ScalarProperty Name="DATotalSA2" ColumnName="DATotalSA2" />
+                <ScalarProperty Name="DATotalSA1" ColumnName="DATotalSA1" />
+                <ScalarProperty Name="DATotalA2" ColumnName="DATotalA2" />
+                <ScalarProperty Name="DATotalA1" ColumnName="DATotalA1" />
+                <ScalarProperty Name="DVStartDate" ColumnName="DVStartDate" />
+                <ScalarProperty Name="DVEndDate" ColumnName="DVEndDate" />
+                <ScalarProperty Name="DVTotalM" ColumnName="DVTotalM" />
+                <ScalarProperty Name="DVTotalSA2" ColumnName="DVTotalSA2" />
+                <ScalarProperty Name="DVTotalSA1" ColumnName="DVTotalSA1" />
+                <ScalarProperty Name="DVTotalA2" ColumnName="DVTotalA2" />
+                <ScalarProperty Name="DVTotalA1" ColumnName="DVTotalA1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ResourcingToolModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

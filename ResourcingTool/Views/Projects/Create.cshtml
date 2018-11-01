@@ -188,13 +188,14 @@
         <label class='label labsmall' for='DaysAssociate1Required'>Associate 1</label>
         <input class='text-input' id='DaysAssociate1Required' name='DaysAssociate1Required' value="0" required type='number'>
     </p>
-    <label class='label required' style="width: 100%;" for='phone'>Tech Resource Requirement (Total days at each grade)</label>
+    @*<label class='label required' style="width: 100%;" for='phone'>Resource Requirement</label>
     <table>
         <thead>
             <tr>
+                <th class="label labsmall techtab">Grade</th>
                 <th class="label labsmall techtab"></th>
-                <th class="label labsmall techtab">Start Date</th>
-                <th class="label labsmall techtab">End Date</th>
+                <th class="label labsmall techtab">D</th>
+                <th class="label labsmall techtab">SM</th>
                 <th class="label labsmall techtab">M</th>
                 <th class="label labsmall techtab">SA2</th>
                 <th class="label labsmall techtab">SA1</th>
@@ -204,61 +205,160 @@
         </thead>
         <tbody>
             <tr class="" id="2">
-                <td class="label labsmall techtab colIn">Data Capture</td>
-                <td class=""><input class='text-input' id='DCStartDate' name='DCStartDate' required type='date'></td>
-                <td class=""><input class='text-input' id='DCEndDate' name='DCEndDate' required type='date'></td>
-                <td class=""><input class='text-input' id='DCTotalM' name='DCTotalM' value="0" required type='number'></td>
-                <td class=""><input class='text-input' id='DCTotalSA2' name='DCTotalSA2' value="0" required type='number'></td>
-                <td class=""><input class='text-input' id='DCTotalSA1' name='DCTotalSA1' value="0" required type='number'></td>
-                <td class=""><input class='text-input' id='DCTotalA2' name='DCTotalA2' value="0" required type='number'></td>
-                <td class=""><input class='text-input' id='DCTotalA1' name='DCTotalA1' value="0" required type='number'></td>
-                <td></td>
-            </tr>
-            <tr class="" id="2">
-                <td class="label labsmall techtab colIn">Data Analysis</td>
-                <td class=""><input class='text-input' id='DAStartDate' name='DAStartDate' required type='date'></td>
-                <td class=""><input class='text-input' id='DAEndDate' name='DAEndDate' required type='date'></td>
-                <td class=""><input class='text-input' id='DATotalM' name='DATotalM' value="0" required type='number'></td>
-                <td class=""><input class='text-input' id='DATotalSA2' name='DATotalSA2' value="0" required type='number'></td>
-                <td class=""><input class='text-input' id='DATotalSA1' name='DATotalSA1' value="0" required type='number'></td>
-                <td class=""><input class='text-input' id='DATotalA2' name='DATotalA2' value="0" required type='number'></td>
-                <td class=""><input class='text-input' id='DATotalA1' name='DATotalA1' value="0" required type='number'></td>
-                <td></td>
-            </tr>
-            <tr class="" id="2">
-                <td class="label labsmall techtab colIn">Data Visualisation</td>
-                <td class=""><input class='text-input' id='DVStartDate' name='DVStartDate' required type='date'></td>
-                <td class=""><input class='text-input' id='DVEndDate' name='DVEndDate' required type='date'></td>
-                <td class=""><input class='text-input' id='DVTotalM' name='DVTotalM' value="0" required type='number'></td>
-                <td class=""><input class='text-input' id='DVTotalSA2' name='DVTotalSA2' value="0" required type='number'></td>
-                <td class=""><input class='text-input' id='DVTotalSA1' name='DVTotalSA1' value="0" required type='number'></td>
-                <td class=""><input class='text-input' id='DVTotalA2' name='DVTotalA2' value="0" required type='number'></td>
-                <td class=""><input class='text-input' id='DVTotalA1' name='DVTotalA1' value="0" required type='number'></td>
-                <td></td>   
-            </tr>
 
+                <td class="label labsmall techtab colIn">Num required at each grade</td>
+                <td class=""><input class='text-input' disabled style="opacity:0"></td>
+                <td class=""><input class='text-input' id='TotalD' name='TotalD' value="0" required type='number'></td>
+                <td class=""><input class='text-input' id='TotalSM' name='TotalSM' value="0" required type='number'></td>
+                <td class=""><input class='text-input' id='TotalM' name='TotalM' value="0" required type='number'></td>
+                <td class=""><input class='text-input' id='TotalSA2' name='TotalSA2' value="0" required type='number'></td>
+                <td class=""><input class='text-input' id='TotalSA1' name='TotalSA1' value="0" required type='number'></td>
+                <td class=""><input class='text-input' id='TotalA2' name='TotalA2' value="0" required type='number'></td>
+                <td class=""><input class='text-input' id='TotalA1' name='TotalA1' value="0" required type='number'></td>
+            </tr>
+            <tr class="" id="2">
+
+                <td class="label labsmall techtab colIn">Total days at each grade</td>
+                <td class=""><input class='text-input' disabled style="opacity:0"></td>
+                <td class=""><input class='text-input' id='TotalDaysD' name='TotalDaysD' value="0" required type='number'></td>
+                <td class=""><input class='text-input' id='TotalDaysSM' name='TotalDaysSM' value="0" required type='number'></td>
+                <td class=""><input class='text-input' id='TotalDaysM' name='TotalDaysM' value="0" required type='number'></td>
+                <td class=""><input class='text-input' id='TotalDaysSA2' name='TotalDaysSA2' value="0" required type='number'></td>
+                <td class=""><input class='text-input' id='TotalDaysSA1' name='TotalDaysSA1' value="0" required type='number'></td>
+                <td class=""><input class='text-input' id='TotalDaysA2' name='TotalDaysA2' value="0" required type='number'></td>
+                <td class=""><input class='text-input' id='TotalDaysA1' name='TotalDaysA1' value="0" required type='number'></td>
+            </tr>
         </tbody>
-    </table>
+    </table>*@
+    
+    <label class='label required' style="width: 100%; margin-top:20px" for='phone'>Project Loading</label>
+    <label class="label labsmall techtab colIn">
+    Project loading: please express as days/%loading per week or month (e.g. 2 days a week or 40%, etc.).
+        Refer to P&PC
+    </label>
+        <table>
+            <thead>
+                <tr>
+                    <th class="label labsmall techtab"></th>
+                    <th class="label labsmall techtab">D</th>
+                    <th class="label labsmall techtab">SM</th>
+                    <th class="label labsmall techtab">M</th>
+                    <th class="label labsmall techtab">SA2</th>
+                    <th class="label labsmall techtab">SA1</th>
+                    <th class="label labsmall techtab">A2</th>
+                    <th class="label labsmall techtab">A1</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 1; i <= 15; i++)
+                {
+                    string dateString = "Date" + i;
+                    string DtrackingID = "DTime" + i;
+                    string SMtrackingID = "SMTime" + i;
+                    string MtrackingID = "MTime" + i;
+                    string SA2trackingID = "SA2Time" + i;
+                    string SA1trackingID = "SA1Time" + i;
+                    string A2trackingID = "A2Time" + i;
+                    string A1trackingID = "A1Time" + i;
 
-    <p class='field required half'>
-        <label class='label' for='phone'>Response Needed By</label>
-        <input class='text-input' id='ResponseNeededBy' name='ResponseNeededBy' required type='date'>
-    </p>
+                    System.Diagnostics.Debug.WriteLine(dateString);
+                    System.Diagnostics.Debug.WriteLine(DtrackingID);
+                    System.Diagnostics.Debug.WriteLine(SMtrackingID);
+                    System.Diagnostics.Debug.WriteLine(MtrackingID);
+                    System.Diagnostics.Debug.WriteLine(SA2trackingID);
+                    System.Diagnostics.Debug.WriteLine(SA1trackingID);
+                    System.Diagnostics.Debug.WriteLine(A2trackingID);
+                    System.Diagnostics.Debug.WriteLine(A1trackingID);
 
-    <p class='field half'>
-        <input class='button' type='submit' value='Send'>
-    </p>
+                    <tr class="" id="@i">
 
-    <input type='hidden' id='Status' name='Status' value="Submitted">
+                        <td class=""><input class='text-input smallerText' id='@dateString' name='@dateString' placeholder="Week/Month" required type='text'></td>
+                        <td class=""><input class='text-input' id='@DtrackingID' name='@DtrackingID' value="0" required type='text'></td>
+                        <td class=""><input class='text-input' id='@SMtrackingID' name='@SMtrackingID' value="0" required type='text'></td>
+                        <td class=""><input class='text-input' id='@MtrackingID' name='@MtrackingID' value="0" required type='text'></td>
+                        <td class=""><input class='text-input' id='@SA2trackingID' name='@SA2trackingID' value="0" required type='text'></td>
+                        <td class=""><input class='text-input' id='@SA1trackingID' name='@SA1trackingID' value="0" required type='text'></td>
+                        <td class=""><input class='text-input' id='@A2trackingID' name='@A2trackingID' value="0" required type='text'></td>
+                        <td class=""><input class='text-input' id='@A1trackingID' name='@A1trackingID' value="0" required type='text'></td>
+                    </tr>
+                }
 
 
-    <input type='hidden' id='DateSubmitted' name='DateSubmitted' value="@DateTime.Now">
+            </tbody>
+        </table>
 
-    <input type='hidden' id='fk_UserName_Requester' name='fk_UserName_Requester' value="@User.Identity.GetUserName()">
+        <label class='label required' style="width: 100%;margin-top:20px" for='phone'>Tech Resource Requirement (Total days at each grade)</label>
+        <table>
+            <thead>
+                <tr>
+                    <th class="label labsmall techtab"></th>
+                    <th class="label labsmall techtab">Start Date</th>
+                    <th class="label labsmall techtab">End Date</th>
+                    <th class="label labsmall techtab">M</th>
+                    <th class="label labsmall techtab">SA2</th>
+                    <th class="label labsmall techtab">SA1</th>
+                    <th class="label labsmall techtab">A2</th>
+                    <th class="label labsmall techtab">A1</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="" id="2">
+                    <td class="label labsmall techtab colIn">Data Capture</td>
+                    <td class=""><input class='text-input' id='DCStartDate' name='DCStartDate' required type='date'></td>
+                    <td class=""><input class='text-input' id='DCEndDate' name='DCEndDate' required type='date'></td>
+                    <td class=""><input class='text-input' id='DCTotalM' name='DCTotalM' value="0" required type='number'></td>
+                    <td class=""><input class='text-input' id='DCTotalSA2' name='DCTotalSA2' value="0" required type='number'></td>
+                    <td class=""><input class='text-input' id='DCTotalSA1' name='DCTotalSA1' value="0" required type='number'></td>
+                    <td class=""><input class='text-input' id='DCTotalA2' name='DCTotalA2' value="0" required type='number'></td>
+                    <td class=""><input class='text-input' id='DCTotalA1' name='DCTotalA1' value="0" required type='number'></td>
+                    <td></td>
+                </tr>
+                <tr class="" id="2">
+                    <td class="label labsmall techtab colIn">Data Analysis</td>
+                    <td class=""><input class='text-input' id='DAStartDate' name='DAStartDate' required type='date'></td>
+                    <td class=""><input class='text-input' id='DAEndDate' name='DAEndDate' required type='date'></td>
+                    <td class=""><input class='text-input' id='DATotalM' name='DATotalM' value="0" required type='number'></td>
+                    <td class=""><input class='text-input' id='DATotalSA2' name='DATotalSA2' value="0" required type='number'></td>
+                    <td class=""><input class='text-input' id='DATotalSA1' name='DATotalSA1' value="0" required type='number'></td>
+                    <td class=""><input class='text-input' id='DATotalA2' name='DATotalA2' value="0" required type='number'></td>
+                    <td class=""><input class='text-input' id='DATotalA1' name='DATotalA1' value="0" required type='number'></td>
+                    <td></td>
+                </tr>
+                <tr class="" id="2">
+                    <td class="label labsmall techtab colIn">Data Visualisation</td>
+                    <td class=""><input class='text-input' id='DVStartDate' name='DVStartDate' required type='date'></td>
+                    <td class=""><input class='text-input' id='DVEndDate' name='DVEndDate' required type='date'></td>
+                    <td class=""><input class='text-input' id='DVTotalM' name='DVTotalM' value="0" required type='number'></td>
+                    <td class=""><input class='text-input' id='DVTotalSA2' name='DVTotalSA2' value="0" required type='number'></td>
+                    <td class=""><input class='text-input' id='DVTotalSA1' name='DVTotalSA1' value="0" required type='number'></td>
+                    <td class=""><input class='text-input' id='DVTotalA2' name='DVTotalA2' value="0" required type='number'></td>
+                    <td class=""><input class='text-input' id='DVTotalA1' name='DVTotalA1' value="0" required type='number'></td>
+                    <td></td>
+                </tr>
 
-    <input type="hidden" id="fk_UserId_Requester" name="fk_UserId_Requester" value="@User.Identity.GetUserId()" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-        $("#option-0").trigger("click");
-    </script>
+            </tbody>
+        </table>
+
+        <p class='field required half'>
+            <label class='label' for='phone'>Response Needed By</label>
+            <input class='text-input' id='ResponseNeededBy' name='ResponseNeededBy' required type='date'>
+        </p>
+
+        <p class='field half'>
+            <input class='button' type='submit' value='Send'>
+        </p>
+
+        <input type='hidden' id='Status' name='Status' value="Needs Resourcing">
+
+
+        <input type='hidden' id='DateSubmitted' name='DateSubmitted' value="@DateTime.Now">
+
+        <input type='hidden' id='fk_UserName_Requester' name='fk_UserName_Requester' value="@User.Identity.GetUserName()">
+
+        <input type="hidden" id="fk_UserId_Requester" name="fk_UserId_Requester" value="@User.Identity.GetUserId()" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            $("#option-0").trigger("click");
+        </script>
+
 </form>

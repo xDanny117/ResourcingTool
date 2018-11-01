@@ -14,7 +14,7 @@ namespace ResourcingTool.Controllers
 {
     public class UsersController : Controller
     {
-        private ResourcingToolEntities db = new ResourcingToolEntities();
+        private ResourcingToolConnection db = new ResourcingToolConnection();
 
         // GET: Users
         public ActionResult Index()

@@ -160,7 +160,6 @@ iframe {
 }
 
 .wrap-table100 {
-    width: 80%;
     margin: 0 auto;
 }
 
@@ -221,8 +220,6 @@ th, td {
 }
 
 .table100-body {
-    max-height: 585px;
-    overflow: auto;
 }
 
 
@@ -239,7 +236,7 @@ th, td {
 
 .table100.ver1 td {
     font-family: Lato-Regular;
-    font-size: 15px;
+    font-size: 12px;
     color: #808080;
     line-height: 1.4;
 }
@@ -574,4 +571,17 @@ th, td {
 
 .topnav-right {
     float: right;
+}
+
+
+.modalParent, .dialogOverride{
+    max-width:initial !important;
+}
+
+.dialogOverride{
+    margin:15px 200px !important;
+}
+
+.modalForm{
+    max-width:initial !important;
 }

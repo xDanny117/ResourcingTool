@@ -1,0 +1,511 @@
+﻿@model IEnumerable<ResourcingTool.Models.Project>
+
+@{
+    ViewBag.Title = "PwC Research Resourcing Tool - Index";
+}
+
+@*<div class="topnav">
+        <span class="active" style="background-color:#790000; font-weight:bold; text-transform:uppercase; letter-spacing:3px; ">Resourcing Tool</span>
+        <a href="/Projects/Create" class="active head-a" style="cursor:pointer; background-color:#333;font-weight:bold; text-transform:uppercase; letter-spacing:3px; ">Create a request</a>
+
+        <div class="topnav-right">
+            @if (@User.Identity.IsAuthenticated)
+            {
+                <span>Welcome, @User.Identity.Name</span>
+                <a href="/Projects/ChangePassword">Change Password</a>
+                <a href="/Projects/Logout">Logout</a>
+            }@if (!@User.Identity.IsAuthenticated)
+            {
+                <a href="/Projects/Login">Login</a>
+            }
+        </div>
+    </div>*@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Resourcing Tool</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a href="/Projects/Create" class="nav-link">Create a request</a>
+            </li>
+            @*<li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>*@
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            @if (@User.Identity.IsAuthenticated)
+            {
+                <div class="nav-item nav-link">Welcome, @User.Identity.Name</div>
+                <a class="nav-item nav-link" href="/Projects/ChangePassword">Change Password</a>
+                <a class="nav-item nav-link" href="/Projects/Logout">Logout</a>
+            }@if (!@User.Identity.IsAuthenticated)
+            {
+                <div class="nav-item" href="/Projects/Login">Login</div>
+            }
+        </form>
+    </div>
+</nav>
+
+<div style="height:10px; background-color:#790000; width:100%;"></div>
+<style>
+    .btn-4 {
+        margin: 0 auto !important;
+        display: table !important;
+    }
+
+    .hold {
+        padding: 20px !important;
+    }
+</style>
+@*@if (User.IsInRole("Requester") || User.IsInRole("Admin"))
+    {
+        <div class="cont">
+            <!-- Top Navigation -->
+            <section href="/Projects/Create" class="color-4">
+                <div class="hold">
+                    <a href="/Projects/Create" class="btn btn-4 btn-4c icon-arrow-right">Submit resourcing request</a>
+                </div>
+            </section>
+        </div><!-- /container -->
+    }*@
+<div class="limiter">
+
+
+    @using Microsoft.AspNet.Identity
+    <div class="wrap-table100">
+        <div class="table100 ver5 m-b-110">
+
+            <div class="table100-body js-pscroll">
+
+
+                <table>
+                    <thead>
+                        <tr class="row100 head">
+                            <th class="cell100 column1">Project Name</th>
+                            <th class="cell100 column3">Client</th>
+                            <th class="cell100 column4">Nature of project</th>
+                            <th class="cell100 column5">Scope</th>
+                            <th class="cell100 column6">Estimated Briefing</th>
+                            <th class="cell100 column7">Estimated Debreifing</th>
+                            <th class="cell100 column8">Response needed by</th>
+                            @if (User.IsInRole("Admin") || User.IsInRole("Resourcer"))
+                            {
+                                <th class="cell100 column9">Actions</th>
+                            }
+                            else
+                            {
+                                <th class="cell100 column9"></th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (User.IsInRole("Requester"))
+                        {
+
+                            //Print submitted
+                            foreach (var item in Model.OrderBy(item => item.ResponseNeededBy))
+                            {
+                                if ((item.fk_UserId_Requester == Convert.ToInt32(User.Identity.GetUserId())) && item.Status == "Submitted")
+                                {
+
+                                    <tr class="row100 body datarow" id="@item.ProjectId">
+                                        <td class="cell100 cellMain column1">@Html.DisplayFor(modelItem => item.ProjectName)</td>
+                                        <td class="cell100 cellMain column3">@Html.DisplayFor(modelItem => item.ProjectClient)</td>
+                                        <td class="cell100 cellMain column4">@Html.DisplayFor(modelItem => item.ProjectNature)</td>
+                                        <td class="cell100 cellMain column5">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
+                                        @{
+                                            string dateValue = item.EstimatedBriefing.ToString("d/M/yyyy");
+                                            string dateValue2 = item.EstimatedDebriefing.ToString("d/M/yyyy");
+                                            string dateValue3 = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
+                                        }
+                                        <td class="cell100 cellMain column6">@Html.DisplayFor(modelItem => dateValue)</td>
+                                        <td class="cell100 cellMain column7">@Html.DisplayFor(modelItem => dateValue2)</td>
+                                        <td class="cell100 cellMain column8">@Html.DisplayFor(modelItem => dateValue3)</td>
+                                        <td class="cell100 column9">
+                                            <button type="submit" class="editRow" title="Edit your response" value="Submit"></button>
+                                        </td>
+
+                                    </tr>
+                                }
+                            }
+
+                            //Print approved
+                            foreach (var item in Model.OrderBy(item => item.ResponseNeededBy))
+                            {
+                                if ((item.fk_UserId_Requester == Convert.ToInt32(User.Identity.GetUserId())) && item.Status == "Approved")
+                                {
+
+                                    <tr class="row100 body datarow" id="@item.ProjectId">
+                                        <td class="cell100 cellMain column1">@Html.DisplayFor(modelItem => item.ProjectName)</td>
+                                        <td class="cell100 cellMain column3">@Html.DisplayFor(modelItem => item.ProjectClient)</td>
+                                        <td class="cell100 cellMain column4">@Html.DisplayFor(modelItem => item.ProjectNature)</td>
+                                        <td class="cell100 cellMain column5">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
+                                        @{
+                                            string dateValue = item.EstimatedBriefing.ToString("d/M/yyyy");
+                                            string dateValue2 = item.EstimatedDebriefing.ToString("d/M/yyyy");
+                                            string dateValue3 = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
+                                        }
+                                        <td class="cell100 cellMain column6">@Html.DisplayFor(modelItem => dateValue)</td>
+                                        <td class="cell100 cellMain column7">@Html.DisplayFor(modelItem => dateValue2)</td>
+                                        <td class="cell100 cellMain column8">@Html.DisplayFor(modelItem => dateValue3)</td>
+                                        <td class="cell100 column9">
+                                            <button type="submit" class="editRow" title="Edit your response" value="Submit"></button>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        }
+                        else if (User.IsInRole("Admin") || User.IsInRole("Resourcer"))
+                        {
+                            //Print submitted
+                            foreach (var item in Model.OrderBy(item => item.ResponseNeededBy))
+                            {
+                                if (item.Status == "Submitted")
+                                {
+                                    <tr class="row100  body datarow" id="@item.ProjectId">
+                                        <td class="cell100 cellMain column1">@Html.DisplayFor(modelItem => item.ProjectName)</td>
+                                        <td class="cell100 cellMain column3">@Html.DisplayFor(modelItem => item.ProjectClient)</td>
+                                        <td class="cell100 cellMain column4">@Html.DisplayFor(modelItem => item.ProjectNature)</td>
+                                        <td class="cell100 cellMain column5">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
+                                        @{
+                                            string dateValue = item.EstimatedBriefing.ToString("d/M/yyyy");
+                                            string dateValue2 = item.EstimatedDebriefing.ToString("d/M/yyyy");
+                                            string dateValue3 = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
+                                        }
+                                        <td class="cell100 cellMain column6">@Html.DisplayFor(modelItem => dateValue)</td>
+                                        <td class="cell100 cellMain column7">@Html.DisplayFor(modelItem => dateValue2)</td>
+                                        <td class="cell100 cellMain column8">@Html.DisplayFor(modelItem => dateValue3)</td>
+                                        <td>
+                                            <input type="hidden" name="projectID" value="@item.ProjectId" />
+                                            <button type="submit" class="approveRow" title="Mark as Complete" value="Submit"></button>
+                                            <button type="submit" class="denyRow" title="Mark as Not Complete" value="Submit"></button>
+                                        </td>
+                                    </tr>
+                                }
+
+                            }
+
+                            //Print approved
+                            foreach (var item in Model.OrderBy(item => item.ResponseNeededBy))
+                            {
+                                if (item.Status == "Approved")
+
+                                {
+                                    <tr class="row100 approved body datarow" id="@item.ProjectId">
+                                        <td class="cell100 cellMain column1">@Html.DisplayFor(modelItem => item.ProjectName)</td>
+                                        <td class="cell100 cellMain column3">@Html.DisplayFor(modelItem => item.ProjectClient)</td>
+                                        <td class="cell100 cellMain column4">@Html.DisplayFor(modelItem => item.ProjectNature)</td>
+                                        <td class="cell100 cellMain column5">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
+                                        @{
+                                            string dateValue = item.EstimatedBriefing.ToString("d/M/yyyy");
+                                            string dateValue2 = item.EstimatedDebriefing.ToString("d/M/yyyy");
+                                            string dateValue3 = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
+                                        }
+                                        <td class="cell100 cellMain column6">@Html.DisplayFor(modelItem => dateValue)</td>
+                                        <td class="cell100 cellMain column7">@Html.DisplayFor(modelItem => dateValue2)</td>
+                                        <td class="cell100 cellMain column8">@Html.DisplayFor(modelItem => dateValue3)</td>
+                                        <td>
+                                            <input type="hidden" name="projectID" value="@item.ProjectId" />
+                                            <button type="submit" class="approveRow" title="Mark as Complete" value="Submit"></button>
+                                            <button type="submit" class="denyRow" title="Mark as Not Complete" value="Submit"></button>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        }
+                    </tbody>
+                </table>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- The Modal -->
+<form action="~/Projects/Approve" id="approveForm" class="buttons" method="POST">
+    <input type="hidden" id="approveID" name="projectID" value="" />
+</form>
+
+<form action="~/Projects/Deny" id="denyForm" class="buttons" method="POST">
+    <input type="hidden" id="denyID" name="projectID" value="" />
+</form>
+
+<style>
+    .form {
+        max-width: 85%;
+    }
+</style>
+@foreach (var item in Model.OrderBy(item => item.ResponseNeededBy))
+{
+    string hold = "modal" + item.ProjectId;
+
+    <div class="modal myModal" id="@hold">
+
+
+        <div class="modal-content">
+            @if (item.Status == "Approved")
+            {
+                <div class="modalHeadertextgreen">
+                    <div class="headerText">
+
+                        Completed
+                    </div>
+                </div>
+
+            }
+            else
+            {
+                <div class="modalHeadertextred">
+                    <div class="headerText">
+
+                        Not Completed
+                    </div>
+                </div>
+            }
+            <span class="close" style="padding:20px">&times;</span>
+
+
+            <div class='form'>
+
+                <p class='field'>
+                    <label class='label disabled' for='ProjectName'>Project Name</label>
+                    <input class='text-input' value='@item.ProjectName' disabled type='text'>
+                </p>
+                @{
+
+                    string submitDate = (item.DateSubmitted != null) ? ((DateTime)item.DateSubmitted).ToString("d/M/yyyy") : "";
+
+                }
+
+                <p class='field half'>
+                    <label class='label' for='phone'>Submitted By</label>
+                    <input class='text-input' value="@item.fk_UserName_Requester" disabled type='text'>
+                </p>
+                <p class='field half'>
+                    <label class='label' for='phone'>Date Submitted</label>
+                    <input class='text-input' value="@submitDate" disabled type='text'>
+                </p>
+
+                <p class='field half'>
+                    <label class='label' for='ProjectClient'>Client</label>
+                    <input class='text-input' value="@item.ProjectClient" disabled type='text'>
+                </p>
+                <p class='field half'>
+                    <label class='label' for='ProjectLead'>Project Lead</label>
+                    <input class='text-input' value="@item.ProjectLead" disabled type='text'>
+                </p>
+
+                <p class='field half'>
+                    <label class='label' for='ProjectLead'>Sector</label>
+                    <input class='text-input' value="@item.ProjectSector" disabled type='text'>
+                </p>
+
+                <p class='field'>
+                    <label class='label ' for='about'>Nature of Project (e.g. qual, quant, diagnostics, etc)</label>
+                    <textarea class='textarea' cols='50' value="@item.ProjectNature" disabled rows='2'>@item.ProjectNature</textarea>
+                </p>
+
+                <p class='field'>
+                    <label class='label ' for='about'>Scope (no of interviews, groups, etc.)</label>
+                    <textarea class='textarea' cols='50' value="@item.ProjectScope" disabled rows='1'>@item.ProjectScope</textarea>
+                </p>
+                @{
+
+                    string briefDate = item.EstimatedBriefing.ToString("d/M/yyyy");
+                    string fieldStart = item.FieldworkStart.ToString("d/M/yyyy");
+                    string fieldEnd = item.FieldworkEnd.ToString("d/M/yyyy");
+                    string anlRepStart = item.AlysRepStart.ToString("d/M/yyyy");
+                    string anlRepEnd = item.AlysRepEnd.ToString("d/M/yyyy");
+                    string debriefDate = item.EstimatedDebriefing.ToString("d/M/yyyy");
+                    string responseNeeded = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
+
+                }
+                <p class='field half'>
+                    <label class='label' for='phone'>Estimated Briefing</label>
+                    <input class='text-input' value="@briefDate" disabled type='text'>
+                </p>
+
+                <p class='field half'>
+                    <label class='label' for='phone'>Fieldwork Start</label>
+                    <input class='text-input' value="@fieldStart" disabled type='text'>
+                </p>
+
+                <p class='field half'>
+                    <label class='label' for='phone'>Fieldwork End</label>
+                    <input class='text-input' value="@fieldEnd" disabled type='text'>
+                </p>
+                <p class='field third'>
+                    <label class='label' for='phone'>Analysis/Reporting Start</label>
+                    <input class='text-input' value="@anlRepStart" disabled type='text'>
+                </p>
+                <p class='field third'>
+                    <label class='label' for='phone'>Analysis/Reporting End</label>
+                    <input class='text-input' value="@anlRepEnd" disabled type='text'>
+                </p>
+                <p class='field third'>
+                    <label class='label' for='phone'>Estimated Debriefing</label>
+                    <input class='text-input' value="@debriefDate" disabled type='text'>
+                </p>
+
+
+                <p class='field'>
+                    <label class='label' for='about'>Key Information (project detail, prohect history, broad resource requirement, key skills disabled, any key account personnel to consider, specific requests)</label>
+                    <textarea class='textarea' cols='50' value="@item.KeyInformation" disabled rows='5'>@item.KeyInformation</textarea>
+                </p>
+
+
+                <p class='field'>
+                    <label class='label' for='about'>Special Requirements (e.g. BPSS clearance)</label>
+                    <textarea class='textarea' cols='50' value="@item.SpecialRequirements" disabled rows='2'>@item.SpecialRequirements</textarea>
+                </p>
+
+
+
+
+                <label class='label disabled' style="width: 100%;" for='phone'>Number of staff required per grade</label>
+                <p class='field sept'>
+                    <label class='label labsmall' for='NumDirectorsrequired'>Directors</label>
+                    <input class='text-input' value="@item.NumDirectorsRequired" disabled type='number'>
+                </p>
+                <p class='field sept'>
+                    <label class='label labsmall' for='NumSeniorManagersrequired'>Senior Managers</label>
+                    <input class='text-input' value="@item.NumSeniorManagersRequired" disabled type='number'>
+                </p>
+
+                <p class='field sept'>
+                    <label class='label labsmall' for='NumManagersrequired'>Managers</label>
+                    <input class='text-input' value="@item.NumManagersRequired" disabled type='number'>
+                </p>
+                <p class='field sept'>
+                    <label class='label labsmall' for='NumSeniorAssociate2required'>Senior Associate 2</label>
+                    <input class='text-input' value="@item.NumSeniorAssociate2Required" disabled type='number'>
+                </p>
+                <p class='field sept'>
+                    <label class='label labsmall' for='NumSeniorAssociate1required'>Senior Associate 1</label>
+                    <input class='text-input' value="@item.NumSeniorAssociate1Required" disabled type='number'>
+                </p>
+                <p class='field sept'>
+                    <label class='label labsmall' for='NumAssociate2required'>Associate 2</label>
+                    <input class='text-input' value="@item.NumAssociate2Required" disabled type='number'>
+                </p>
+                <p class='field sept'>
+                    <label class='label labsmall' for='NumAssociate1required'>Associate 1</label>
+                    <input class='text-input' value="@item.NumAssociate1Required" disabled type='number'>
+                </p>
+
+
+
+                <label class='label required' style="width: 100%;" for='phone'>Number of days staff required</label>
+                <p class='field sept'>
+                    <label class='label labsmall' for='DaysDirectorsrequired'>Directors</label>
+                    <input class='text-input' value="@item.DaysDirectorsRequired" disabled type='number'>
+                </p>
+                <p class='field sept'>
+                    <label class='label labsmall' for='DaysSeniorManagersrequired'>Senior Managers</label>
+                    <input class='text-input' value="@item.DaysSeniorManagersRequired" disabled type='number'>
+                </p>
+
+                <p class='field sept'>
+                    <label class='label labsmall' for='DaysManagersrequired'>Managers</label>
+                    <input class='text-input' value="@item.DaysManagersRequired" disabled type='number'>
+                </p>
+                <p class='field sept'>
+                    <label class='label labsmall' for='DaysSeniorAssociate2required'>Senior Associate 2</label>
+                    <input class='text-input' value="@item.DaysSeniorAssociate2Required" disabled type='number'>
+                </p>
+                <p class='field sept'>
+                    <label class='label labsmall' for='DaysSeniorAssociate1required'>Senior Associate 1</label>
+                    <input class='text-input' value="@item.DaysSeniorAssociate1Required" disabled type='number'>
+                </p>
+                <p class='field sept'>
+                    <label class='label labsmall' for='DaysAssociate2required'>Associate 2</label>
+                    <input class='text-input' value="@item.DaysAssociate2Required" disabled type='number'>
+                </p>
+                <p class='field sept'>
+                    <label class='label labsmall' for='DaysAssociate1required'>Associate 1</label>
+                    <input class='text-input' value="@item.DaysAssociate1Required" disabled type='number'>
+                </p>
+                <label class='label required' style="width: 100%;" for='phone'>Tech Resource Requirement (Total days at each grade)</label>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="label labsmall techtab"></th>
+                            <th class="label labsmall techtab">Start Date</th>
+                            <th class="label labsmall techtab">End Date</th>
+                            <th class="label labsmall techtab">M</th>
+                            <th class="label labsmall techtab">SA2</th>
+                            <th class="label labsmall techtab">SA1</th>
+                            <th class="label labsmall techtab">A2</th>
+                            <th class="label labsmall techtab">A1</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="" id="2">
+                            <td class="label labsmall techtab colIn">Data Capture</td>
+                            <td class=""><input class='text-input' disabled value='@item.DCStartDate'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DCEndDate'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DCTotalM'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DCTotalSA2'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DCTotalSA1'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DCTotalA2'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DCTotalA1'></td>
+                            <td></td>
+                        </tr>
+                        <tr class="" id="2">
+                            <td class="label labsmall techtab colIn">Data Analysis</td>
+                            <td class=""><input class='text-input' disabled value='@item.DAStartDate'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DAEndDate'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DATotalM'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DATotalSA2'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DATotalSA1'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DATotalA2'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DATotalA1'></td>
+                            <td></td>
+                        </tr>
+                        <tr class="" id="2">
+                            <td class="label labsmall techtab colIn">Data Visualisation</td>
+                            <td class=""><input class='text-input' disabled value='@item.DVStartDate'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DVEndDate'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DVTotalM'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DVTotalSA2'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DVTotalSA1'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DVTotalA2'></td>
+                            <td class=""><input class='text-input' disabled value='@item.DVTotalA1'></td>
+                            <td></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+                <p class='field half'>
+                    <label class='label' for='phone'>Response Needed By</label>
+                    <input class='text-input' value="@responseNeeded" disabled type='text'>
+                </p>
+                <p>
+                    <button type="submit" class="approveRow2" title="Mark as Complete" value="Submit"></button>
+                    <button type="submit" class="denyRow2" title="Mark as Not Complete" value="Submit"></button>
+                </p>
+            </div>
+        </div>
+    </div>
+}

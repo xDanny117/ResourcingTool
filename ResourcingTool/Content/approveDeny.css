@@ -66,3 +66,8 @@
     font-style: italic;
     font-family: 'Lato', Calibri, Arial, sans-serif;
 }
+
+.submittedRow td{
+    font-weight:bold;
+    color: black !important;
+}

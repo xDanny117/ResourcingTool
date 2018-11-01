@@ -19,7 +19,6 @@ $(".denyRow").click(function () {
 
     $("#denyID").val(thisID);
 
-
     $('#denyForm').submit();
 });
 
