@@ -236,13 +236,13 @@ namespace ResourcingTool.Controllers
                     }
                     else
                     {
-                        userModel.ErrorMessage = "The username or password entered is incorrected. Please try again.";
+                        userModel.ErrorMessage = "The username or password entered is incorrect. Please try again.";
                         //User authentication failed
                     }
                 }
                 else
                 {
-                    userModel.ErrorMessage = "The username or password entered is incorrected. Please try again.";
+                    userModel.ErrorMessage = "The username or password entered is incorrect. Please try again.";
                     //User authentication failed - blank 
                 }
 
