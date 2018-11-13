@@ -7,6 +7,11 @@
 
     int unassignedCount = 0, inprogressCount = 0, completedCount = 0, totalCount = 0;
 }
+<style>
+    .navbar {
+        padding: .5rem 1rem !important;
+    }
+</style>
 <body id="page-top">
     @foreach (var item in Model.OrderBy(item => item.ResponseNeededBy))
     {
@@ -78,7 +83,7 @@
                 <div class="dropdown-menu dropdown-menu-right " style="text-align:right" aria-labelledby="userDropdown">
                     <span class="dropdown-item" style="font-style:italic">Welcome, @User.Identity.Name</span>
                     <a class="dropdown-item" href="#">Activity Log</a>
-                    <a class="dropdown-item" href="/Projects/Logout">Change Password</a>
+                    <a class="dropdown-item" href="/Projects/ChangePassword">Change Password</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
                 </div>
@@ -113,7 +118,7 @@
                 <!-- Breadcrumbs-->
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="#">All Requests</a>
+                        <a href="#">Resourcing Request Tool</a>
                     </li>
                     <li class="breadcrumb-item active textInfo">Overview</li>
                 </ol>
@@ -987,3 +992,4 @@
         @:});
     }
 </script>
+

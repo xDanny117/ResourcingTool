@@ -123,3 +123,19 @@
 .form .text-input {
     padding: 0.5em 0.5em !important;
 }
+
+.createNav{
+    padding: 0.5em 1em;
+}
+
+.createNav.active{
+    background-color:white;
+    color:black;
+}
+.createNav.active:hover {
+    color: black;
+}
+
+.navbar {
+    padding: 0 1rem !important;
+}
