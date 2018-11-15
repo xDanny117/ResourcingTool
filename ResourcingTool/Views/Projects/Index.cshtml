@@ -202,16 +202,16 @@
                                         <th class="cell100 column3">Client</th>
                                         <th class="cell100 column4">Nature of project</th>
                                         <th class="cell100 column5">Scope</th>
-                                        <th class="cell100 column6">Estimated Briefing</th>
-                                        <th class="cell100 column7">Estimated Debreifing</th>
-                                        <th class="cell100 column8">Response needed by</th>
+                                        <th class="cell100 column6">Project Lead</th>
+                                        @*<th class="cell100 column7">Estimated Debreifing</th>*@
+                                        <th class="cell100 column7">Response needed by</th>
                                         @if (User.IsInRole("Admin") || User.IsInRole("Resourcer"))
                                         {
-                                            <th class="cell100 column9">Actions</th>
+                                            <th class="cell100 column8">Actions</th>
                                         }
                                         else
                                         {
-                                            <th class="cell100 column9"></th>
+                                            <th class="cell100 column8"></th>
                                         }
                                     </tr>
                                 </thead>
@@ -231,14 +231,14 @@
                                                     <td class="cell100 cellMain column4" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectNature)</td>
                                                     <td class="cell100 cellMain column5" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
                                                     @{
-                                                        string dateValue = item.EstimatedBriefing.ToString("d/M/yyyy");
-                                                        string dateValue2 = item.EstimatedDebriefing.ToString("d/M/yyyy");
+                                                        //string dateValue = item.EstimatedBriefing.ToString("d/M/yyyy");
+                                                        //string dateValue2 = item.EstimatedDebriefing.ToString("d/M/yyyy");
                                                         string dateValue3 = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
                                                     }
-                                                    <td class="cell100 cellMain column6" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue)</td>
-                                                    <td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue2)</td>
-                                                    <td class="cell100 cellMain column8" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue3)</td>
-                                                    <td class="cell100 column9">
+                                                    <td class="cell100 cellMain column6" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectLead)</td>
+                                                    @*<td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue2)</td>*@
+                                                    <td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue3)</td>
+                                                    <td class="cell100 column8">
                                                         <button type="submit" class="editRow" title="Edit your response" value="Submit"></button>
                                                     </td>
 
@@ -258,14 +258,14 @@
                                                     <td class="cell100 cellMain column4" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectNature)</td>
                                                     <td class="cell100 cellMain column5" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
                                                     @{
-                                                        string dateValue = item.EstimatedBriefing.ToString("d/M/yyyy");
-                                                        string dateValue2 = item.EstimatedDebriefing.ToString("d/M/yyyy");
+                                                        //string dateValue = item.EstimatedBriefing.ToString("d/M/yyyy");
+                                                        //string dateValue2 = item.EstimatedDebriefing.ToString("d/M/yyyy");
                                                         string dateValue3 = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
                                                     }
-                                                    <td class="cell100 cellMain column6" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue)</td>
-                                                    <td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue2)</td>
-                                                    <td class="cell100 cellMain column8" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue3)</td>
-                                                    <td class="cell100 column9 statusColumn">
+                                                    <td class="cell100 cellMain column6" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectLead)</td>
+                                                    @*<td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue2)</td>*@
+                                                    <td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue3)</td>
+                                                    <td class="cell100 column8 statusColumn">
                                                         <button type="submit" class="editRow" title="Edit your response" value="Submit"></button>
                                                     </td>
 
@@ -287,14 +287,14 @@
                                                     <td class="cell100 cellMain column4" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectNature)</td>
                                                     <td class="cell100 cellMain column5" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
                                                     @{
-                                                        string dateValue = item.EstimatedBriefing.ToString("d/M/yyyy");
-                                                        string dateValue2 = item.EstimatedDebriefing.ToString("d/M/yyyy");
+                                                        //string dateValue = item.EstimatedBriefing.ToString("d/M/yyyy");
+                                                        //string dateValue2 = item.EstimatedDebriefing.ToString("d/M/yyyy");
                                                         string dateValue3 = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
                                                     }
-                                                    <td class="cell100 cellMain column6" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue)</td>
-                                                    <td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue2)</td>
-                                                    <td class="cell100 cellMain column8" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue3)</td>
-                                                    <td class="cell100 column9 statusColumn">
+                                                    <td class="cell100 cellMain column6" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectLead)</td>
+                                                    @*<td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue2)</td>*@
+                                                    <td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue3)</td>
+                                                    <td class="cell100 column8 statusColumn">
                                                         <button type="submit" class="editRow" title="Edit your response" value="Submit"></button>
                                                     </td>
                                                 </tr>
@@ -316,14 +316,14 @@
                                                     <td class="cell100 cellMain column4" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectNature)</td>
                                                     <td class="cell100 cellMain column5" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
                                                     @{
-                                                        string dateValue = item.EstimatedBriefing.ToString("d/M/yyyy");
-                                                        string dateValue2 = item.EstimatedDebriefing.ToString("d/M/yyyy");
+                                                        //string dateValue = item.EstimatedBriefing.ToString("d/M/yyyy");
+                                                        //string dateValue2 = item.EstimatedDebriefing.ToString("d/M/yyyy");
                                                         string dateValue3 = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
                                                         string selectedDropdown = "select" + item.ProjectId;
                                                     }
-                                                    <td class="cell100 cellMain column6" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue)</td>
-                                                    <td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue2)</td>
-                                                    <td class="cell100 cellMain column8" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue3)</td>
+                                                    <td class="cell100 cellMain column6" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectLead)</td>
+                                                    @*<td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue2)</td>*@
+                                                    <td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue3)</td>
                                                     <td class="statusColumn">
                                                         <input type="hidden" name="projectID" value="@item.ProjectId" />
                                                         <select class="form-control selectTab @selectedDropdown" id="Status">
@@ -351,14 +351,14 @@
                                                     <td class="cell100 cellMain column4" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectNature)</td>
                                                     <td class="cell100 cellMain column5" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
                                                     @{
-                                                        string dateValue = item.EstimatedBriefing.ToString("d/M/yyyy");
-                                                        string dateValue2 = item.EstimatedDebriefing.ToString("d/M/yyyy");
+                                                        //string dateValue = item.EstimatedBriefing.ToString("d/M/yyyy");
+                                                        //string dateValue2 = item.EstimatedDebriefing.ToString("d/M/yyyy");
                                                         string dateValue3 = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
                                                         string selectedDropdown = "select" + item.ProjectId;
                                                     }
-                                                    <td class="cell100 cellMain column6" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue)</td>
-                                                    <td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue2)</td>
-                                                    <td class="cell100 cellMain column8" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue3)</td>
+                                                    <td class="cell100 cellMain column6" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectLead)</td>
+                                                    @*<td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue2)</td>*@
+                                                    <td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue3)</td>
                                                     <td class="statusColumn">
                                                         <input type="hidden" name="projectID" value="@item.ProjectId" />
                                                         @*<button type="submit" class="approveRow" title="Mark as Complete" value="Submit"></button>
@@ -387,14 +387,14 @@
                                                     <td class="cell100 cellMain column4" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectNature)</td>
                                                     <td class="cell100 cellMain column5" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
                                                     @{
-                                                        string dateValue = item.EstimatedBriefing.ToString("d/M/yyyy");
-                                                        string dateValue2 = item.EstimatedDebriefing.ToString("d/M/yyyy");
+                                                        //string dateValue = item.EstimatedBriefing.ToString("d/M/yyyy");
+                                                        //string dateValue2 = item.EstimatedDebriefing.ToString("d/M/yyyy");
                                                         string dateValue3 = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
                                                         string selectedDropdown = "select" + item.ProjectId;
                                                     }
-                                                    <td class="cell100 cellMain column6" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue)</td>
-                                                    <td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue2)</td>
-                                                    <td class="cell100 cellMain column8" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue3)</td>
+                                                    <td class="cell100 cellMain column6" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectLead)</td>
+                                                    @*<td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue2)</td>*@
+                                                    <td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue3)</td>
                                                     <td class="statusColumn">
                                                         <input type="hidden" name="projectID" value="@item.ProjectId" />
                                                         @*<button type="submit" class="approveRow" title="Mark as Complete" value="Submit"></button>
