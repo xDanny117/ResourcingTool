@@ -36,13 +36,13 @@ namespace ResourcingTool.Models
         public Nullable<int> NumSeniorAssociate1Required { get; set; }
         public Nullable<int> NumAssociate2Required { get; set; }
         public Nullable<int> NumAssociate1Required { get; set; }
-        public Nullable<int> DaysDirectorsRequired { get; set; }
-        public Nullable<int> DaysSeniorManagersRequired { get; set; }
-        public Nullable<int> DaysManagersRequired { get; set; }
-        public Nullable<int> DaysSeniorAssociate2Required { get; set; }
-        public Nullable<int> DaysSeniorAssociate1Required { get; set; }
-        public Nullable<int> DaysAssociate2Required { get; set; }
-        public Nullable<int> DaysAssociate1Required { get; set; }
+        public Nullable<double> DaysDirectorsRequired { get; set; }
+        public Nullable<double> DaysSeniorManagersRequired { get; set; }
+        public Nullable<double> DaysManagersRequired { get; set; }
+        public Nullable<double> DaysSeniorAssociate2Required { get; set; }
+        public Nullable<double> DaysSeniorAssociate1Required { get; set; }
+        public Nullable<double> DaysAssociate2Required { get; set; }
+        public Nullable<double> DaysAssociate1Required { get; set; }
         public Nullable<System.DateTime> ResponseNeededBy { get; set; }
         public Nullable<int> fk_UserId_Requester { get; set; }
         public string Status { get; set; }
@@ -50,25 +50,25 @@ namespace ResourcingTool.Models
         public string fk_UserName_Requester { get; set; }
         public Nullable<System.DateTime> DCStartDate { get; set; }
         public Nullable<System.DateTime> DCEndDate { get; set; }
-        public Nullable<int> DCTotalM { get; set; }
-        public Nullable<int> DCTotalSA2 { get; set; }
-        public Nullable<int> DCTotalSA1 { get; set; }
-        public Nullable<int> DCTotalA2 { get; set; }
-        public Nullable<int> DCTotalA1 { get; set; }
+        public Nullable<double> DCTotalM { get; set; }
+        public Nullable<double> DCTotalSA2 { get; set; }
+        public Nullable<double> DCTotalSA1 { get; set; }
+        public Nullable<double> DCTotalA2 { get; set; }
+        public Nullable<double> DCTotalA1 { get; set; }
         public Nullable<System.DateTime> DAStartDate { get; set; }
         public Nullable<System.DateTime> DAEndDate { get; set; }
-        public Nullable<int> DATotalM { get; set; }
-        public Nullable<int> DATotalSA2 { get; set; }
-        public Nullable<int> DATotalSA1 { get; set; }
-        public Nullable<int> DATotalA2 { get; set; }
-        public Nullable<int> DATotalA1 { get; set; }
+        public Nullable<double> DATotalM { get; set; }
+        public Nullable<double> DATotalSA2 { get; set; }
+        public Nullable<double> DATotalSA1 { get; set; }
+        public Nullable<double> DATotalA2 { get; set; }
+        public Nullable<double> DATotalA1 { get; set; }
         public Nullable<System.DateTime> DVStartDate { get; set; }
         public Nullable<System.DateTime> DVEndDate { get; set; }
-        public Nullable<int> DVTotalM { get; set; }
-        public Nullable<int> DVTotalSA2 { get; set; }
-        public Nullable<int> DVTotalSA1 { get; set; }
-        public Nullable<int> DVTotalA2 { get; set; }
-        public Nullable<int> DVTotalA1 { get; set; }
+        public Nullable<double> DVTotalM { get; set; }
+        public Nullable<double> DVTotalSA2 { get; set; }
+        public Nullable<double> DVTotalSA1 { get; set; }
+        public Nullable<double> DVTotalA2 { get; set; }
+        public Nullable<double> DVTotalA1 { get; set; }
         public string Date1 { get; set; }
         public string DTime1 { get; set; }
         public string SMTime1 { get; set; }

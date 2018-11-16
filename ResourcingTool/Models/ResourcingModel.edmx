@@ -31,13 +31,13 @@
           <Property Name="NumSeniorAssociate1Required" Type="int" />
           <Property Name="NumAssociate2Required" Type="int" />
           <Property Name="NumAssociate1Required" Type="int" />
-          <Property Name="DaysDirectorsRequired" Type="int" />
-          <Property Name="DaysSeniorManagersRequired" Type="int" />
-          <Property Name="DaysManagersRequired" Type="int" />
-          <Property Name="DaysSeniorAssociate2Required" Type="int" />
-          <Property Name="DaysSeniorAssociate1Required" Type="int" />
-          <Property Name="DaysAssociate2Required" Type="int" />
-          <Property Name="DaysAssociate1Required" Type="int" />
+          <Property Name="DaysDirectorsRequired" Type="float" />
+          <Property Name="DaysSeniorManagersRequired" Type="float" />
+          <Property Name="DaysManagersRequired" Type="float" />
+          <Property Name="DaysSeniorAssociate2Required" Type="float" />
+          <Property Name="DaysSeniorAssociate1Required" Type="float" />
+          <Property Name="DaysAssociate2Required" Type="float" />
+          <Property Name="DaysAssociate1Required" Type="float" />
           <Property Name="ResponseNeededBy" Type="datetime2" Precision="7" />
           <Property Name="fk_UserId_Requester" Type="int" />
           <Property Name="Status" Type="varchar" MaxLength="50" />
@@ -45,25 +45,25 @@
           <Property Name="fk_UserName_Requester" Type="varchar(max)" />
           <Property Name="DCStartDate" Type="datetime2" Precision="7" />
           <Property Name="DCEndDate" Type="datetime2" Precision="7" />
-          <Property Name="DCTotalM" Type="int" />
-          <Property Name="DCTotalSA2" Type="int" />
-          <Property Name="DCTotalSA1" Type="int" />
-          <Property Name="DCTotalA2" Type="int" />
-          <Property Name="DCTotalA1" Type="int" />
+          <Property Name="DCTotalM" Type="float" />
+          <Property Name="DCTotalSA2" Type="float" />
+          <Property Name="DCTotalSA1" Type="float" />
+          <Property Name="DCTotalA2" Type="float" />
+          <Property Name="DCTotalA1" Type="float" />
           <Property Name="DAStartDate" Type="datetime2" Precision="7" />
           <Property Name="DAEndDate" Type="datetime2" Precision="7" />
-          <Property Name="DATotalM" Type="int" />
-          <Property Name="DATotalSA2" Type="int" />
-          <Property Name="DATotalSA1" Type="int" />
-          <Property Name="DATotalA2" Type="int" />
-          <Property Name="DATotalA1" Type="int" />
+          <Property Name="DATotalM" Type="float" />
+          <Property Name="DATotalSA2" Type="float" />
+          <Property Name="DATotalSA1" Type="float" />
+          <Property Name="DATotalA2" Type="float" />
+          <Property Name="DATotalA1" Type="float" />
           <Property Name="DVStartDate" Type="datetime2" Precision="7" />
           <Property Name="DVEndDate" Type="datetime2" Precision="7" />
-          <Property Name="DVTotalM" Type="int" />
-          <Property Name="DVTotalSA2" Type="int" />
-          <Property Name="DVTotalSA1" Type="int" />
-          <Property Name="DVTotalA2" Type="int" />
-          <Property Name="DVTotalA1" Type="int" />
+          <Property Name="DVTotalM" Type="float" />
+          <Property Name="DVTotalSA2" Type="float" />
+          <Property Name="DVTotalSA1" Type="float" />
+          <Property Name="DVTotalA2" Type="float" />
+          <Property Name="DVTotalA1" Type="float" />
           <Property Name="Date1" Type="varchar(max)" />
           <Property Name="DTime1" Type="varchar(max)" />
           <Property Name="SMTime1" Type="varchar(max)" />
@@ -230,13 +230,13 @@
           <Property Name="NumSeniorAssociate1Required" Type="Int32" />
           <Property Name="NumAssociate2Required" Type="Int32" />
           <Property Name="NumAssociate1Required" Type="Int32" />
-          <Property Name="DaysDirectorsRequired" Type="Int32" />
-          <Property Name="DaysSeniorManagersRequired" Type="Int32" />
-          <Property Name="DaysManagersRequired" Type="Int32" />
-          <Property Name="DaysSeniorAssociate2Required" Type="Int32" />
-          <Property Name="DaysSeniorAssociate1Required" Type="Int32" />
-          <Property Name="DaysAssociate2Required" Type="Int32" />
-          <Property Name="DaysAssociate1Required" Type="Int32" />
+          <Property Name="DaysDirectorsRequired" Type="Double" />
+          <Property Name="DaysSeniorManagersRequired" Type="Double" />
+          <Property Name="DaysManagersRequired" Type="Double" />
+          <Property Name="DaysSeniorAssociate2Required" Type="Double" />
+          <Property Name="DaysSeniorAssociate1Required" Type="Double" />
+          <Property Name="DaysAssociate2Required" Type="Double" />
+          <Property Name="DaysAssociate1Required" Type="Double" />
           <Property Name="ResponseNeededBy" Type="DateTime" Precision="7" />
           <Property Name="fk_UserId_Requester" Type="Int32" />
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -244,25 +244,25 @@
           <Property Name="fk_UserName_Requester" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="DCStartDate" Type="DateTime" Precision="7" />
           <Property Name="DCEndDate" Type="DateTime" Precision="7" />
-          <Property Name="DCTotalM" Type="Int32" />
-          <Property Name="DCTotalSA2" Type="Int32" />
-          <Property Name="DCTotalSA1" Type="Int32" />
-          <Property Name="DCTotalA2" Type="Int32" />
-          <Property Name="DCTotalA1" Type="Int32" />
+          <Property Name="DCTotalM" Type="Double" />
+          <Property Name="DCTotalSA2" Type="Double" />
+          <Property Name="DCTotalSA1" Type="Double" />
+          <Property Name="DCTotalA2" Type="Double" />
+          <Property Name="DCTotalA1" Type="Double" />
           <Property Name="DAStartDate" Type="DateTime" Precision="7" />
           <Property Name="DAEndDate" Type="DateTime" Precision="7" />
-          <Property Name="DATotalM" Type="Int32" />
-          <Property Name="DATotalSA2" Type="Int32" />
-          <Property Name="DATotalSA1" Type="Int32" />
-          <Property Name="DATotalA2" Type="Int32" />
-          <Property Name="DATotalA1" Type="Int32" />
+          <Property Name="DATotalM" Type="Double" />
+          <Property Name="DATotalSA2" Type="Double" />
+          <Property Name="DATotalSA1" Type="Double" />
+          <Property Name="DATotalA2" Type="Double" />
+          <Property Name="DATotalA1" Type="Double" />
           <Property Name="DVStartDate" Type="DateTime" Precision="7" />
           <Property Name="DVEndDate" Type="DateTime" Precision="7" />
-          <Property Name="DVTotalM" Type="Int32" />
-          <Property Name="DVTotalSA2" Type="Int32" />
-          <Property Name="DVTotalSA1" Type="Int32" />
-          <Property Name="DVTotalA2" Type="Int32" />
-          <Property Name="DVTotalA1" Type="Int32" />
+          <Property Name="DVTotalM" Type="Double" />
+          <Property Name="DVTotalSA2" Type="Double" />
+          <Property Name="DVTotalSA1" Type="Double" />
+          <Property Name="DVTotalA2" Type="Double" />
+          <Property Name="DVTotalA1" Type="Double" />
           <Property Name="Date1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="DTime1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="SMTime1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
