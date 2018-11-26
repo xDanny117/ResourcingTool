@@ -21,7 +21,7 @@
         }
     </style>
 </head>
-<body class="loginPage">
+<body class="bg-dark">
     <form action="~/Projects/Login" method="post" class="login">
 
         <h1 class="login-title">Login</h1>
@@ -33,7 +33,7 @@
         <input type="password" class="login-input" id="Password" name="Password" value="" placeholder="Password" required>
 
         <div class="errormessage">
-            @Html.DisplayFor(model => model.ErrorMessage)
+            @Html.DisplayFor(model => model.ErrorMessage)<br /><br />
         </div>
 
         <input type="submit" class="login-button" name="name" value="Login" />

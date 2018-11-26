@@ -39,20 +39,29 @@
             outline: none;
         }
 
-    .login-button {
-        width: 100%;
-        height: 50px;
-        padding: 0;
-        font-size: 20px;
-        color: #fff;
-        text-align: center;
-        background: #f0776c;
-        border: 0;
-        border-radius: 5px;
-        cursor: pointer;
-        display: block;
-        margin: 0 auto;
-        outline: 0;
+.login-button {
+    width: 100%;
+    height: 50px;
+    padding: 0;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    background: #343a40;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    outline: 0;
+    -webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+
+    .login-button:hover {
+        background: #61656a;
     }
 
     .login-lost {
