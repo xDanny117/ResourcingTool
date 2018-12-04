@@ -966,7 +966,13 @@
                             </div>
                         </div>
                         <div id="@actionsID" class="w3-container modalTab @modalClass" style="display:none">
-                            Testing
+                            <div class='form modalForm'>
+                                <label class='label' for='ProjectClient'>Last Editted By</label>
+                                <input class='text-input' value="@item.ProjectClient" type='text'>
+
+                                <label class='label' for='ProjectClient'>Actions</label>
+                                <textarea class='textarea' cols='50' value="@item.SpecialRequirements" rows='10'>@item.SpecialRequirements</textarea>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <input type="hidden" name="projectID" value="@item.ProjectId" />
@@ -1008,7 +1014,9 @@
                 }
                 console.log("Modal Class: " + hold + " Length: " + x.length + " Name: " + tabName);
                 document.getElementById(tabName).style.display = "block";
-            }
+        }
+
+
     </script>
 </body>
 
