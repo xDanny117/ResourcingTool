@@ -189,5 +189,8 @@ namespace ResourcingTool.Models
         public string SA1Time15 { get; set; }
         public string A2Time15 { get; set; }
         public string A1Time15 { get; set; }
+        public Nullable<System.DateTime> EditTime { get; set; }
+        public string LastEditBy { get; set; }
+        public string ActionDetails { get; set; }
     }
 }

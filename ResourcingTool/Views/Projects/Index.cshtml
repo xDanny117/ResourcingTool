@@ -525,465 +525,490 @@
                         String detailsButton = "detailButton" + item.ProjectId;
                         String actionButton = "actionButton" + item.ProjectId;
                     }
-                    <div class="modal-body">
-                        <center>
-                            <div class="w3-bar w3-black noselect" style="overflow:auto">
-                                <button class="modalButton active @detailsButton" onclick="openTab('@detailsID','@modalClass','@detailsButton','@actionButton',0)">Details</button>
-                                <button class="modalButton @actionButton" onclick="openTab('@actionsID','@modalClass','@detailsButton','@actionButton',1)">Actions</button>
+                        <div class="modal-body">
+                            <center>
+                                <div class="w3-bar w3-black noselect" style="overflow:auto">
+                                    <button class="modalButton active @detailsButton" onclick="openTab('@detailsID','@modalClass','@detailsButton','@actionButton',0)">Details</button>
+                                    <button class="modalButton @actionButton" onclick="openTab('@actionsID','@modalClass','@detailsButton','@actionButton',1)">Actions</button>
+                                </div>
+                            </center>
+                            <div id="@detailsID" class="w3-container modalTab @modalClass">
+                                <div class='form modalForm'>
+
+                                    <p class='field'>
+                                        <label class='label disabled' for='ProjectName'>Project Name</label>
+                                        <input class='text-input' value='@item.ProjectName' disabled type='text'>
+                                    </p>
+                                    @{
+
+                                        string submitDate = (item.DateSubmitted != null) ? ((DateTime)item.DateSubmitted).ToString("d/M/yyyy") : "";
+
+                                    }
+
+                                    <p class='field half'>
+                                        <label class='label' for='phone'>Submitted By</label>
+                                        <input class='text-input' value="@item.fk_UserName_Requester" disabled type='text'>
+                                    </p>
+                                    <p class='field half'>
+                                        <label class='label' for='phone'>Date Submitted</label>
+                                        <input class='text-input' value="@submitDate" disabled type='text'>
+                                    </p>
+
+                                    <p class='field half'>
+                                        <label class='label' for='ProjectClient'>Client</label>
+                                        <input class='text-input' value="@item.ProjectClient" disabled type='text'>
+                                    </p>
+                                    <p class='field half'>
+                                        <label class='label' for='ProjectLead'>Project Lead</label>
+                                        <input class='text-input' value="@item.ProjectLead" disabled type='text'>
+                                    </p>
+
+                                    <p class='field half'>
+                                        <label class='label' for='ProjectLead'>Sector</label>
+                                        <input class='text-input' value="@item.ProjectSector" disabled type='text'>
+                                    </p>
+
+                                    <p class='field'>
+                                        <label class='label ' for='about'>Nature of Project (e.g. qual, quant, diagnostics, etc)</label>
+                                        <textarea class='textarea' cols='50' value="@item.ProjectNature" disabled rows='2'>@item.ProjectNature</textarea>
+                                    </p>
+
+                                    <p class='field'>
+                                        <label class='label ' for='about'>Scope (no of interviews, groups, etc.)</label>
+                                        <textarea class='textarea' cols='50' value="@item.ProjectScope" disabled rows='1'>@item.ProjectScope</textarea>
+                                    </p>
+                                    @{
+
+                                        string briefDate = item.EstimatedBriefing.ToString("d/M/yyyy");
+                                        string fieldStart = item.FieldworkStart.ToString("d/M/yyyy");
+                                        string fieldEnd = item.FieldworkEnd.ToString("d/M/yyyy");
+                                        string anlRepStart = item.AlysRepStart.ToString("d/M/yyyy");
+                                        string anlRepEnd = item.AlysRepEnd.ToString("d/M/yyyy");
+                                        string debriefDate = item.EstimatedDebriefing.ToString("d/M/yyyy");
+                                        string responseNeeded = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
+                                        string selectedDropdown = "select" + item.ProjectId;
+
+
+                                        string dcs = (item.DCStartDate != null) ? ((DateTime)item.DCStartDate).ToString("d/M/yyyy") : "";
+                                        string dce = (item.DCEndDate != null) ? ((DateTime)item.DCEndDate).ToString("d/M/yyyy") : "";
+                                        string das = (item.DAStartDate != null) ? ((DateTime)item.DAStartDate).ToString("d/M/yyyy") : "";
+                                        string dae = (item.DAEndDate != null) ? ((DateTime)item.DAEndDate).ToString("d/M/yyyy") : "";
+                                        string dvs = (item.DVStartDate != null) ? ((DateTime)item.DVStartDate).ToString("d/M/yyyy") : "";
+                                        string dve = (item.DVEndDate != null) ? ((DateTime)item.DVEndDate).ToString("d/M/yyyy") : "";
+                                    }
+                                    <p class='field half'>
+                                        <label class='label' for='phone'>Estimated Briefing</label>
+                                        <input class='text-input' value="@briefDate" disabled type='text'>
+                                    </p>
+
+                                    <p class='field half'>
+                                        <label class='label' for='phone'>Fieldwork Start</label>
+                                        <input class='text-input' value="@fieldStart" disabled type='text'>
+                                    </p>
+
+                                    <p class='field half'>
+                                        <label class='label' for='phone'>Fieldwork End</label>
+                                        <input class='text-input' value="@fieldEnd" disabled type='text'>
+                                    </p>
+                                    <p class='field third'>
+                                        <label class='label' for='phone'>Analysis/Reporting Start</label>
+                                        <input class='text-input' value="@anlRepStart" disabled type='text'>
+                                    </p>
+                                    <p class='field third'>
+                                        <label class='label' for='phone'>Analysis/Reporting End</label>
+                                        <input class='text-input' value="@anlRepEnd" disabled type='text'>
+                                    </p>
+                                    <p class='field third'>
+                                        <label class='label' for='phone'>Estimated Debriefing</label>
+                                        <input class='text-input' value="@debriefDate" disabled type='text'>
+                                    </p>
+
+
+                                    <p class='field'>
+                                        <label class='label' for='about'>Key Information (project detail, prohect history, broad resource requirement, key skills disabled, any key account personnel to consider, specific requests)</label>
+                                        <textarea class='textarea' cols='50' value="@item.KeyInformation" disabled rows='5'>@item.KeyInformation</textarea>
+                                    </p>
+
+
+                                    <p class='field'>
+                                        <label class='label' for='about'>Special Requirements (e.g. BPSS clearance)</label>
+                                        <textarea class='textarea' cols='50' value="@item.SpecialRequirements" disabled rows='2'>@item.SpecialRequirements</textarea>
+                                    </p>
+
+
+
+
+                                    <label class='label disabled' style="width: 100%;" for='phone'>Number of staff required per grade</label>
+                                    <p class='field sept'>
+                                        <label class='label labsmall' for='NumDirectorsrequired'>Directors</label>
+                                        <input class='text-input' value="@item.NumDirectorsRequired" disabled type='number'>
+                                    </p>
+                                    <p class='field sept'>
+                                        <label class='label labsmall' for='NumSeniorManagersrequired'>Senior Managers</label>
+                                        <input class='text-input' value="@item.NumSeniorManagersRequired" disabled type='number'>
+                                    </p>
+
+                                    <p class='field sept'>
+                                        <label class='label labsmall' for='NumManagersrequired'>Managers</label>
+                                        <input class='text-input' value="@item.NumManagersRequired" disabled type='number'>
+                                    </p>
+                                    <p class='field sept'>
+                                        <label class='label labsmall' for='NumSeniorAssociate2required'>Senior Associate 2</label>
+                                        <input class='text-input' value="@item.NumSeniorAssociate2Required" disabled type='number'>
+                                    </p>
+                                    <p class='field sept'>
+                                        <label class='label labsmall' for='NumSeniorAssociate1required'>Senior Associate 1</label>
+                                        <input class='text-input' value="@item.NumSeniorAssociate1Required" disabled type='number'>
+                                    </p>
+                                    <p class='field sept'>
+                                        <label class='label labsmall' for='NumAssociate2required'>Associate 2</label>
+                                        <input class='text-input' value="@item.NumAssociate2Required" disabled type='number'>
+                                    </p>
+                                    <p class='field sept'>
+                                        <label class='label labsmall' for='NumAssociate1required'>Associate 1</label>
+                                        <input class='text-input' value="@item.NumAssociate1Required" disabled type='number'>
+                                    </p>
+
+
+
+                                    <label class='label required' style="width: 100%;" for='phone'>Number of days staff required</label>
+                                    <p class='field sept'>
+                                        <label class='label labsmall' for='DaysDirectorsrequired'>Directors</label>
+                                        <input class='text-input' value="@item.DaysDirectorsRequired" disabled type='number'>
+                                    </p>
+                                    <p class='field sept'>
+                                        <label class='label labsmall' for='DaysSeniorManagersrequired'>Senior Managers</label>
+                                        <input class='text-input' value="@item.DaysSeniorManagersRequired" disabled type='number'>
+                                    </p>
+
+                                    <p class='field sept'>
+                                        <label class='label labsmall' for='DaysManagersrequired'>Managers</label>
+                                        <input class='text-input' value="@item.DaysManagersRequired" disabled type='number'>
+                                    </p>
+                                    <p class='field sept'>
+                                        <label class='label labsmall' for='DaysSeniorAssociate2required'>Senior Associate 2</label>
+                                        <input class='text-input' value="@item.DaysSeniorAssociate2Required" disabled type='number'>
+                                    </p>
+                                    <p class='field sept'>
+                                        <label class='label labsmall' for='DaysSeniorAssociate1required'>Senior Associate 1</label>
+                                        <input class='text-input' value="@item.DaysSeniorAssociate1Required" disabled type='number'>
+                                    </p>
+                                    <p class='field sept'>
+                                        <label class='label labsmall' for='DaysAssociate2required'>Associate 2</label>
+                                        <input class='text-input' value="@item.DaysAssociate2Required" disabled type='number'>
+                                    </p>
+                                    <p class='field sept'>
+                                        <label class='label labsmall' for='DaysAssociate1required'>Associate 1</label>
+                                        <input class='text-input' value="@item.DaysAssociate1Required" disabled type='number'>
+                                    </p>
+
+
+                                    <label class='label required' style="width: 100%; margin-top:20px" for='phone'>Project Loading</label>
+                                    <label class="label labsmall techtab colIn">
+                                        Project loading: please express as days/%loading per week or month (e.g. 2 days a week or 40%, etc.).
+                                        Refer to P&PC
+                                    </label>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th class="label labsmall techtab"></th>
+                                                <th class="label labsmall techtab">D</th>
+                                                <th class="label labsmall techtab">SM</th>
+                                                <th class="label labsmall techtab">M</th>
+                                                <th class="label labsmall techtab">SA2</th>
+                                                <th class="label labsmall techtab">SA1</th>
+                                                <th class="label labsmall techtab">A2</th>
+                                                <th class="label labsmall techtab">A1</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="" id="1">
+
+                                                <td class=""><input class='text-input' value="@item.Date1" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.DTime1" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SMTime1" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.MTime1" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA2Time1" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA1Time1" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A2Time1" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A1Time1" disabled></td>
+
+                                            </tr>
+                                            <tr class="" id="2">
+
+                                                <td class=""><input class='text-input' value="@item.Date2" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.DTime2" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SMTime2" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.MTime2" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA2Time2" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA1Time2" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A2Time2" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A1Time2" disabled></td>
+
+                                            </tr>
+                                            <tr class="" id="3">
+
+                                                <td class=""><input class='text-input' value="@item.Date3" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.DTime3" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SMTime3" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.MTime3" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA2Time3" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA1Time3" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A2Time3" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A1Time3" disabled></td>
+
+                                            </tr>
+                                            <tr class="" id="4">
+
+                                                <td class=""><input class='text-input' value="@item.Date4" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.DTime4" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SMTime4" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.MTime4" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA2Time4" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA1Time4" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A2Time4" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A1Time4" disabled></td>
+
+                                            </tr>
+                                            <tr class="" id="5">
+
+                                                <td class=""><input class='text-input' value="@item.Date5" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.DTime5" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SMTime5" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.MTime5" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA2Time5" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA1Time5" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A2Time5" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A1Time5" disabled></td>
+
+                                            </tr>
+                                            <tr class="" id="6">
+
+                                                <td class=""><input class='text-input' value="@item.Date6" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.DTime6" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SMTime6" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.MTime6" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA2Time6" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA1Time6" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A2Time6" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A1Time6" disabled></td>
+
+                                            </tr>
+                                            <tr class="" id="7">
+
+                                                <td class=""><input class='text-input' value="@item.Date7" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.DTime7" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SMTime7" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.MTime7" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA2Time7" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA1Time7" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A2Time7" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A1Time7" disabled></td>
+
+                                            </tr>
+                                            <tr class="" id="8">
+
+                                                <td class=""><input class='text-input' value="@item.Date8" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.DTime8" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SMTime8" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.MTime8" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA2Time8" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA1Time8" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A2Time8" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A1Time8" disabled></td>
+
+                                            </tr>
+                                            <tr class="" id="9">
+
+                                                <td class=""><input class='text-input' value="@item.Date9" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.DTime9" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SMTime9" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.MTime9" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA2Time9" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA1Time9" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A2Time9" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A1Time9" disabled></td>
+
+                                            </tr>
+                                            <tr class="" id="10">
+
+                                                <td class=""><input class='text-input' value="@item.Date10" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.DTime10" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SMTime10" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.MTime10" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA2Time10" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA1Time10" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A2Time10" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A1Time10" disabled></td>
+
+                                            </tr>
+                                            <tr class="" id="11">
+
+                                                <td class=""><input class='text-input' value="@item.Date11" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.DTime11" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SMTime11" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.MTime11" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA2Time11" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA1Time11" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A2Time11" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A1Time11" disabled></td>
+
+                                            </tr>
+                                            <tr class="" id="12">
+
+                                                <td class=""><input class='text-input' value="@item.Date12" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.DTime12" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SMTime12" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.MTime12" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA2Time12" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA1Time12" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A2Time12" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A1Time12" disabled></td>
+
+                                            </tr>
+                                            <tr class="" id="13">
+
+                                                <td class=""><input class='text-input' value="@item.Date13" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.DTime13" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SMTime13" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.MTime13" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA2Time13" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA1Time13" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A2Time13" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A1Time13" disabled></td>
+
+                                            </tr>
+                                            <tr class="" id="14">
+
+                                                <td class=""><input class='text-input' value="@item.Date14" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.DTime14" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SMTime14" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.MTime14" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA2Time14" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA1Time14" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A2Time14" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A1Time14" disabled></td>
+
+                                            </tr>
+                                            <tr class="" id="15">
+
+                                                <td class=""><input class='text-input' value="@item.Date15" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.DTime15" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SMTime15" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.MTime15" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA2Time15" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.SA1Time15" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A2Time15" disabled></td>
+                                                <td class=""><input class='text-input' value="@item.A1Time15" disabled></td>
+
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                    <label class='label required' style="width: 100%;margin-top:20px" for='phone'>Tech Resource Requirement (Total days at each grade)</label>
+
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th class="label labsmall techtab"></th>
+                                                <th class="label labsmall techtab">Start Date</th>
+                                                <th class="label labsmall techtab">End Date</th>
+                                                <th class="label labsmall techtab">M</th>
+                                                <th class="label labsmall techtab">SA2</th>
+                                                <th class="label labsmall techtab">SA1</th>
+                                                <th class="label labsmall techtab">A2</th>
+                                                <th class="label labsmall techtab">A1</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="" id="2">
+                                                <td class="label labsmall techtab colIn">Data Capture</td>
+                                                <td class=""><input class='text-input' disabled value='@dcs'></td>
+                                                <td class=""><input class='text-input' disabled value='@dce'></td>
+                                                <td class=""><input class='text-input' disabled value='@item.DCTotalM'></td>
+                                                <td class=""><input class='text-input' disabled value='@item.DCTotalSA2'></td>
+                                                <td class=""><input class='text-input' disabled value='@item.DCTotalSA1'></td>
+                                                <td class=""><input class='text-input' disabled value='@item.DCTotalA2'></td>
+                                                <td class=""><input class='text-input' disabled value='@item.DCTotalA1'></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr class="" id="2">
+                                                <td class="label labsmall techtab colIn">Data Analysis</td>
+                                                <td class=""><input class='text-input' disabled value='@das'></td>
+                                                <td class=""><input class='text-input' disabled value='@dae'></td>
+                                                <td class=""><input class='text-input' disabled value='@item.DATotalM'></td>
+                                                <td class=""><input class='text-input' disabled value='@item.DATotalSA2'></td>
+                                                <td class=""><input class='text-input' disabled value='@item.DATotalSA1'></td>
+                                                <td class=""><input class='text-input' disabled value='@item.DATotalA2'></td>
+                                                <td class=""><input class='text-input' disabled value='@item.DATotalA1'></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr class="" id="2">
+                                                <td class="label labsmall techtab colIn">Data Visualisation</td>
+                                                <td class=""><input class='text-input' disabled value='@dvs'></td>
+                                                <td class=""><input class='text-input' disabled value='@dve'></td>
+                                                <td class=""><input class='text-input' disabled value='@item.DVTotalM'></td>
+                                                <td class=""><input class='text-input' disabled value='@item.DVTotalSA2'></td>
+                                                <td class=""><input class='text-input' disabled value='@item.DVTotalSA1'></td>
+                                                <td class=""><input class='text-input' disabled value='@item.DVTotalA2'></td>
+                                                <td class=""><input class='text-input' disabled value='@item.DVTotalA1'></td>
+                                                <td></td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                    <p class='field half'>
+                                        <label class='label' for='phone'>Response Needed By</label>
+                                        <input class='text-input' value="@responseNeeded" disabled type='text'>
+                                    </p>
+
+                                </div>
                             </div>
-                        </center>
-                        <div id="@detailsID" class="w3-container modalTab @modalClass">
-                            <div class='form modalForm'>
 
-                                <p class='field'>
-                                    <label class='label disabled' for='ProjectName'>Project Name</label>
-                                    <input class='text-input' value='@item.ProjectName' disabled type='text'>
-                                </p>
-                                @{
+                            @{
+                                string editDate = (item.EditTime != null) ? ((DateTime)item.EditTime).ToString("HH:mm, d/M/yyyy") : "N/A";
+                                string LastEditBy = (item.LastEditBy != null) ? (item.LastEditBy) : "Not yet edited";
+                                string editDateID = "editDate" + item.ProjectId;
+                                string lastEditID = "lastEdit" + item.ProjectId;
+                                string actionDetailsID = "actionDetails" + item.ProjectId;
+                            }
 
-                                    string submitDate = (item.DateSubmitted != null) ? ((DateTime)item.DateSubmitted).ToString("d/M/yyyy") : "";
-
-                                }
-
-                                <p class='field half'>
-                                    <label class='label' for='phone'>Submitted By</label>
-                                    <input class='text-input' value="@item.fk_UserName_Requester" disabled type='text'>
-                                </p>
-                                <p class='field half'>
-                                    <label class='label' for='phone'>Date Submitted</label>
-                                    <input class='text-input' value="@submitDate" disabled type='text'>
-                                </p>
-
-                                <p class='field half'>
-                                    <label class='label' for='ProjectClient'>Client</label>
-                                    <input class='text-input' value="@item.ProjectClient" disabled type='text'>
-                                </p>
-                                <p class='field half'>
-                                    <label class='label' for='ProjectLead'>Project Lead</label>
-                                    <input class='text-input' value="@item.ProjectLead" disabled type='text'>
-                                </p>
-
-                                <p class='field half'>
-                                    <label class='label' for='ProjectLead'>Sector</label>
-                                    <input class='text-input' value="@item.ProjectSector" disabled type='text'>
-                                </p>
-
-                                <p class='field'>
-                                    <label class='label ' for='about'>Nature of Project (e.g. qual, quant, diagnostics, etc)</label>
-                                    <textarea class='textarea' cols='50' value="@item.ProjectNature" disabled rows='2'>@item.ProjectNature</textarea>
-                                </p>
-
-                                <p class='field'>
-                                    <label class='label ' for='about'>Scope (no of interviews, groups, etc.)</label>
-                                    <textarea class='textarea' cols='50' value="@item.ProjectScope" disabled rows='1'>@item.ProjectScope</textarea>
-                                </p>
-                                @{
-
-                                    string briefDate = item.EstimatedBriefing.ToString("d/M/yyyy");
-                                    string fieldStart = item.FieldworkStart.ToString("d/M/yyyy");
-                                    string fieldEnd = item.FieldworkEnd.ToString("d/M/yyyy");
-                                    string anlRepStart = item.AlysRepStart.ToString("d/M/yyyy");
-                                    string anlRepEnd = item.AlysRepEnd.ToString("d/M/yyyy");
-                                    string debriefDate = item.EstimatedDebriefing.ToString("d/M/yyyy");
-                                    string responseNeeded = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
-                                    string selectedDropdown = "select" + item.ProjectId;
+                            <div id="@actionsID" class="w3-container modalTab @modalClass" style="display:none">
+                                <div class='form modalForm'>
+                                    <p class='field third' style="color:#525252!important; font-style:italic !important">
+                                        <label class='label' style="font-weight:normal;font-style:italic" for='ProjectClient'>Last Edited By</label>
+                                        <input class='text-input' style="background: #e6e6e600;" id="@lastEditID" value="@LastEditBy" type='text' disabled>
+                                    </p>
+                                    <p class='field third' style="color:#525252!important; font-style:italic !important">
+                                        <label class='label' style="font-weight:normal;font-style:italic" for='ProjectClient'>Edited At</label>
+                                        <input class='text-input' style="background: #e6e6e600;" id="@editDateID" value="@editDate" type='text' disabled>
+                                    </p>
+                                    <input type="hidden" name="projectID" value="@item.ProjectId" />
+                                    <p class="field third">
+                                        <select class="form-control selectTab @selectedDropdown" id="Status">
+                                            <option value="Needs Resourcing">Needs Resourcing</option>
+                                            <option value="Part Resourced">Part Resourced</option>
+                                            <option value="Resourced">Resourced</option>
+                                        </select>
+                                    </p>
+                                    <p>
+                                        <label class='label' for='ProjectClient'>Add Actions Here</label>
+                                        <textarea class='textarea' cols='50' id="@actionDetailsID" value="@item.ActionDetails" rows='12'>@item.ActionDetails</textarea>
+                                    </p>
 
 
-                                    string dcs = (item.DCStartDate != null) ? ((DateTime)item.DCStartDate).ToString("d/M/yyyy") : "";
-                                    string dce = (item.DCEndDate != null) ? ((DateTime)item.DCEndDate).ToString("d/M/yyyy") : "";
-                                    string das = (item.DAStartDate != null) ? ((DateTime)item.DAStartDate).ToString("d/M/yyyy") : "";
-                                    string dae = (item.DAEndDate != null) ? ((DateTime)item.DAEndDate).ToString("d/M/yyyy") : "";
-                                    string dvs = (item.DVStartDate != null) ? ((DateTime)item.DVStartDate).ToString("d/M/yyyy") : "";
-                                    string dve = (item.DVEndDate != null) ? ((DateTime)item.DVEndDate).ToString("d/M/yyyy") : "";
-                                }
-                                <p class='field half'>
-                                    <label class='label' for='phone'>Estimated Briefing</label>
-                                    <input class='text-input' value="@briefDate" disabled type='text'>
-                                </p>
-
-                                <p class='field half'>
-                                    <label class='label' for='phone'>Fieldwork Start</label>
-                                    <input class='text-input' value="@fieldStart" disabled type='text'>
-                                </p>
-
-                                <p class='field half'>
-                                    <label class='label' for='phone'>Fieldwork End</label>
-                                    <input class='text-input' value="@fieldEnd" disabled type='text'>
-                                </p>
-                                <p class='field third'>
-                                    <label class='label' for='phone'>Analysis/Reporting Start</label>
-                                    <input class='text-input' value="@anlRepStart" disabled type='text'>
-                                </p>
-                                <p class='field third'>
-                                    <label class='label' for='phone'>Analysis/Reporting End</label>
-                                    <input class='text-input' value="@anlRepEnd" disabled type='text'>
-                                </p>
-                                <p class='field third'>
-                                    <label class='label' for='phone'>Estimated Debriefing</label>
-                                    <input class='text-input' value="@debriefDate" disabled type='text'>
-                                </p>
-
-
-                                <p class='field'>
-                                    <label class='label' for='about'>Key Information (project detail, prohect history, broad resource requirement, key skills disabled, any key account personnel to consider, specific requests)</label>
-                                    <textarea class='textarea' cols='50' value="@item.KeyInformation" disabled rows='5'>@item.KeyInformation</textarea>
-                                </p>
-
-
-                                <p class='field'>
-                                    <label class='label' for='about'>Special Requirements (e.g. BPSS clearance)</label>
-                                    <textarea class='textarea' cols='50' value="@item.SpecialRequirements" disabled rows='2'>@item.SpecialRequirements</textarea>
-                                </p>
-
-
-
-
-                                <label class='label disabled' style="width: 100%;" for='phone'>Number of staff required per grade</label>
-                                <p class='field sept'>
-                                    <label class='label labsmall' for='NumDirectorsrequired'>Directors</label>
-                                    <input class='text-input' value="@item.NumDirectorsRequired" disabled type='number'>
-                                </p>
-                                <p class='field sept'>
-                                    <label class='label labsmall' for='NumSeniorManagersrequired'>Senior Managers</label>
-                                    <input class='text-input' value="@item.NumSeniorManagersRequired" disabled type='number'>
-                                </p>
-
-                                <p class='field sept'>
-                                    <label class='label labsmall' for='NumManagersrequired'>Managers</label>
-                                    <input class='text-input' value="@item.NumManagersRequired" disabled type='number'>
-                                </p>
-                                <p class='field sept'>
-                                    <label class='label labsmall' for='NumSeniorAssociate2required'>Senior Associate 2</label>
-                                    <input class='text-input' value="@item.NumSeniorAssociate2Required" disabled type='number'>
-                                </p>
-                                <p class='field sept'>
-                                    <label class='label labsmall' for='NumSeniorAssociate1required'>Senior Associate 1</label>
-                                    <input class='text-input' value="@item.NumSeniorAssociate1Required" disabled type='number'>
-                                </p>
-                                <p class='field sept'>
-                                    <label class='label labsmall' for='NumAssociate2required'>Associate 2</label>
-                                    <input class='text-input' value="@item.NumAssociate2Required" disabled type='number'>
-                                </p>
-                                <p class='field sept'>
-                                    <label class='label labsmall' for='NumAssociate1required'>Associate 1</label>
-                                    <input class='text-input' value="@item.NumAssociate1Required" disabled type='number'>
-                                </p>
-
-
-
-                                <label class='label required' style="width: 100%;" for='phone'>Number of days staff required</label>
-                                <p class='field sept'>
-                                    <label class='label labsmall' for='DaysDirectorsrequired'>Directors</label>
-                                    <input class='text-input' value="@item.DaysDirectorsRequired" disabled type='number'>
-                                </p>
-                                <p class='field sept'>
-                                    <label class='label labsmall' for='DaysSeniorManagersrequired'>Senior Managers</label>
-                                    <input class='text-input' value="@item.DaysSeniorManagersRequired" disabled type='number'>
-                                </p>
-
-                                <p class='field sept'>
-                                    <label class='label labsmall' for='DaysManagersrequired'>Managers</label>
-                                    <input class='text-input' value="@item.DaysManagersRequired" disabled type='number'>
-                                </p>
-                                <p class='field sept'>
-                                    <label class='label labsmall' for='DaysSeniorAssociate2required'>Senior Associate 2</label>
-                                    <input class='text-input' value="@item.DaysSeniorAssociate2Required" disabled type='number'>
-                                </p>
-                                <p class='field sept'>
-                                    <label class='label labsmall' for='DaysSeniorAssociate1required'>Senior Associate 1</label>
-                                    <input class='text-input' value="@item.DaysSeniorAssociate1Required" disabled type='number'>
-                                </p>
-                                <p class='field sept'>
-                                    <label class='label labsmall' for='DaysAssociate2required'>Associate 2</label>
-                                    <input class='text-input' value="@item.DaysAssociate2Required" disabled type='number'>
-                                </p>
-                                <p class='field sept'>
-                                    <label class='label labsmall' for='DaysAssociate1required'>Associate 1</label>
-                                    <input class='text-input' value="@item.DaysAssociate1Required" disabled type='number'>
-                                </p>
-
-
-                                <label class='label required' style="width: 100%; margin-top:20px" for='phone'>Project Loading</label>
-                                <label class="label labsmall techtab colIn">
-                                    Project loading: please express as days/%loading per week or month (e.g. 2 days a week or 40%, etc.).
-                                    Refer to P&PC
-                                </label>
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th class="label labsmall techtab"></th>
-                                            <th class="label labsmall techtab">D</th>
-                                            <th class="label labsmall techtab">SM</th>
-                                            <th class="label labsmall techtab">M</th>
-                                            <th class="label labsmall techtab">SA2</th>
-                                            <th class="label labsmall techtab">SA1</th>
-                                            <th class="label labsmall techtab">A2</th>
-                                            <th class="label labsmall techtab">A1</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="" id="1">
-
-                                            <td class=""><input class='text-input' value="@item.Date1" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.DTime1" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SMTime1" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.MTime1" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA2Time1" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA1Time1" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A2Time1" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A1Time1" disabled></td>
-
-                                        </tr>
-                                        <tr class="" id="2">
-
-                                            <td class=""><input class='text-input' value="@item.Date2" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.DTime2" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SMTime2" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.MTime2" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA2Time2" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA1Time2" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A2Time2" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A1Time2" disabled></td>
-
-                                        </tr>
-                                        <tr class="" id="3">
-
-                                            <td class=""><input class='text-input' value="@item.Date3" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.DTime3" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SMTime3" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.MTime3" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA2Time3" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA1Time3" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A2Time3" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A1Time3" disabled></td>
-
-                                        </tr>
-                                        <tr class="" id="4">
-
-                                            <td class=""><input class='text-input' value="@item.Date4" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.DTime4" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SMTime4" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.MTime4" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA2Time4" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA1Time4" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A2Time4" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A1Time4" disabled></td>
-
-                                        </tr>
-                                        <tr class="" id="5">
-
-                                            <td class=""><input class='text-input' value="@item.Date5" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.DTime5" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SMTime5" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.MTime5" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA2Time5" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA1Time5" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A2Time5" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A1Time5" disabled></td>
-
-                                        </tr>
-                                        <tr class="" id="6">
-
-                                            <td class=""><input class='text-input' value="@item.Date6" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.DTime6" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SMTime6" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.MTime6" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA2Time6" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA1Time6" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A2Time6" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A1Time6" disabled></td>
-
-                                        </tr>
-                                        <tr class="" id="7">
-
-                                            <td class=""><input class='text-input' value="@item.Date7" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.DTime7" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SMTime7" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.MTime7" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA2Time7" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA1Time7" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A2Time7" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A1Time7" disabled></td>
-
-                                        </tr>
-                                        <tr class="" id="8">
-
-                                            <td class=""><input class='text-input' value="@item.Date8" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.DTime8" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SMTime8" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.MTime8" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA2Time8" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA1Time8" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A2Time8" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A1Time8" disabled></td>
-
-                                        </tr>
-                                        <tr class="" id="9">
-
-                                            <td class=""><input class='text-input' value="@item.Date9" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.DTime9" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SMTime9" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.MTime9" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA2Time9" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA1Time9" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A2Time9" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A1Time9" disabled></td>
-
-                                        </tr>
-                                        <tr class="" id="10">
-
-                                            <td class=""><input class='text-input' value="@item.Date10" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.DTime10" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SMTime10" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.MTime10" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA2Time10" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA1Time10" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A2Time10" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A1Time10" disabled></td>
-
-                                        </tr>
-                                        <tr class="" id="11">
-
-                                            <td class=""><input class='text-input' value="@item.Date11" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.DTime11" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SMTime11" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.MTime11" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA2Time11" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA1Time11" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A2Time11" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A1Time11" disabled></td>
-
-                                        </tr>
-                                        <tr class="" id="12">
-
-                                            <td class=""><input class='text-input' value="@item.Date12" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.DTime12" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SMTime12" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.MTime12" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA2Time12" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA1Time12" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A2Time12" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A1Time12" disabled></td>
-
-                                        </tr>
-                                        <tr class="" id="13">
-
-                                            <td class=""><input class='text-input' value="@item.Date13" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.DTime13" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SMTime13" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.MTime13" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA2Time13" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA1Time13" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A2Time13" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A1Time13" disabled></td>
-
-                                        </tr>
-                                        <tr class="" id="14">
-
-                                            <td class=""><input class='text-input' value="@item.Date14" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.DTime14" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SMTime14" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.MTime14" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA2Time14" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA1Time14" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A2Time14" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A1Time14" disabled></td>
-
-                                        </tr>
-                                        <tr class="" id="15">
-
-                                            <td class=""><input class='text-input' value="@item.Date15" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.DTime15" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SMTime15" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.MTime15" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA2Time15" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.SA1Time15" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A2Time15" disabled></td>
-                                            <td class=""><input class='text-input' value="@item.A1Time15" disabled></td>
-
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                                <label class='label required' style="width: 100%;margin-top:20px" for='phone'>Tech Resource Requirement (Total days at each grade)</label>
-
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th class="label labsmall techtab"></th>
-                                            <th class="label labsmall techtab">Start Date</th>
-                                            <th class="label labsmall techtab">End Date</th>
-                                            <th class="label labsmall techtab">M</th>
-                                            <th class="label labsmall techtab">SA2</th>
-                                            <th class="label labsmall techtab">SA1</th>
-                                            <th class="label labsmall techtab">A2</th>
-                                            <th class="label labsmall techtab">A1</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="" id="2">
-                                            <td class="label labsmall techtab colIn">Data Capture</td>
-                                            <td class=""><input class='text-input' disabled value='@dcs'></td>
-                                            <td class=""><input class='text-input' disabled value='@dce'></td>
-                                            <td class=""><input class='text-input' disabled value='@item.DCTotalM'></td>
-                                            <td class=""><input class='text-input' disabled value='@item.DCTotalSA2'></td>
-                                            <td class=""><input class='text-input' disabled value='@item.DCTotalSA1'></td>
-                                            <td class=""><input class='text-input' disabled value='@item.DCTotalA2'></td>
-                                            <td class=""><input class='text-input' disabled value='@item.DCTotalA1'></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr class="" id="2">
-                                            <td class="label labsmall techtab colIn">Data Analysis</td>
-                                            <td class=""><input class='text-input' disabled value='@das'></td>
-                                            <td class=""><input class='text-input' disabled value='@dae'></td>
-                                            <td class=""><input class='text-input' disabled value='@item.DATotalM'></td>
-                                            <td class=""><input class='text-input' disabled value='@item.DATotalSA2'></td>
-                                            <td class=""><input class='text-input' disabled value='@item.DATotalSA1'></td>
-                                            <td class=""><input class='text-input' disabled value='@item.DATotalA2'></td>
-                                            <td class=""><input class='text-input' disabled value='@item.DATotalA1'></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr class="" id="2">
-                                            <td class="label labsmall techtab colIn">Data Visualisation</td>
-                                            <td class=""><input class='text-input' disabled value='@dvs'></td>
-                                            <td class=""><input class='text-input' disabled value='@dve'></td>
-                                            <td class=""><input class='text-input' disabled value='@item.DVTotalM'></td>
-                                            <td class=""><input class='text-input' disabled value='@item.DVTotalSA2'></td>
-                                            <td class=""><input class='text-input' disabled value='@item.DVTotalSA1'></td>
-                                            <td class=""><input class='text-input' disabled value='@item.DVTotalA2'></td>
-                                            <td class=""><input class='text-input' disabled value='@item.DVTotalA1'></td>
-                                            <td></td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-
-                                <p class='field half'>
-                                    <label class='label' for='phone'>Response Needed By</label>
-                                    <input class='text-input' value="@responseNeeded" disabled type='text'>
-                                </p>
-
+                                    @{
+                                        string buttonID = "submitActionsButton" + item.ProjectId; }
+                                    <p>
+                                        <button class="btn btn-success" id="@buttonID" type="button">Submit and Close</button>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
                             </div>
                         </div>
-                        <div id="@actionsID" class="w3-container modalTab @modalClass" style="display:none">
-                            <div class='form modalForm'>
-                                <label class='label' for='ProjectClient'>Last Editted By</label>
-                                <input class='text-input' value="@item.ProjectClient" type='text'>
-
-                                <label class='label' for='ProjectClient'>Actions</label>
-                                <textarea class='textarea' cols='50' value="@item.SpecialRequirements" rows='10'>@item.SpecialRequirements</textarea>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <input type="hidden" name="projectID" value="@item.ProjectId" />
-                            <select class="form-control selectTab @selectedDropdown" id="Status">
-                                <option value="Needs Resourcing">Needs Resourcing</option>
-                                <option value="Part Resourced">Part Resourced</option>
-                                <option value="Resourced">Resourced</option>
-                            </select>
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -1025,7 +1050,9 @@
 </form>
 
 <form action="~/Projects/SubmitStatus" id="submitStatusForm" class="buttons" method="POST">
+    <input type="hidden" id="qActionDetails" name="ActionDetails" value=""/>
     <input type="hidden" id="qID" name="projectID" value="" />
+    <input type="hidden" id="qLastEditBy" name="LastEditBy" value="" />
     <input type="hidden" id="qStatus" name="projectStatus" value="" />
 </form>
 
@@ -1039,12 +1066,21 @@
         @: var hold = ".select" + @item.ProjectId;
         @: $(hold).val("@item.Status");
     }
+
     @foreach(var item in Model.OrderBy(item => item.ResponseNeededBy))
     {
         @: var hold = ".select" + @item.ProjectId;
-        @:$(hold).change(function () {
+        @: var adHold = "actionDetails" + @item.ProjectId;
+        @:$('#submitActionsButton' + @item.ProjectId).click(function () {
+
             @:$("#qID").val(@item.ProjectId);
-            @:$("#qStatus").val($(this).val());
+
+            @:$("#qActionDetails").val(document.getElementById("actionDetails" + @item.ProjectId).value);
+
+            @:$("#qLastEditBy").val('@User.Identity.Name');
+
+            @:$("#qStatus").val($(hold).val());
+
             @:$('#submitStatusForm').submit();
         @:});
     }

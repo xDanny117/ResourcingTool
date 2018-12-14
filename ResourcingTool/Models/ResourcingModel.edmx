@@ -184,6 +184,9 @@
           <Property Name="SA1Time15" Type="varchar(max)" />
           <Property Name="A2Time15" Type="varchar(max)" />
           <Property Name="A1Time15" Type="varchar(max)" />
+          <Property Name="EditTime" Type="datetime2" Precision="7" />
+          <Property Name="LastEditBy" Type="varchar(max)" />
+          <Property Name="ActionDetails" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -383,6 +386,9 @@
           <Property Name="SA1Time15" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="A2Time15" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="A1Time15" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EditTime" Type="DateTime" Precision="7" />
+          <Property Name="LastEditBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ActionDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -408,6 +414,9 @@
           <EntitySetMapping Name="Projects">
             <EntityTypeMapping TypeName="ResourcingToolModel.Project">
               <MappingFragment StoreEntitySet="Project">
+                <ScalarProperty Name="ActionDetails" ColumnName="ActionDetails" />
+                <ScalarProperty Name="LastEditBy" ColumnName="LastEditBy" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
                 <ScalarProperty Name="A1Time15" ColumnName="A1Time15" />
                 <ScalarProperty Name="A2Time15" ColumnName="A2Time15" />
                 <ScalarProperty Name="SA1Time15" ColumnName="SA1Time15" />

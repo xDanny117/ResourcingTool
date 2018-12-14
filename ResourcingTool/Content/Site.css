@@ -155,12 +155,16 @@
     padding: 10px;
     width: 50%;
     float: left;
-    border-bottom:1px solid black;
+    border-bottom: 1px solid black;
+    font-style: italic;
 }
 
-.modalButton.active{
-    font-weight:bold;
-}
+    .modalButton.active {
+        font-weight: bold;
+        border: 1px solid black;
+        border-bottom: none;
+        font-style:normal;
+    }
 
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */

@@ -282,12 +282,16 @@ namespace ResourcingTool.Controllers
         }
 
         [Authorize(Roles = "Admin, Resourcer")]
-        public ActionResult SubmitStatus(int projectID, string projectStatus)
+        public ActionResult SubmitStatus(string LastEditBy, string ActionDetails, int projectID, string projectStatus)
         {
             using (db)
             {
                 if (ModelState.IsValid)
                 {
+                    db.Set<Project>().SingleOrDefault(o => o.ProjectId == projectID).Status = projectStatus;
+                    db.Set<Project>().SingleOrDefault(o => o.ProjectId == projectID).ActionDetails = ActionDetails;
+                    db.Set<Project>().SingleOrDefault(o => o.ProjectId == projectID).LastEditBy = LastEditBy;
+                    db.Set<Project>().SingleOrDefault(o => o.ProjectId == projectID).EditTime = DateTime.Now;
                     db.Set<Project>().SingleOrDefault(o => o.ProjectId == projectID).Status = projectStatus;
                     db.SaveChanges();
                     return RedirectToAction("Index", "Projects");
