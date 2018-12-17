@@ -26,7 +26,7 @@ namespace ResourcingTool.Controllers
             }
             else
             {
-                return RedirectToAction("Login");
+                return RedirectToAction("Login", "Home");
             }
         }
 
@@ -70,7 +70,7 @@ namespace ResourcingTool.Controllers
             }
             else
             {
-                return RedirectToAction("Login");
+                return RedirectToAction("Login", "Home");
             }
 
         }
@@ -137,7 +137,7 @@ namespace ResourcingTool.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Index", "Projects");
+                return RedirectToAction("Index", "Home");
             }
             else
             {
@@ -231,7 +231,7 @@ namespace ResourcingTool.Controllers
 
 
                         //User is authenticated and redirected
-                        return RedirectToAction("Index", "Projects");
+                        return RedirectToAction("Index", "Home");
 
                     }
                     else
@@ -259,7 +259,7 @@ namespace ResourcingTool.Controllers
             var authManager = ctx.Authentication;
             //Calling SignOut passing the authentication type (so the manager knows exactly what cookie to remove).
             authManager.SignOut("ApplicationCookie");
-            return RedirectToAction("Login", "Projects");
+            return RedirectToAction("Login", "Home");
         }
 
         //method to hash the password using SHA256 encryption

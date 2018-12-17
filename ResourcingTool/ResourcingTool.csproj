@@ -203,6 +203,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -242,6 +243,7 @@
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\component.css" />
+    <Content Include="Content\css\homepage.css" />
     <Content Include="Content\css\override.css" />
     <Content Include="Content\css\sb-admin.css" />
     <Content Include="Content\css\sb-admin.min.css" />
@@ -1837,7 +1839,6 @@
     <Content Include="Views\Projects\Details.cshtml" />
     <Content Include="Views\Projects\Edit.cshtml" />
     <Content Include="Views\Projects\Index.cshtml" />
-    <Content Include="Views\Projects\Login.cshtml" />
     <Content Include="Views\Projects\ChangePassword.cshtml" />
     <Content Include="Views\Users\Create.cshtml" />
     <Content Include="Views\Users\Delete.cshtml" />
@@ -1848,6 +1849,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Views\Projects\IndexOld.cshtml" />
     <Content Include="Views\Shared\_Layout - Copy.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
