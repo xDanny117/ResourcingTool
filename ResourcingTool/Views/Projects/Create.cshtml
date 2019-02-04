@@ -295,9 +295,21 @@
 
         </tbody>
     </table>
-
-    <label class='label required' style="width: 100%;margin-top:20px" for='phone'>Tech Resource Requirement (Total days at each grade)</label>
-    <table>
+    <br /><br />
+    <div class='field required'>
+        <label class='label'>Do you require Tech for this project?</label>
+        <ul class='options'>
+            <li class='option'>
+                <input class='option-input' id='option-01' name='option' type='radio' value='Yes'>
+                <label class='option-label' for='option-01'>Yes</label>
+            </li>
+            <li class='option'>
+                <input class='option-input' id='option-02' name='option' type='radio' value='No'>
+                <label class='option-label' for='option-02'>No</label>
+            </li>
+        </ul>
+    </div>
+    <table id="techTable">
         <thead>
             <tr>
                 <th class="label labsmall techtab"></th>
@@ -390,3 +402,47 @@
         </div>
     </div>
 </div>
+
+<script>
+    $("#techTable").hide();
+
+    $("#option-01").click(function () {
+        $("#techTable").show();
+        $("#DCTotalM").prop('required', true);
+        $("#DCTotalSA2").prop('required', true);
+        $("#DCTotalSA1").prop('required', true);
+        $("#DCTotalA2").prop('required', true);
+        $("#DCTotalA1").prop('required', true);
+        $("#DATotalM").prop('required', true);
+        $("#DATotalSA2").prop('required', true);
+        $("#DATotalSA1").prop('required', true);
+        $("#DATotalA2").prop('required', true);
+        $("#DATotalA1").prop('required', true);
+        $("#DVTotalM").prop('required', true);
+        $("#DVTotalSA2").prop('required', true);
+        $("#DVTotalSA1").prop('required', true);
+        $("#DVTotalA2").prop('required', true);
+        $("#DVTotalA1").prop('required', true);
+    });
+
+    $("#option-02").click(function () {
+        $("#techTable").hide();
+        $("#DCTotalM").prop('required', false);
+        $("#DCTotalSA2").prop('required', false);
+        $("#DCTotalSA1").prop('required', false);
+        $("#DCTotalA2").prop('required', false);
+        $("#DCTotalA1").prop('required', false);
+        $("#DATotalM").prop('required', false);
+        $("#DATotalSA2").prop('required', false);
+        $("#DATotalSA1").prop('required', false);
+        $("#DATotalA2").prop('required', false);
+        $("#DATotalA1").prop('required', false);
+        $("#DVTotalM").prop('required', false);
+        $("#DVTotalSA2").prop('required', false);
+        $("#DVTotalSA1").prop('required', false);
+        $("#DVTotalA2").prop('required', false);
+        $("#DVTotalA1").prop('required', false);
+    });
+
+
+</script>
