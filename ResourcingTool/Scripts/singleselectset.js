@@ -1,19 +1,19 @@
 ﻿$("#techTable").hide();
 
 $("#option-0").click(function () {
-    $("#ProjectSector").val("PwC");
+    $("#ProjectSector").attr("value", "PwC");
     console.log("0");
 });
 $("#option-1").click(function () {
-    $("#ProjectSector").val("FS");
+    $("#ProjectSector").attr("value", "FS");
     console.log("1");
 });
 $("#option-2").click(function () {
-    $("#ProjectSector").val("C&BS");
+    $("#ProjectSector").attr("value", "C&BS");
     console.log("2");
 });
 $("#option-3").click(function () {
-    $("#TechRequired").val("true");
+    $("#TechRequired").attr("value","true");
     $("#techTable").show();
 
     $("#DCTotalM").prop('required', true);
@@ -33,7 +33,7 @@ $("#option-3").click(function () {
     $("#DVTotalA1").prop('required', true);
 });
 $("#option-4").click(function () {
-    $("#TechRequired").val("false");
+    $("#TechRequired").attr("value", "false");
     $("#techTable").hide();
 
     $("#DCTotalM").prop('required', false);
