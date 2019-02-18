@@ -192,5 +192,6 @@ namespace ResourcingTool.Models
         public Nullable<System.DateTime> EditTime { get; set; }
         public string LastEditBy { get; set; }
         public string ActionDetails { get; set; }
+        public Nullable<bool> TechRequired { get; set; }
     }
 }

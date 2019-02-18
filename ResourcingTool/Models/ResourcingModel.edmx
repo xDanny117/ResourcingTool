@@ -187,6 +187,7 @@
           <Property Name="EditTime" Type="datetime2" Precision="7" />
           <Property Name="LastEditBy" Type="varchar(max)" />
           <Property Name="ActionDetails" Type="varchar(max)" />
+          <Property Name="TechRequired" Type="bit" Nullable="true"/>
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -389,6 +390,7 @@
           <Property Name="EditTime" Type="DateTime" Precision="7" />
           <Property Name="LastEditBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="ActionDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TechRequired" Type="Boolean" Nullable="true"/>
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -592,6 +594,7 @@
                 <ScalarProperty Name="DVTotalSA1" ColumnName="DVTotalSA1" />
                 <ScalarProperty Name="DVTotalA2" ColumnName="DVTotalA2" />
                 <ScalarProperty Name="DVTotalA1" ColumnName="DVTotalA1" />
+                <ScalarProperty Name="TechRequired" ColumnName="TechRequired" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -300,12 +300,12 @@
         <label class='label'>Do you require Tech for this project?</label>
         <ul class='options'>
             <li class='option'>
-                <input class='option-input' id='option-01' name='option' type='radio' value='Yes'>
-                <label class='option-label' for='option-01'>Yes</label>
+                <input class='option-input' id='TechRequired-1' name='option' type='radio' value='1'>
+                <label class='option-label' for='TechRequired'>Yes</label>
             </li>
             <li class='option'>
-                <input class='option-input' id='option-02' name='option' type='radio' value='No'>
-                <label class='option-label' for='option-02'>No</label>
+                <input class='option-input' id='TechRequired-2' name='option' type='radio' value='0'>
+                <label class='option-label' for='TechRequired'>No</label>
             </li>
         </ul>
     </div>
@@ -406,7 +406,7 @@
 <script>
     $("#techTable").hide();
 
-    $("#option-01").click(function () {
+    $("#TechRequired-1").click(function () {
         $("#techTable").show();
         $("#DCTotalM").prop('required', true);
         $("#DCTotalSA2").prop('required', true);
@@ -425,7 +425,7 @@
         $("#DVTotalA1").prop('required', true);
     });
 
-    $("#option-02").click(function () {
+    $("#TechRequired-2").click(function () {
         $("#techTable").hide();
         $("#DCTotalM").prop('required', false);
         $("#DCTotalSA2").prop('required', false);

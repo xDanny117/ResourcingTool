@@ -915,7 +915,8 @@
                                         </tbody>
                                     </table>
                                     <label class='label required' style="width: 100%;margin-top:20px" for='phone'>Tech Resource Requirement (Total days at each grade)</label>
-
+                                    @*@if (item.TechRequired == true)
+                                    {*@
                                     <table>
                                         <thead>
                                             <tr>
@@ -966,6 +967,7 @@
 
                                         </tbody>
                                     </table>
+                                    @*}*@
 
                                     <p class='field half'>
                                         <label class='label' for='phone'>Response Needed By</label>
