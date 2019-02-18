@@ -296,19 +296,20 @@
         </tbody>
     </table>
     <br /><br />
-    <div class='field required'>
-        <label class='label'>Do you require Tech for this project?</label>
-        <ul class='options'>
-            <li class='option'>
-                <input class='option-input' id='TechRequired-1' name='option' type='radio' value='1'>
-                <label class='option-label' for='TechRequired'>Yes</label>
-            </li>
-            <li class='option'>
-                <input class='option-input' id='TechRequired-2' name='option' type='radio' value='0'>
-                <label class='option-label' for='TechRequired'>No</label>
-            </li>
-        </ul>
-    </div>
+          <div class='field required'>
+              <label class='label'>Do you require Tech?</label>
+              <ul class='options'>
+                  <li class='option'>
+                      <input class='option-input' id='option-3' name='option' type='radio' value='true'>
+                      <label class='option-label' for='option-3'>Yes</label>
+                  </li>
+                  <li class='option'>
+                      <input class='option-input' id='option-4' name='option' type='radio' value='false'>
+                      <label class='option-label' for='option-4'>No</label>
+                  </li>
+              </ul>
+          </div>
+    <input type="hidden" id="TechRequired" name="TechRequired" value="true" />
     <table id="techTable">
         <thead>
             <tr>
@@ -380,6 +381,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         $("#option-0").trigger("click");
+        $("#option-4").trigger("click");
     </script>
 
 </form>
@@ -402,47 +404,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    $("#techTable").hide();
-
-    $("#TechRequired-1").click(function () {
-        $("#techTable").show();
-        $("#DCTotalM").prop('required', true);
-        $("#DCTotalSA2").prop('required', true);
-        $("#DCTotalSA1").prop('required', true);
-        $("#DCTotalA2").prop('required', true);
-        $("#DCTotalA1").prop('required', true);
-        $("#DATotalM").prop('required', true);
-        $("#DATotalSA2").prop('required', true);
-        $("#DATotalSA1").prop('required', true);
-        $("#DATotalA2").prop('required', true);
-        $("#DATotalA1").prop('required', true);
-        $("#DVTotalM").prop('required', true);
-        $("#DVTotalSA2").prop('required', true);
-        $("#DVTotalSA1").prop('required', true);
-        $("#DVTotalA2").prop('required', true);
-        $("#DVTotalA1").prop('required', true);
-    });
-
-    $("#TechRequired-2").click(function () {
-        $("#techTable").hide();
-        $("#DCTotalM").prop('required', false);
-        $("#DCTotalSA2").prop('required', false);
-        $("#DCTotalSA1").prop('required', false);
-        $("#DCTotalA2").prop('required', false);
-        $("#DCTotalA1").prop('required', false);
-        $("#DATotalM").prop('required', false);
-        $("#DATotalSA2").prop('required', false);
-        $("#DATotalSA1").prop('required', false);
-        $("#DATotalA2").prop('required', false);
-        $("#DATotalA1").prop('required', false);
-        $("#DVTotalM").prop('required', false);
-        $("#DVTotalSA2").prop('required', false);
-        $("#DVTotalSA1").prop('required', false);
-        $("#DVTotalA2").prop('required', false);
-        $("#DVTotalA1").prop('required', false);
-    });
-
-
-</script>
