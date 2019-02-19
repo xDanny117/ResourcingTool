@@ -18,7 +18,7 @@
     {
         if(User.IsInRole("Requester"))
         {
-            if(item.fk_UserName_Requester == User.Identity.GetUserName())
+            if ((item.fk_UserId_Requester == Convert.ToInt32(User.Identity.GetUserId())))
             {
                 if (item.Status == "Needs Resourcing")
                 {
@@ -80,30 +80,7 @@
 
         <!-- Navbar -->
         <ul class="navbar-nav ml-auto ml-md-0 form-inline">
-            @*<li class="nav-item dropdown no-arrow mx-1">
-                    <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-bell fa-fw"></i>
-                        <span class="badge badge-danger">9+</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown no-arrow mx-1">
-                    <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-envelope fa-fw"></i>
-                        <span class="badge badge-danger">7</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>*@
+            
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user-circle fa-fw"></i>
@@ -287,8 +264,6 @@
                                         @*<td class="cell100 cellMain column4" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectNature)</td>*@
                                         <td class="cell100 cellMain column5" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
                                         @{
-                                            //string dateValue = item.EstimatedBriefing.ToString("d/M/yyyy");
-                                            //string dateValue2 = item.EstimatedDebriefing.ToString("d/M/yyyy");
                                             string dateValue3 = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
                                         }
                                         <td class="cell100 cellMain column6" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectLead)</td>
@@ -315,8 +290,6 @@
                                         @*<td class="cell100 cellMain column4" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectNature)</td>*@
                                         <td class="cell100 cellMain column5" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
                                         @{
-                                            //string dateValue = item.EstimatedBriefing.ToString("d/M/yyyy");
-                                            //string dateValue2 = item.EstimatedDebriefing.ToString("d/M/yyyy");
                                             string dateValue3 = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
                                         }
                                         <td class="cell100 cellMain column6" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectLead)</td>
@@ -344,8 +317,6 @@
                                         @*<td class="cell100 cellMain column4" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectNature)</td>*@
                                         <td class="cell100 cellMain column5" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
                                         @{
-                                            //string dateValue = item.EstimatedBriefing.ToString("d/M/yyyy");
-                                            //string dateValue2 = item.EstimatedDebriefing.ToString("d/M/yyyy");
                                             string dateValue3 = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
                                             string selectedDropdown = "select" + item.ProjectId;
                                         }
@@ -375,8 +346,6 @@
                                         @*<td class="cell100 cellMain column4" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectNature)</td>*@
                                         <td class="cell100 cellMain column5" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
                                         @{
-                                            //string dateValue = item.EstimatedBriefing.ToString("d/M/yyyy");
-                                            //string dateValue2 = item.EstimatedDebriefing.ToString("d/M/yyyy");
                                             string dateValue3 = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
                                             string selectedDropdown = "select" + item.ProjectId;
                                         }
@@ -403,8 +372,6 @@
                                         @*<td class="cell100 cellMain column4" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectNature)</td>*@
                                         <td class="cell100 cellMain column5" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ProjectScope)</td>
                                         @{
-                                            //string dateValue = item.EstimatedBriefing.ToString("d/M/yyyy");
-                                            //string dateValue2 = item.EstimatedDebriefing.ToString("d/M/yyyy");
                                             string dateValue3 = (item.ResponseNeededBy != null) ? ((DateTime)item.ResponseNeededBy).ToString("d/M/yyyy") : "";
                                             string selectedDropdown = "select" + item.ProjectId;
                                         }
@@ -461,20 +428,6 @@
     @foreach (var item in Model.OrderBy(item => item.ResponseNeededBy))
     {
         string hold = "modal" + item.ProjectId;
-
-        @*<div class="modal myModal card text-white bg-danger h-100" id="@hold">
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-                <div class="card-body">
-                    <div class="card-body-icon">
-                        <i class="fas fa-fw fa-comments"></i>
-                    </div>
-                    <div class="mr-5">@item.ProjectName - @item.Status</div>
-                </div>
-            </div>*@
-
-
 
         <div class="modal modal-lg fade modalParent" id="@hold" aria-labelledby="@hold" aria-hidden="true">
 
