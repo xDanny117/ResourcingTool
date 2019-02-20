@@ -1074,7 +1074,7 @@
         $(document).ready(function(){
             $("#searchBar").on("keyup", function () {
                 var value = $(this).val().toLowerCase();
-                $("#summaryTable tr").filter(function () {
+                $("#summaryTable tr").not('thead tr').filter(function () {
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
             });
