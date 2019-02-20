@@ -17,6 +17,7 @@ namespace ResourcingTool.Controllers
         private ResourcingToolConnection db = new ResourcingToolConnection();
 
         // GET: Users
+        [Authorize(Roles ="Admin")]
         public ActionResult Index()
         {
             return View(db.Users.ToList());
