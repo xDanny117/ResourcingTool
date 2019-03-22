@@ -188,6 +188,7 @@
           <Property Name="LastEditBy" Type="varchar(max)" />
           <Property Name="ActionDetails" Type="varchar(max)" />
           <Property Name="TechRequired" Type="bit" Nullable="true"/>
+          <Property Name="ActionDetailsPublic" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -391,6 +392,7 @@
           <Property Name="LastEditBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="ActionDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="TechRequired" Type="Boolean" Nullable="true"/>
+          <Property Name="ActionDetailsPublic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -417,6 +419,7 @@
             <EntityTypeMapping TypeName="ResourcingToolModel.Project">
               <MappingFragment StoreEntitySet="Project">
                 <ScalarProperty Name="ActionDetails" ColumnName="ActionDetails" />
+                <ScalarProperty Name="ActionDetailsPublic" ColumnName="ActionDetailsPublic" />
                 <ScalarProperty Name="LastEditBy" ColumnName="LastEditBy" />
                 <ScalarProperty Name="EditTime" ColumnName="EditTime" />
                 <ScalarProperty Name="A1Time15" ColumnName="A1Time15" />

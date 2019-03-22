@@ -132,146 +132,6 @@ namespace ResourcingTool.Controllers
             return RedirectToAction("Index");
         }
 
-
-        public ActionResult Login()
-        {
-            if (User.Identity.IsAuthenticated)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
-                return View();
-            }
-        }
-
-        [Authorize(Roles = "Admin, Resourcer, Requester")]
-        public ActionResult ChangePassword()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [Authorize(Roles = "Admin, Resourcer, Requester")]
-        public ActionResult ChangePassword(int userId, string currentPassword, string newPassword, UserErrors userModel)
-        {
-            if (!ModelState.IsValid) //Checks if input fields have the correct format
-            {
-                return View(); //Returns the view with the input values so that the user doesn't have to retype again
-            }
-            using (ResourcingToolConnection db = new ResourcingToolConnection())
-            {
-                // hash the password and compare against database
-                if (!(userId == null || currentPassword == null))
-                {
-                    var hashedPassword = Sha256encrypt(currentPassword);
-                    var leaderDetails = db.Users.Where(x => x.Id == userId && x.Password == hashedPassword).FirstOrDefault();
-
-                    if (leaderDetails != null)
-                    {
-                        var newHashedPassword = Sha256encrypt(newPassword);
-                        db.Set<User>().SingleOrDefault(o => o.Id == userId).Password = newHashedPassword;
-                        db.SaveChanges();
-
-                        return RedirectToAction("Index", "Projects");
-
-                    }
-                    else
-                    {
-                        //User authentication failed
-                        userModel.ErrorMessage = "The current password you've entered is incorrect. Please try again.";
-                        return View(userModel);
-                    }
-                }
-                else
-                {
-                    userModel.ErrorMessage = "Please enter your current password and your new password.";
-                    //User authentication failed - blank 
-                }
-
-            }
-            return View(userModel); //Should always be declared on the end of an action method
-
-        }
-
-
-        [HttpPost]
-        [AllowAnonymous]
-        public ActionResult Login(UserErrors userModel)
-        {
-            if (!ModelState.IsValid) //Checks if input fields have the correct format
-            {
-                return View(userModel); //Returns the view with the input values so that the user doesn't have to retype again
-            }
-            using (ResourcingToolConnection db = new ResourcingToolConnection())
-            {
-                // hash the password and compare against database
-                if (!(userModel.UserName == null || userModel.Password == null))
-                {
-                    var hashedPassword = Sha256encrypt(userModel.Password);
-                    var userDetails = db.Users.Where(x => x.UserName == userModel.UserName && x.Password == hashedPassword).FirstOrDefault();
-
-                    if (userDetails != null)
-                    {
-
-                        var identity = new ClaimsIdentity(new[] {
-                             new Claim(ClaimTypes.Role, userDetails.Role),
-                             new Claim(ClaimTypes.Name, userDetails.Name),
-                             new Claim(ClaimTypes.NameIdentifier, userDetails.Id.ToString())
-                        },
-                            "ApplicationCookie");
-
-                        // get owin context
-                        var ctx = Request.GetOwinContext();
-                        // get authentication manager
-                        var authManager = ctx.Authentication;
-                        //sign in as claimed identity- in this case the admin
-                        //A user is authenticated by calling AuthenticationManager.SignIn
-                        authManager.SignIn(identity);
-
-
-                        //User is authenticated and redirected
-                        return RedirectToAction("Index", "Home");
-
-                    }
-                    else
-                    {
-                        userModel.ErrorMessage = "The username or password entered is incorrect. Please try again.";
-                        //User authentication failed
-                    }
-                }
-                else
-                {
-                    userModel.ErrorMessage = "The username or password entered is incorrect. Please try again.";
-                    //User authentication failed - blank 
-                }
-
-            }
-            return View(userModel); //Should always be declared on the end of an action method
-        }
-        // log the user out.
-        [Authorize(Roles = "Admin, Resourcer, Requester")]
-        public ActionResult LogOut()
-        {
-            // get owin context
-            var ctx = Request.GetOwinContext();
-            // get authentication manager
-            var authManager = ctx.Authentication;
-            //Calling SignOut passing the authentication type (so the manager knows exactly what cookie to remove).
-            authManager.SignOut("ApplicationCookie");
-            return RedirectToAction("Login", "Home");
-        }
-
-        //method to hash the password using SHA256 encryption
-        [AllowAnonymous]
-        public static string Sha256encrypt(string phrase)
-        {
-            UTF8Encoding encoder = new UTF8Encoding();
-            SHA256Managed sha256hasher = new SHA256Managed();
-            byte[] hashedDataBytes = sha256hasher.ComputeHash(encoder.GetBytes(phrase));
-            return Convert.ToBase64String(hashedDataBytes);
-        }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -282,7 +142,7 @@ namespace ResourcingTool.Controllers
         }
 
         [Authorize(Roles = "Admin, Resourcer")]
-        public ActionResult SubmitStatus(string LastEditBy, string ActionDetails, int projectID, string projectStatus)
+        public ActionResult SubmitStatus(string LastEditBy, string ActionDetails, string ActionDetailsPublic, int projectID, string projectStatus)
         {
             using (db)
             {
@@ -290,6 +150,7 @@ namespace ResourcingTool.Controllers
                 {
                     db.Set<Project>().SingleOrDefault(o => o.ProjectId == projectID).Status = projectStatus;
                     db.Set<Project>().SingleOrDefault(o => o.ProjectId == projectID).ActionDetails = ActionDetails;
+                    db.Set<Project>().SingleOrDefault(o => o.ProjectId == projectID).ActionDetailsPublic = ActionDetailsPublic;
                     db.Set<Project>().SingleOrDefault(o => o.ProjectId == projectID).LastEditBy = LastEditBy;
                     db.Set<Project>().SingleOrDefault(o => o.ProjectId == projectID).EditTime = DateTime.Now;
                     db.Set<Project>().SingleOrDefault(o => o.ProjectId == projectID).Status = projectStatus;

@@ -87,7 +87,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right " style="text-align:right" aria-labelledby="userDropdown">
                     <span class="dropdown-item" style="font-style:italic">Welcome, @User.Identity.Name</span>
-                    <a class="dropdown-item" href="/Projects/ChangePassword">Change Password</a>
+                    <a class="dropdown-item" href="/Home/ChangePassword">Change Password</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
                 </div>
@@ -222,10 +222,12 @@
                                         {
                                             <th class="cell100 column8">Status</th>
                                             <th class="cell100 column4">Comments</th>
+                                            <th class="cell100 column4">Outcome/Comments</th>
                                         }
                                         else
                                         {
                                             <th class="cell100 column8">Status</th>
+                                            <th class="cell100 column4">Outcome/Comments</th>
                                         }
                                     </tr>
                                 </thead>
@@ -253,6 +255,7 @@
                                         @*<td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue2)</td>*@
                                         <td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue3)</td>
                                         <td class="cell100 cellMain statusColumn" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.Status)</td>
+                                        <td class="cell100 cellMain column4" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ActionDetailsPublic)</td>
 
                                     </tr>
                                             }
@@ -276,6 +279,7 @@
                                         @*<td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue2)</td>*@
                                         <td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue3)</td>
                                         <td class="cell100 cellMain statusColumn" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.Status)</td>
+                                        <td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ActionDetailsPublic)</td>
 
                                     </tr>
                                             }
@@ -302,6 +306,7 @@
                                         <td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue3)</td>
 
                                         <td class="cell100 cellMain statusColumn" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.Status)</td>
+                                        <td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ActionDetailsPublic)</td>
                                     </tr>
                                             }
                                         }
@@ -330,6 +335,7 @@
 
                                         <td class="cell100 cellMain statusColumn" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.Status)</td>
                                         <td class="cell100 cellMain column4" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ActionDetails)</td>
+                                        <td class="cell100 cellMain column4" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ActionDetailsPublic)</td>
 
                                     </tr>
                                             }
@@ -358,6 +364,7 @@
                                         <td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue3)</td>
                                         <td class="cell100 cellMain statusColumn" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.Status)</td>
                                         <td class="cell100 cellMain column4" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ActionDetails)</td>
+                                        <td class="cell100 cellMain column4" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ActionDetailsPublic)</td>
                                     </tr>
                                             }
                                         }
@@ -384,6 +391,7 @@
                                         <td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue3)</td>
                                         <td class="cell100 cellMain statusColumn" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.Status)</td>
                                         <td class="cell100 cellMain column4" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ActionDetails)</td>
+                                        <td class="cell100 cellMain column4" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ActionDetailsPublic)</td>
                                     </tr>
                                             }
                                         }
@@ -422,7 +430,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="/Projects/Logout">Logout</a>
+                    <a class="btn btn-primary" href="/Home/Logout">Logout</a>
                 </div>
             </div>
         </div>
@@ -955,6 +963,7 @@
                                 string editDateID = "editDate" + item.ProjectId;
                                 string lastEditID = "lastEdit" + item.ProjectId;
                                 string actionDetailsID = "actionDetails" + item.ProjectId;
+                                string actionDetailsPublicID = "actionDetailsPublic" + item.ProjectId;
                             }
                             @if (!User.IsInRole("Requester"))
                             {
@@ -979,6 +988,10 @@
                                         <p class="field">
                                             <label class='label' for='ProjectClient'>Add Actions Here</label>
                                             <textarea class='textarea' cols='50' id="@actionDetailsID" value="@item.ActionDetails" rows='12'>@item.ActionDetails</textarea>
+                                        </p>
+                                        <p class="field">
+                                            <label class='label' for='ProjectClient'>Add Outcomes (to display to Requester) Here</label>
+                                            <textarea class='textarea' cols='50' id="@actionDetailsPublicID" value="@item.ActionDetailsPublic" rows='12'>@item.ActionDetailsPublic</textarea>
                                         </p>
 
 
@@ -1035,7 +1048,8 @@
 </form>
 
 <form action="~/Projects/SubmitStatus" id="submitStatusForm" class="buttons" method="POST">
-    <input type="hidden" id="qActionDetails" name="ActionDetails" value=""/>
+    <input type="hidden" id="qActionDetails" name="ActionDetails" value="" />
+    <input type="hidden" id="qActionDetailsPublic" name="ActionDetailsPublic" value="" />
     <input type="hidden" id="qID" name="projectID" value="" />
     <input type="hidden" id="qLastEditBy" name="LastEditBy" value="" />
     <input type="hidden" id="qStatus" name="projectStatus" value="" />
@@ -1056,11 +1070,13 @@
     {
         @: var hold = ".select" + @item.ProjectId;
         @: var adHold = "actionDetails" + @item.ProjectId;
+        @: var adHoldPublic = "actionDetailsPublic" + @item.ProjectId;
         @:$('#submitActionsButton' + @item.ProjectId).click(function () {
 
             @:$("#qID").val(@item.ProjectId);
 
             @:$("#qActionDetails").val(document.getElementById("actionDetails" + @item.ProjectId).value);
+            @:$("#qActionDetailsPublic").val(document.getElementById("actionDetailsPublic" + @item.ProjectId).value);
 
             @:$("#qLastEditBy").val('@User.Identity.Name');
 
