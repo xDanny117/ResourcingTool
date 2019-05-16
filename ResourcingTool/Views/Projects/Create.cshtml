@@ -10,6 +10,9 @@
 <script>
 
 </script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.66.0-2013.10.09/jquery.blockUI.js">
+</script>
 <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
     <a class="createNav navbar-brand mr-1" onclick="return confirm('By leaving this page without submitting, you will lose any data you have entered.')" href="/Projects/Index">< Back</a>
@@ -367,7 +370,7 @@
     </p>
 
     <p class='field half'>
-        <input class='button' type='submit' value='Send'>
+        <input class='button' type='submit' value='Send' onclick="$.blockUI({message:'Please wait...'})">
     </p>
 
     <input type='hidden' id='Status' name='Status' value="Needs Resourcing">

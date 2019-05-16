@@ -286,7 +286,7 @@
                                         }
 
                                         //Print approved
-                                        foreach (var item in Model.OrderBy(item => item.ResponseNeededBy))
+                                        foreach (var item in Model.OrderByDescending(item => item.EditTime))
                                         {
                                             if ((item.fk_UserId_Requester == Convert.ToInt32(User.Identity.GetUserId())) && item.Status == "Resourced")
                                             {
@@ -343,7 +343,7 @@
                                         }
 
                                         //Print approved
-                                        foreach (var item in Model.OrderBy(item => item.ResponseNeededBy))
+                                        foreach (var item in Model.OrderByDescending(item => item.EditTime))
                                         {
                                             if (item.Status == "Part Resourced")
                                             {
@@ -370,7 +370,7 @@
                                         }
 
                                         //Print approved
-                                        foreach (var item in Model.OrderBy(item => item.ResponseNeededBy))
+                                        foreach (var item in Model.OrderByDescending(item => item.EditTime))
                                         {
                                             if (item.Status == "Resourced")
                                             {
