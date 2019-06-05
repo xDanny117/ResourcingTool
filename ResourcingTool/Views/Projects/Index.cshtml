@@ -113,6 +113,15 @@
                     <span>Create a request</span>
                 </a>
             </li>
+            @if (User.IsInRole("Resourcer") || User.IsInRole("Admin"))
+            {
+                <li class="nav-item">
+                    <a class="nav-link" href="/Projects/Statistics">
+                        <i class="fas fa-fw fa-chart-pie"></i>
+                        <span>Statistics [Beta]</span>
+                    </a>
+                </li>
+            }
             @if (User.IsInRole("Admin"))
             {
                 <li class="nav-item">
@@ -222,12 +231,10 @@
                                         {
                                             <th class="cell100 column8">Status</th>
                                             <th class="cell100 column4">Comments</th>
-                                            <th class="cell100 column4">Outcome/Comments</th>
                                         }
                                         else
                                         {
                                             <th class="cell100 column8">Status</th>
-                                            <th class="cell100 column4">Outcome/Comments</th>
                                         }
                                     </tr>
                                 </thead>
@@ -255,7 +262,6 @@
                                         @*<td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue2)</td>*@
                                         <td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue3)</td>
                                         <td class="cell100 cellMain statusColumn" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.Status)</td>
-                                        <td class="cell100 cellMain column4" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ActionDetailsPublic)</td>
 
                                     </tr>
                                             }
@@ -279,7 +285,6 @@
                                         @*<td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue2)</td>*@
                                         <td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue3)</td>
                                         <td class="cell100 cellMain statusColumn" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.Status)</td>
-                                        <td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ActionDetailsPublic)</td>
 
                                     </tr>
                                             }
@@ -306,7 +311,6 @@
                                         <td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue3)</td>
 
                                         <td class="cell100 cellMain statusColumn" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.Status)</td>
-                                        <td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ActionDetailsPublic)</td>
                                     </tr>
                                             }
                                         }
@@ -335,7 +339,6 @@
 
                                         <td class="cell100 cellMain statusColumn" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.Status)</td>
                                         <td class="cell100 cellMain column4" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ActionDetails)</td>
-                                        <td class="cell100 cellMain column4" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ActionDetailsPublic)</td>
 
                                     </tr>
                                             }
@@ -364,7 +367,6 @@
                                         <td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue3)</td>
                                         <td class="cell100 cellMain statusColumn" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.Status)</td>
                                         <td class="cell100 cellMain column4" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ActionDetails)</td>
-                                        <td class="cell100 cellMain column4" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ActionDetailsPublic)</td>
                                     </tr>
                                             }
                                         }
@@ -391,7 +393,6 @@
                                         <td class="cell100 cellMain column7" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => dateValue3)</td>
                                         <td class="cell100 cellMain statusColumn" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.Status)</td>
                                         <td class="cell100 cellMain column4" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ActionDetails)</td>
-                                        <td class="cell100 cellMain column4" data-toggle="modal" data-target="@holder">@Html.DisplayFor(modelItem => item.ActionDetailsPublic)</td>
                                     </tr>
                                             }
                                         }
@@ -963,7 +964,6 @@
                                 string editDateID = "editDate" + item.ProjectId;
                                 string lastEditID = "lastEdit" + item.ProjectId;
                                 string actionDetailsID = "actionDetails" + item.ProjectId;
-                                string actionDetailsPublicID = "actionDetailsPublic" + item.ProjectId;
                             }
                             @if (!User.IsInRole("Requester"))
                             {
@@ -988,10 +988,6 @@
                                         <p class="field">
                                             <label class='label' for='ProjectClient'>Add Actions Here</label>
                                             <textarea class='textarea' cols='50' id="@actionDetailsID" value="@item.ActionDetails" rows='12'>@item.ActionDetails</textarea>
-                                        </p>
-                                        <p class="field">
-                                            <label class='label' for='ProjectClient'>Add Outcomes (to display to Requester) Here</label>
-                                            <textarea class='textarea' cols='50' id="@actionDetailsPublicID" value="@item.ActionDetailsPublic" rows='12'>@item.ActionDetailsPublic</textarea>
                                         </p>
 
 
@@ -1049,7 +1045,6 @@
 
 <form action="~/Projects/SubmitStatus" id="submitStatusForm" class="buttons" method="POST">
     <input type="hidden" id="qActionDetails" name="ActionDetails" value="" />
-    <input type="hidden" id="qActionDetailsPublic" name="ActionDetailsPublic" value="" />
     <input type="hidden" id="qID" name="projectID" value="" />
     <input type="hidden" id="qLastEditBy" name="LastEditBy" value="" />
     <input type="hidden" id="qStatus" name="projectStatus" value="" />
@@ -1070,13 +1065,11 @@
     {
         @: var hold = ".select" + @item.ProjectId;
         @: var adHold = "actionDetails" + @item.ProjectId;
-        @: var adHoldPublic = "actionDetailsPublic" + @item.ProjectId;
         @:$('#submitActionsButton' + @item.ProjectId).click(function () {
 
             @:$("#qID").val(@item.ProjectId);
 
             @:$("#qActionDetails").val(document.getElementById("actionDetails" + @item.ProjectId).value);
-            @:$("#qActionDetailsPublic").val(document.getElementById("actionDetailsPublic" + @item.ProjectId).value);
 
             @:$("#qLastEditBy").val('@User.Identity.Name');
 
@@ -1096,4 +1089,36 @@
             });
         });
 </script>
+
+<style>
+    .column4 {
+        white-space:pre-wrap;
+        width:45%;
+    }
+
+    .column5 {
+        white-space: pre-wrap;
+        width: 20%;
+    }
+    .column7 {
+        width: 5%;
+    }
+    .column1 {
+        width: 5%;
+    }
+
+    .column3 {
+        width: 10%;
+    }
+
+    .column3 {
+        width: 10%;
+    }
+    .column6 {
+        width: 5%;
+    }
+
+
+
+</style>
 

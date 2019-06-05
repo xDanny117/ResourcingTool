@@ -106,6 +106,11 @@ namespace ResourcingTool.Controllers
             return View(project);
         }
 
+        public ActionResult Statistics()
+        {
+            return View(db.Projects.ToList());
+        }
+
         // GET: Projects/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -142,7 +147,7 @@ namespace ResourcingTool.Controllers
         }
 
         [Authorize(Roles = "Admin, Resourcer")]
-        public ActionResult SubmitStatus(string LastEditBy, string ActionDetails, string ActionDetailsPublic, int projectID, string projectStatus)
+        public ActionResult SubmitStatus(string LastEditBy, string ActionDetails, int projectID, string projectStatus)
         {
             using (db)
             {
@@ -150,7 +155,6 @@ namespace ResourcingTool.Controllers
                 {
                     db.Set<Project>().SingleOrDefault(o => o.ProjectId == projectID).Status = projectStatus;
                     db.Set<Project>().SingleOrDefault(o => o.ProjectId == projectID).ActionDetails = ActionDetails;
-                    db.Set<Project>().SingleOrDefault(o => o.ProjectId == projectID).ActionDetailsPublic = ActionDetailsPublic;
                     db.Set<Project>().SingleOrDefault(o => o.ProjectId == projectID).LastEditBy = LastEditBy;
                     db.Set<Project>().SingleOrDefault(o => o.ProjectId == projectID).EditTime = DateTime.Now;
                     db.Set<Project>().SingleOrDefault(o => o.ProjectId == projectID).Status = projectStatus;

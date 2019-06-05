@@ -1,0 +1,166 @@
+﻿@model IEnumerable<ResourcingTool.Models.Project>
+@{
+    ViewBag.Title = "Statistics";
+}
+
+@{
+    int pwcTotal = 0;
+    int fsTotal = 0;
+    int cbsTotal = 0;
+}
+
+@foreach (var item in Model)
+{
+    if (item.ProjectSector == "PwC")
+    {
+        pwcTotal++;
+    }
+    else if (item.ProjectSector == "FS")
+    {
+        fsTotal++;
+    }
+    else if (item.ProjectSector == "C&BS")
+    {
+        cbsTotal++;
+    }
+}
+
+<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+    <a class="navbar-brand mr-1" href="/Projects/Index">Resourcing Request Tool</a>
+
+    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Navbar Search -->
+    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+        <div class="input-group">
+            <input type="text" id="searchBar" class="form-control" style="display:none "placeholder="Search for a request" aria-label="Search" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button style="display:none" class="btn btn-primary" type="button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Navbar -->
+    <ul class="navbar-nav ml-auto ml-md-0 form-inline">
+
+        <li class="nav-item dropdown no-arrow">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user-circle fa-fw"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right " style="text-align:right" aria-labelledby="userDropdown">
+                <span class="dropdown-item" style="font-style:italic">Welcome, @User.Identity.Name</span>
+                <a class="dropdown-item" href="/Home/ChangePassword">Change Password</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+            </div>
+        </li>
+    </ul>
+
+</nav>
+
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="sidebar navbar-nav">
+        <li class="nav-item active">
+            <a class="nav-link" href="index">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Home Dashboard</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/Projects/Create">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Create a request</span>
+            </a>
+        </li>
+        @if (User.IsInRole("Resourcer") || User.IsInRole("Admin"))
+        {
+            <li class="nav-item">
+                <a class="nav-link" href="/Projects/Statistics">
+                    <i class="fas fa-fw fa-chart-pie"></i>
+                    <span>Statistics [Beta]</span>
+                </a>
+            </li>
+        }
+            @if (User.IsInRole("Admin"))
+            {
+                <li class="nav-item">
+                    <a class="nav-link" href="/Users/Index">
+                        <i class="fas fa-fw fa-user"></i>
+                        <span>User Accounts</span>
+                    </a>
+                </li>
+            }
+        </ul>
+
+    <div id="content-wrapper">
+
+    </div>
+    <!-- /.content-wrapper -->
+
+</div>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+@*<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>*@
+
+<script>
+    Highcharts.setOptions({
+        colors: ['#DB536A', '#DC6900', '#E0301E']
+    });
+
+    Highcharts.chart('content-wrapper', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'PwC Research - Resourcing Request Sector Breakdown'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        legend: {
+            enabled: false
+        },
+        credits: {
+            enabled: false
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                }
+            }
+        },
+        series: [{
+            name: 'PwC Research Sectors',
+            colorByPoint: true,
+            data: [{
+                name: 'PwC',
+                y: @pwcTotal,
+            }, {
+                name: 'FS',
+                y: @fsTotal
+            }, {
+                name: 'C&BS',
+                y: @cbsTotal
+            }]
+        }]
+    });
+</script>
+
