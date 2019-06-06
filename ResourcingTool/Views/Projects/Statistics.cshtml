@@ -7,6 +7,7 @@
     int pwcTotal = 0;
     int fsTotal = 0;
     int cbsTotal = 0;
+    List<string> users = new List<string>();
 }
 
 @foreach (var item in Model)
@@ -23,6 +24,20 @@
     {
         cbsTotal++;
     }
+
+    users.Add(item.fk_UserName_Requester);
+}
+
+@{ 
+    var distinctUsers =
+    users.GroupBy(x => x)
+              .Select(g => new {
+                  Name = g.Key, ItemsCount = g.Count()
+              });
+}
+
+@{ 
+    var orderedUsers = distinctUsers.OrderByDescending(y => y.ItemsCount);
 }
 
 <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
@@ -101,6 +116,17 @@
         </ul>
 
     <div id="content-wrapper">
+        <div id="highcharts">
+
+        </div>
+
+        The top 5 resource requesters are:<br /><br />
+        @orderedUsers.ElementAt(0).Name with @orderedUsers.ElementAt(0).ItemsCount requests.<br />
+        @orderedUsers.ElementAt(1).Name with @orderedUsers.ElementAt(1).ItemsCount requests.<br />
+        @orderedUsers.ElementAt(2).Name with @orderedUsers.ElementAt(2).ItemsCount requests.<br />
+        @orderedUsers.ElementAt(3).Name with @orderedUsers.ElementAt(3).ItemsCount requests.<br />
+        @orderedUsers.ElementAt(4).Name with @orderedUsers.ElementAt(4).ItemsCount requests.<br />
+
 
     </div>
     <!-- /.content-wrapper -->
@@ -118,7 +144,7 @@
         colors: ['#DB536A', '#DC6900', '#E0301E']
     });
 
-    Highcharts.chart('content-wrapper', {
+    Highcharts.chart('highcharts', {
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
