@@ -32,7 +32,7 @@ namespace ResourcingTool.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Projects");
             }
             else
             {
@@ -76,7 +76,7 @@ namespace ResourcingTool.Controllers
 
 
                         //User is authenticated and redirected
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Projects");
 
                     }
                     else

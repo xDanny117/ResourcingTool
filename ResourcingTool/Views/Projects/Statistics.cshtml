@@ -8,6 +8,7 @@
     int fsTotal = 0;
     int cbsTotal = 0;
     List<string> users = new List<string>();
+    List<string> techStats = new List<string>();
 }
 
 @foreach (var item in Model)
@@ -26,6 +27,8 @@
     }
 
     users.Add(item.fk_UserName_Requester);
+    techStats.Add(item.TechRequired.ToString());
+
 }
 
 @{ 
@@ -38,6 +41,17 @@
 
 @{ 
     var orderedUsers = distinctUsers.OrderByDescending(y => y.ItemsCount);
+}
+
+@{ 
+    var techStatsDisplay = techStats.GroupBy(x => x)
+              .Select(g => new
+              {
+                  Name = g.Key,
+                  ItemsCount = g.Count()
+              });
+
+    var orderedTechStats = techStatsDisplay.OrderByDescending(z => z.ItemsCount);
 }
 
 <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
@@ -121,11 +135,14 @@
         </div>
 
         The top 5 resource requesters are:<br /><br />
-        @orderedUsers.ElementAt(0).Name with @orderedUsers.ElementAt(0).ItemsCount requests.<br />
-        @orderedUsers.ElementAt(1).Name with @orderedUsers.ElementAt(1).ItemsCount requests.<br />
-        @orderedUsers.ElementAt(2).Name with @orderedUsers.ElementAt(2).ItemsCount requests.<br />
-        @orderedUsers.ElementAt(3).Name with @orderedUsers.ElementAt(3).ItemsCount requests.<br />
-        @orderedUsers.ElementAt(4).Name with @orderedUsers.ElementAt(4).ItemsCount requests.<br />
+        <i><b>@orderedUsers.ElementAt(0).Name</b> with @orderedUsers.ElementAt(0).ItemsCount requests.<br />
+        <b>@orderedUsers.ElementAt(1).Name</b> with @orderedUsers.ElementAt(1).ItemsCount requests.<br />
+        <b>@orderedUsers.ElementAt(2).Name</b> with @orderedUsers.ElementAt(2).ItemsCount requests.<br />
+        <b>@orderedUsers.ElementAt(3).Name</b> with @orderedUsers.ElementAt(3).ItemsCount requests.<br />
+        <b>@orderedUsers.ElementAt(4).Name</b> with @orderedUsers.ElementAt(4).ItemsCount requests.<br /></i>
+
+        <br /><br />
+        <i><b>@orderedTechStats.ElementAt(0).ItemsCount</b> jobs required tech whereas <b>@orderedTechStats.ElementAt(1).ItemsCount</b> jobs didn't.</i>
 
 
     </div>
