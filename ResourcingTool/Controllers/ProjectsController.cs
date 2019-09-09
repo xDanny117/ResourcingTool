@@ -137,6 +137,14 @@ namespace ResourcingTool.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult DeleteFromDB(int projectId)
+        {
+            Project project = db.Projects.Find(projectId);
+            db.Projects.Remove(project);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
