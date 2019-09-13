@@ -155,6 +155,7 @@ namespace ResourcingTool.Controllers
         }
 
         [Authorize(Roles = "Admin, Resourcer")]
+        [ValidateInput(false)]
         public ActionResult SubmitStatus(string LastEditBy, string ActionDetails, int projectID, string projectStatus)
         {
             using (db)
