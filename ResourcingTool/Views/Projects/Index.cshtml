@@ -1083,6 +1083,9 @@
             @:$("#qActionDetails").val(document.getElementById("actionDetails" + @item.ProjectId).value);
 
             @:$("#qLastEditBy").val('@User.Identity.Name');
+            @:var text = document.getElementById("qLastEditBy").value;
+            @:var newText = text.replace("&#39;", "'");
+            @:document.getElementById("qLastEditBy").value = newText;
 
             @:$("#qStatus").val($(".select" + @item.ProjectId).val());
 
